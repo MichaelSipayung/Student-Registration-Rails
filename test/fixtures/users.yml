@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  email: MyString
+  email: user_one_<%= Time.now.to_f %>@example.com
 
 two:
   name: MyString
-  email: MyString
+  email: user_two_<%= Time.now.to_f %>@example.com
