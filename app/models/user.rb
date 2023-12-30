@@ -17,4 +17,12 @@ class User < ApplicationRecord
   #adding rule for password
   validates(:password, presence: true)
   validates(:password, length: {minimum: 6})
+  #return the hash digest of the given string
+  def User.digest(string)
+    #cost : the cost of hashing
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+             BCrypt::Engine.cost
+    #return the hash digest
+    BCrypt::Password.create(string, cost: cost)
+  end
 end

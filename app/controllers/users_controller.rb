@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) #create new user
     if @user.save #if the user is saved
+      log_in @user #log in user, save the session after the user is saved (session)
       flash[:success] = "Welcome to the Sample App!" #flash message
       redirect_to @user #redirect to the user page
     else #if the user is not saved

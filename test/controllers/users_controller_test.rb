@@ -6,6 +6,5 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   #test for redirect to home page after create new user
-
   #test for render new page after create new user with invalid input
 end

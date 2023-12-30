@@ -23,5 +23,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'users/show'
+    #test if it already logged in
+    assert is_logged_in?
   end
 end
