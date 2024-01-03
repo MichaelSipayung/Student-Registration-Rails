@@ -1,0 +1,17 @@
+{
+  "name": "sample_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichaelSipayung/rails-sample-app.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@rails/ujs": "^7.1.2"
+  }
+}

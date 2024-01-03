@@ -69,3 +69,6 @@ group :test do
   gem "minitest-reporters"
   gem 'rails-controller-testing'
 end
+
+#add jquery-rails gem
+#gem "jquery-rails"

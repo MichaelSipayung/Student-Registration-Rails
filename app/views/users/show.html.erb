@@ -1,4 +1,7 @@
 <h1 class="text-center">
   <%= gravatar_for @user %>
   <%= @user.name %>
+  <!-- delete user -->
+  <%=link_to "Delete", delete_user_path, data: {turbo_method: :delete,
+                                           turbo_confirm: 'Are you sure to delete?'} %>
 </h1>

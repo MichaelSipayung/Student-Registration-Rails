@@ -25,6 +25,22 @@ class UsersController < ApplicationController
       puts @user.errors.full_messages #print the error message
     end
   end
+  #delete : action to delete the user
+  def destroy
+    @user = User.find_by(id: params[:id]) # find the user
+
+    if @user
+      if @user.destroy # delete the user
+        redirect_to home_path
+      else
+        flash[:error] = "User could not be deleted."
+        redirect_to home_path
+      end
+    else
+      flash[:error] = "User not found."
+      redirect_to home_path
+    end
+  end
   private
   #user_params : permit the user to input name, email, password, and password_confirmation
   def user_params
