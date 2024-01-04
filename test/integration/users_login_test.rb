@@ -41,6 +41,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
     assert_not is_logged_in? #check the user is logged out
     assert_redirected_to root_url #check the redirect to the root page
+    #test logout again in other tab or window
+    delete logout_path
     follow_redirect! #visit the target page
     #check the login link is appear
     assert_select "a[href=?]", login_path

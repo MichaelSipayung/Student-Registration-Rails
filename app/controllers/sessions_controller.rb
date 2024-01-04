@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy #for case : we open two tab in browser, in one window we already logout
+    #but in other window not yet, so we must allow logout only if login
     log_out if logged_in?#log the user out (session)
     redirect_to root_url #redirect to the root page
   end

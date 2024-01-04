@@ -41,6 +41,8 @@ class User < ApplicationRecord
   #authenticated? : return true if the given token matches the digest
   def authenticated?(remember_token)
     #compare remember_digest with remember_token
+    return false if remember_digest.nil? #make it not authenticated if in
+    #one browser already logout but in the other browser still login
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
   #forget : forget a user, since there is no way to delete the cookies
