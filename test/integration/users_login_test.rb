@@ -49,4 +49,20 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path, count: 0 #check the logout link is not appear
     assert_select "a[href=?]", user_path(@user), count: 0 #check the user link is not appear
   end
+  #Log in as a particular user
+  def log_in_as(user, password: 'password', remember_me: '1')
+    post login_path, params: {session: {email: user.email, password: password,
+                                        remember_me: remember_me}}
+  end
+  #test login with remembering
+  test "login with remembering" do
+    log_in_as(@user, remember_me: '1')
+    assert_not_nil cookies['remember_token'] #make sure it's return not nil
+  end
+  #test login without remembering
+  test "login without remembering" do
+    #log in and verify the user is not remembered
+    log_in_as(@user, remember_me: '0')
+    assert_nil cookies['remember_token']
+  end
 end

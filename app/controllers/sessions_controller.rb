@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase) #find the user by email
     if user && user.authenticate(params[:session][:password])
       log_in user #log the user in (session)
-      remember(user)
+      #remember user only if the user clicked remember
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      #remember(user)
       redirect_to user #automatically convert to the route user_url(user)
     else
       #create an error message
