@@ -1,33 +1,3 @@
 <% provide(:title, "Signup") %>
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <div class="card shadow-lg">
-        <div class="card-body">
-          <h1 class="card-title text-center">Sign up</h1>
-          <%= form_with(model: @user, local: true, data: {turbo: false}) do |f| %>
-            <!-- Error messages -->
-            <%= render "shared/error_messages" %>
-            <div class="mb-3 input-group">
-              <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-              <%= f.text_field :name, class: "form-control", placeholder: "Name"%>
-            </div>
-            <div class="mb-3 input-group">
-              <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-              <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
-            </div>
-            <div class="mb-3 input-group">
-              <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-              <%= f.password_field :password, class: "form-control", placeholder: "Password"%>
-            </div>
-            <div class="mb-3 input-group">
-              <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password"%>
-            </div>
-            <%= f.submit "Create my account", class: "btn btn-primary w-100 mt-3" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<% provide(:button_text, 'Signup') %>
+<%= render 'shared/form' %>

@@ -41,6 +41,18 @@ class UsersController < ApplicationController
       redirect_to home_path
     end
   end
+  def edit #action for edit a user
+    @user = User.find(params[:id])
+  end
+  def update #update the user
+    @user = User.find params[:id]
+    if @user.update(user_params) #update based on passed params
+      flash.now[:success] = "Successful update the data"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
   private
   #user_params : permit the user to input name, email, password, and password_confirmation
   def user_params

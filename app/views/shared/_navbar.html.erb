@@ -35,6 +35,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", current_user, class: "dropdown-item" %>
+              <%= link_to "Setting", edit_user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Logout", logout_path, class: "dropdown-item",
                           data: { turbo_method: "delete", turbo_confirm: "Logout from Account?" } %>
             </ul>

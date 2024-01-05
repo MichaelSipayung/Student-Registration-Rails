@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/signup", to: 'users#new'
   #delete user by its id
   delete "users/:id", to: "users#destroy", as: :delete_user
+  get "users/:id", to: "users#show", as: :show_user
   root "static_pages#home"
   get '/home', to: 'static_pages#home'
   get '/help', to: 'static_pages#help'

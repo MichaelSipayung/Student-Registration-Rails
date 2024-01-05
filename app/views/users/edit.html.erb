@@ -1,0 +1,8 @@
+<!-- edit page for user, todo: using partial make more compact -->
+<% provide(:title, "Edit User") %>
+<% provide(:button_text, "Update my Profile") %>
+<%=render 'shared/form' %>
+<%=gravatar_for @user %>
+<div class="gravatar_edit">
+  <a href="https://gravatar.com/emails" target="_blank">Change</a>
+</div>
