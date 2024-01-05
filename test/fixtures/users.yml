@@ -3,6 +3,10 @@ michael:
   name: Michael Hartl
   email: michaelhar@gmail.com
   password_digest: <%=User.digest('password') %>
+archer: #for invalid access
+  name: Archer denim
+  email: archer123@gmail.com
+  password_digest: <%=User.digest('password') %>
 one:
   name: MyString
   email: user_one_<%= Time.now.to_f %>@example.com

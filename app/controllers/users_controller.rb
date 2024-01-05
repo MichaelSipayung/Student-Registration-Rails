@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  #prevent use update data or delete without login first
+  before_action :logged_in_user, only: [:edit, :update] #todo: delete action
+  before_action :correct_user, only: [:edit, :update] #todo: delete action
   #show all users
   def index
     @users = User.all
@@ -45,17 +48,32 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def update #update the user
-    @user = User.find params[:id]
+    @user = User.find(params[:id])
     if @user.update(user_params) #update based on passed params
-      flash.now[:success] = "Successful update the data"
+      flash[:success] = "Profile updated"
       redirect_to @user
     else
       render 'edit'
     end
   end
+
+  private
+  #only allow the user to edit their own data
+  def correct_user
+    @user  = User.find(params[:id])
+    redirect_to(root_url) unless current_user == @user
+  end
+
   private
   #user_params : permit the user to input name, email, password, and password_confirmation
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+  #Confirm a logged-in user
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in"
+      redirect_to login_url
+    end
   end
 end

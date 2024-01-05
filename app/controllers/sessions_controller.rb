@@ -2,7 +2,6 @@
 class SessionsController < ApplicationController
   def new
   end
-
   def create
     user = User.find_by(email: params[:session][:email].downcase) #find the user by email
     if user && user.authenticate(params[:session][:password])
@@ -17,7 +16,6 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
-
   def destroy #for case : we open two tab in browser, in one window we already logout
     #but in other window not yet, so we must allow logout only if login
     log_out if logged_in?#log the user out (session)

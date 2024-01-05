@@ -1,6 +1,9 @@
 require "test_helper"
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
+  def setup
+    @user  = users(:michael)
+  end
   test "should get new" do #test for get login page
     get login_path
     assert_response :success
