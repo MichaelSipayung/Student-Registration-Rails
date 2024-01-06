@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #prevent use update data or delete without login first
-  before_action :logged_in_user, only: [:edit, :update] #todo: delete action
+  before_action :logged_in_user, only: [:index, :edit, :update] #todo: delete action
   before_action :correct_user, only: [:edit, :update] #todo: delete action
   #show all users
   def index
@@ -72,6 +72,7 @@ class UsersController < ApplicationController
   #Confirm a logged-in user
   def logged_in_user
     unless logged_in?
+      store_location #store the location of the page that the user want to access
       flash[:danger] = "Please log in"
       redirect_to login_url
     end

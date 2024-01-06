@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
   #show all registered users
-  get '/users', to: 'users#index'
+  #get '/users', to: 'users#index'
   #add REST resources for users
   resources :users
   #handling sessions

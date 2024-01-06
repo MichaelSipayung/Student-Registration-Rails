@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       #remember user only if the user clicked remember
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       #remember(user)
-      redirect_to user #automatically convert to the route user_url(user)
+      redirect_back_or user #automatically convert to the route user_url(user)
     else
       #create an error message
       flash.now[:danger] = "Invalid email/password combination"
