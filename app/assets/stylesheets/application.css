@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+.pagination .previous_page,
+.pagination .next_page {
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.pagination .previous_page.disabled,
+.pagination .next_page.disabled {
+    color: #6c757d;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.pagination .active a {
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+}

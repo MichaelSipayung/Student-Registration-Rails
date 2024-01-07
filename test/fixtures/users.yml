@@ -14,3 +14,10 @@ one:
 two:
   name: MyString
   email: user_two_<%= Time.now.to_f %>@example.com
+#adding more user for test show all user and pagination
+<% 30.times do |n| %>
+user_<%=n %>:
+  name: <%= "User #{n}" %>
+  email: <%="user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>

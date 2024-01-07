@@ -19,8 +19,10 @@
         <td><%= user.email %></td>
         <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= link_to 'Show', user_path(user), class: 'btn btn-primary btn-sm' %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-primary btn-sm' %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <%= will_paginate %>
 </div>

@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update] #todo: delete action
   #show all users
   def index
-    @users = User.all
+    #@users = User.all
+    @users = User.paginate(page: params[:page]) #using pagination style
   end
   #new : action to create a new user
   def new
