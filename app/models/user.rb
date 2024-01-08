@@ -1,8 +1,11 @@
 class User < ApplicationRecord
   #create accessible attribute for remember_token
-  attr_accessor :remember_token #for storage in cookies
+  attr_accessor :remember_token, :activation_token #for storage in cookies and token-activation
   #transform the email to lowercase
   before_save {self.email = email.downcase}
+  # assign an activation token and digest to each user
+  # before user created, using before_create callback
+  before_create :create_activation_digest
   #validates the user input
   validates(:name, presence: true)
   validates(:name, length: {maximum: 50})
@@ -48,5 +51,11 @@ class User < ApplicationRecord
   #forget : forget a user, since there is no way to delete the cookies
   def forget
     update_attribute(:remember_digest, nil)
+  end
+  private
+  def create_activation_digest #assign activation token
+    #create the token and digest
+    self.activation_token = User.new_token #request new token
+    self.activation_digest  = User.digest(activation_token) #hashed the token
   end
 end

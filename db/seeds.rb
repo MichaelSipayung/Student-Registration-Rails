@@ -14,10 +14,12 @@
   email = "exampleother-#{n+1}@rails.org"
   password = "password"
   User.create!(name: name, email: email, password: password,
-               password_confirmation: password)
+               password_confirmation: password, activated: true, activated_at: Time.zone.now)
 end
 User.create!(name: 'admin',
              email: 'admin@gmail.com',
              password: 'foobar',
              password_confirmation: 'foobar',
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
