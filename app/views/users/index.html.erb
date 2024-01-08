@@ -12,16 +12,7 @@
     </tr>
     </thead>
     <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <th scope="row"><%= user.id %></th>
-        <td><%= link_to user.name, user %></td>
-        <td><%= user.email %></td>
-        <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
-        <td><%= link_to 'Show', user_path(user), class: 'btn btn-primary btn-sm' %></td>
-        <td><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-primary btn-sm' %></td>
-      </tr>
-    <% end %>
+      <%= render @users %> <!-- render partial: 'user' -->
     </tbody>
   </table>
   <%= will_paginate %>

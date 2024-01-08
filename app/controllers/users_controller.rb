@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   #prevent use update data or delete without login first
-  before_action :logged_in_user, only: [:index, :edit, :update] #todo: delete action
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy] #todo: delete action
   before_action :correct_user, only: [:edit, :update] #todo: delete action
+  before_action :admin_user, only: :destroy
   #show all users
   def index
     #@users = User.all
@@ -31,19 +32,9 @@ class UsersController < ApplicationController
   end
   #delete : action to delete the user
   def destroy
-    @user = User.find_by(id: params[:id]) # find the user
-
-    if @user
-      if @user.destroy # delete the user
-        redirect_to home_path
-      else
-        flash[:error] = "User could not be deleted."
-        redirect_to home_path
-      end
-    else
-      flash[:error] = "User not found."
-      redirect_to home_path
-    end
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url #redirect to index-all users
   end
   def edit #action for edit a user
     @user = User.find(params[:id])
@@ -77,5 +68,9 @@ class UsersController < ApplicationController
       flash[:danger] = "Please log in"
       redirect_to login_url
     end
+  end
+  #confirm an admin user
+  def admin_user #protect from attacker
+    redirect_to(root_url) unless current_user.admin? #look attribute admin? true:false
   end
 end

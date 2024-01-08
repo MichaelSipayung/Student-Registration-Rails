@@ -16,3 +16,8 @@
   User.create!(name: name, email: email, password: password,
                password_confirmation: password)
 end
+User.create!(name: 'admin',
+             email: 'admin@gmail.com',
+             password: 'foobar',
+             password_confirmation: 'foobar',
+             admin: true)

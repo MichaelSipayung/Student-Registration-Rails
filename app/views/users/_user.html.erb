@@ -1,0 +1,15 @@
+<tr>
+  <th scope="row"><%= user.id %></th>
+  <td><%= link_to user.name, user %></td>
+  <td><%= user.email %></td>
+  <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
+  <td><%= link_to 'Show', user_path(user), class: 'btn btn-primary btn-sm' %></td>
+  <td><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-primary btn-sm' %></td>
+  <% if current_user.admin? && (!user.admin?) %> <!--make sure admin not show delete it's own -->
+    <td><%= link_to "Delete", user, data: {turbo_method: :delete,
+                                           turbo_confirm: 'Are you sure to delete?'},
+    class: 'btn btn-primary btn-sm'
+    %>
+    </td>
+  <%end %>
+</tr>
