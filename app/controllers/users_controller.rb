@@ -26,12 +26,13 @@ class UsersController < ApplicationController
       #flash[:success] = "Welcome to the Sample App!" #flash message
       #redirect_to @user #redirect to the user page
       #change the behavior, send email first
-      UserMailer.account_activation(@user).deliver_now
+      # UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:info] = 'Please check your email to activate your account'
       redirect_to root_url
     else #if the user is not saved
       render 'new' #render the new page
-      puts @user.errors.full_messages #print the error message
+      # puts @user.errors.full_messages #print the error message
     end
   end
   #delete : action to delete the user
