@@ -142,6 +142,7 @@ GEM
       ruby-progressbar
     msgpack (1.7.2)
     mutex_m (0.2.0)
+    mysql2 (0.5.5)
     net-imap (0.4.9.1)
       date
       net-protocol
@@ -156,8 +157,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
-    pg (1.5.4)
-    pg (1.5.4-x64-mingw-ucrt)
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
@@ -279,7 +278,7 @@ DEPENDENCIES
   jbuilder
   minitest
   minitest-reporters
-  pg
+  mysql2
   puma (>= 5.0)
   rails (~> 7.1.2)
   rails-controller-testing

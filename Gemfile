@@ -76,9 +76,12 @@ group :test do
   gem "minitest-reporters"
   gem 'rails-controller-testing'
 end
-
+#
+# group :production do
+#   gem 'pg'
+# end
 group :production do
-  gem 'pg'
+  gem 'mysql2'
 end
 #add jquery-rails gem
 #gem "jquery-rails"
