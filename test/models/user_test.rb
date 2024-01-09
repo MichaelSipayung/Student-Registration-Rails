@@ -57,7 +57,7 @@ class UserTest < ActiveSupport::TestCase
   end
   #dealing with two different browser while in one browser already logout
   #but in the other browser not already logout, bugs
-  test "authenticated? should return false for a user wit nil digest" do
-    assert_not @user.authenticated?('')
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?(:remember,'') #new version of auth?
   end
 end

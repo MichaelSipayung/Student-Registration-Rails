@@ -42,11 +42,13 @@ class User < ApplicationRecord
     update_attribute :remember_digest, User.digest(remember_token)
   end
   #authenticated? : return true if the given token matches the digest
-  def authenticated?(remember_token)
+  def authenticated?(attribute,token) #generalize version of authenticated
+    #using send: metaprogramming, we need for activation phases
+    digest  = send("#{attribute}_digest") #using str interpolation
     #compare remember_digest with remember_token
-    return false if remember_digest.nil? #make it not authenticated if in
+    return false if digest.nil? #make it not authenticated if in
     #one browser already logout but in the other browser still login
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    BCrypt::Password.new(digest).is_password?(token)
   end
   #forget : forget a user, since there is no way to delete the cookies
   def forget

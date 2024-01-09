@@ -9,7 +9,7 @@ module SessionsHelper
       @current_user ||= User.find_by(id: user_id)
     elsif (user_id=cookies.encrypted[:user_id]) #otherwise look for cookies, decrypt first
       user= User.find_by(id: user_id) #find it
-      if user && user.authenticated?(cookies[:remember_token])
+      if user && user.authenticated?(:remember, cookies[:remember_token])
         log_in user
         @current_user = user #get current user by the current cookies
       end
