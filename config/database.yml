@@ -31,12 +31,6 @@ test:
 #  <<: *default
 #  database: storage/production.sqlite3
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#  url: <%#= ENV['DATABASE_URL'] %>
-  database: <%= ENV['PRODUCTION_DATABASE'] %>
-  username: <%= ENV['PRODUCTION_USERNAME'] %>
-  password: <%= ENV['PRODUCTION_PASSWORD'] %>
-  host: <%= ENV['PRODUCTION_HOST'] %>
-  port: <%= ENV['PRODUCTION_PORT'] %>
