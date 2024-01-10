@@ -77,6 +77,8 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
+  host  = 'https://radiant-ridge-52163-0408a552c9ca.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: host }
   config.action_mailer.smtp_settings = {
     :address => 'smtp-relay.sendinblue.com',
     :port => 587,
