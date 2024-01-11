@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   #prevent use update data or delete without login first
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy] #todo: delete action
-  before_action :correct_user, only: [:edit, :update] #todo: delete action
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   #show all users
   def index
