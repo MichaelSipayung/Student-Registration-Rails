@@ -69,7 +69,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     get new_password_reset_path
     post password_resets_path, params: {password_reset: {email: @user.email}}
     user = assigns(:user)
-    get edit_user_path(user.reset_token, email: user.email)
+    get edit_password_reset_path(user.reset_token, email: user.email)
     #too short
     patch password_reset_path(user.reset_token), params: {email: user.email, user: {
       password: 'dummy', password_confirmation: 'dummy'
@@ -81,5 +81,15 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
       password: 'dummy1', password_combination:  'dummy1'
     }}
     assert_redirected_to user
+  end
+  test "password reset expired token" do
+    get new_password_reset_path
+    post password_resets_path, params: {password_reset: {email: @user.email}}
+    @user = assigns(:user)
+    @user.update_attribute(:reset_sent_at, 3.hours.ago)
+    patch password_reset_path(@user.reset_token), params: {email: @user.email, user: {
+      password: 'foobars', password_confirmation: 'foobars'
+    }}
+    assert_response :redirect
   end
 end
