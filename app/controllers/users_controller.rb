@@ -15,8 +15,7 @@ class UsersController < ApplicationController
   #show : action to show the user
   def show
     @user = User.find(params[:id])
-    #add debugger
-    #debugger
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
   #create : action to create a new user
   def create
@@ -66,14 +65,15 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+  #refactor since we need this filter, move to application controller
   #Confirm a logged-in user
-  def logged_in_user
-    unless logged_in?
-      store_location #store the location of the page that the user want to access
-      flash[:danger] = "Please log in"
-      redirect_to login_url
-    end
-  end
+  # def logged_in_user
+  #   unless logged_in?
+  #     store_location #store the location of the page that the user want to access
+  #     flash[:danger] = "Please log in"
+  #     redirect_to login_url
+  #   end
+  # end
   #confirm an admin user
   def admin_user #protect from attacker
     redirect_to(root_url) unless current_user.admin? #look attribute admin? true:false

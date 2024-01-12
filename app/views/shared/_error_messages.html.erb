@@ -1,4 +1,4 @@
-<% if @user.errors.any? %>
+<% if object.errors.any? %> <!--change @user to object make it work to all model-->
   <!-- Modal -->
   <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -9,10 +9,10 @@
         </div>
         <div class="modal-body">
           <div class="alert alert-danger">
-            The form contains <%= pluralize(@user.errors.count, "error") %>.
+            The form contains <%= pluralize(object.errors.count, "error") %>.
           </div>
           <ul>
-            <% @user.errors.full_messages.each do |msg| %>
+            <% object.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>

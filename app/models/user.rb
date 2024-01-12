@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  #make sure when administrator delete user, it's also delete micropost
+  has_many :microposts, dependent: :destroy #making relation user and microposts
+  #example: @user.microposts.build(content: "lorem ipsum")
   #create accessible attribute for remember_token
   attr_accessor :remember_token, :activation_token, :reset_token #for storage in cookies and token-activation
   #transform the email to lowercase
@@ -76,6 +79,10 @@ class User < ApplicationRecord
   #define rule for expired link
   def password_reset_expired?
     reset_sent_at < 2.hours.ago  #make sure link is not exceed 2 hours to validated
+  end
+  def feed #define a proto-feed,
+    Micropost.where("user_id = ?", id)
+    #question mark: ensure the id is properly escaped before included in sql query
   end
   private
   def create_activation_digest #assign activation token

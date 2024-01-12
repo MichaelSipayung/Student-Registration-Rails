@@ -2,3 +2,12 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+<div class="col-md-8">
+  <% if @user.microposts.any? %>
+  <h3> Micropost (<%= @user.microposts.count %>)</h3>
+    <ol class="micropost">
+      <%= render @microposts %>
+    </ol>
+    <%= will_paginate @microposts %>
+    <%end %>
+</div>

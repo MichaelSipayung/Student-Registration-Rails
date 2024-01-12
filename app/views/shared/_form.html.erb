@@ -6,7 +6,7 @@
           <h1 class="card-title text-center"><%=yield(:button_text) %></h1>
           <%= form_with(model: @user, local: true, data: {turbo: false}) do |f| %>
             <!-- Error messages -->
-            <%= render "shared/error_messages", object: @user %>
+            <%= render "shared/error_messages", object: f.object %>
             <div class="mb-3 input-group">
               <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
               <%= f.text_field :name, class: "form-control", placeholder: "Name"%>

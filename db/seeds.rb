@@ -23,3 +23,10 @@ User.create!(name: 'admin',
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+#generate micropost for a subset of users
+users  = User.order(:created_at).take(6) #limit only for 6 users
+50.times do
+  content  = Faker::Lorem.sentence(word_count: 5)
+  #each user will contain 50 posts
+  users.each {|user| user.microposts.create!(content: content)}
+end
