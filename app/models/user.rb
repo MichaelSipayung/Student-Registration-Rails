@@ -81,7 +81,8 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago  #make sure link is not exceed 2 hours to validated
   end
   def feed #define a proto-feed,
-    Micropost.where("user_id = ?", id)
+    Micropost.where("user_id = ?", id) #show post for current
+    # logged in user, identify by it's id
     #question mark: ensure the id is properly escaped before included in sql query
   end
   private

@@ -82,7 +82,8 @@ end
 # end
 group :production do
   gem 'mysql2'
+  gem 'aws-sdk-s3', '~> 1.142', require: false
   # gem 'activerecord-mysql2-adapter'
 end
-#add jquery-rails gem
-#gem "jquery-rails"
+#upload: validation, file format, and etc...
+gem 'active_storage_validations', '~> 0.9.2'

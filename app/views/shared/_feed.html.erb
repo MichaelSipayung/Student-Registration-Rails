@@ -2,5 +2,8 @@
 <ol class="micropost">
   <%= render @feed_items %>
 </ol>
-  <%= will_paginate @feed_items %>
+<!--  the link for pagination will not work, since it will-->
+<!--  go to micropost controller, but we want it render in static pages with action to -->
+<!--  call that behavior is home-->
+  <%= will_paginate @feed_items, params: {controller: :static_pages, action: :home} %>
 <%end %>
