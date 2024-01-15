@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   #make sure when administrator delete user, it's also delete micropost
   has_many :microposts, dependent: :destroy #making relation user and microposts
+  has_many :active_relationships, class_name: 'Relationship',
+    foreign_key: 'follower_id', dependent: :destroy
+  #add destroy: since destroying a user should also destroy that user relationship, add dependent
   #example: @user.microposts.build(content: "lorem ipsum")
   #create accessible attribute for remember_token
   attr_accessor :remember_token, :activation_token, :reset_token #for storage in cookies and token-activation
