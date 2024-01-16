@@ -30,3 +30,10 @@ users  = User.order(:created_at).take(6) #limit only for 6 users
   #each user will contain 50 posts
   users.each {|user| user.microposts.create!(content: content)}
 end
+#generate following relationship
+users  = User.all
+user = users.first
+following = users[2..50] #follow users 2 to 50
+followers = users[3..49] #followers users 3 to 49
+following.each { |followed| user.follow(followed)} #follow each user
+followers.each {|follower| follower.follow(user)} #each user follow user

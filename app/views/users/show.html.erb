@@ -1,8 +1,20 @@
-<h1 class="text-center">
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1 class="text-center">
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+</div>
+
 <div class="col-md-8">
+  <%= render 'follow_form' if logged_in? %>
   <% if @user.microposts.any? %>
   <h3> Micropost (<%= @user.microposts.count %>)</h3>
     <ol class="micropost">

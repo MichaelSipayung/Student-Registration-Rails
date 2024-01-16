@@ -5,6 +5,11 @@ class User < ApplicationRecord
     foreign_key: 'follower_id', dependent: :destroy
   #using source to tell rails to look for followed_id in active_relationships table
   has_many :following, through: :active_relationships, source: :followed
+  #follower: user.follower to go  with user.following
+  has_many :passive_relationships, class_name: 'Relationship',
+           foreign_key: 'followed_id', dependent: :destroy
+  #using source to tell rails to look for follower_id in passive_relationships table
+  has_many :followers, through: :passive_relationships, source: :follower
   #add destroy: since destroying a user should also destroy that user relationship, add dependent
   #example: @user.microposts.build(content: "lorem ipsum")
   #create accessible attribute for remember_token
