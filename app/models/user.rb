@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :microposts, dependent: :destroy #making relation user and microposts
   has_many :active_relationships, class_name: 'Relationship',
     foreign_key: 'follower_id', dependent: :destroy
+  #using source to tell rails to look for followed_id in active_relationships table
+  has_many :following, through: :active_relationships, source: :followed
   #add destroy: since destroying a user should also destroy that user relationship, add dependent
   #example: @user.microposts.build(content: "lorem ipsum")
   #create accessible attribute for remember_token
@@ -85,8 +87,17 @@ class User < ApplicationRecord
   end
   def feed #define a proto-feed,
     Micropost.where("user_id = ?", id) #show post for current
-    # logged in user, identify by it's id
+    #logged in user, identify by it's id
     #question mark: ensure the id is properly escaped before included in sql query
+  end
+  def follow(other_user) #follow a user
+    following <<  other_user
+  end
+  def unfollow(other_user)
+    following.delete(other_user) #delete the records supplied from the collection
+  end
+  def following?(other_user) #true if the current user is following the other
+    following.include?(other_user) #include? -> true if given record is present in the collections
   end
   private
   def create_activation_digest #assign activation token
@@ -94,5 +105,4 @@ class User < ApplicationRecord
     self.activation_token = User.new_token #request new token
     self.activation_digest  = User.digest(activation_token) #hashed the token
   end
-
 end
