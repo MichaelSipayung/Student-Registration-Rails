@@ -19,6 +19,13 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create' #create the session
   #delete the session
   delete '/logout', to: 'sessions#destroy' #delete the session
+  resources :users do #add following and followers action
+    member do #member: get the user id
+      get :following, :followers #get the following and followers,
+      # url: /users/1/following and /users/1/followers,
+      # named following_user_path(1) and followers_user_path(1)
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -27,7 +34,8 @@ Rails.application.routes.draw do
   #root "application#hello"
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :account_activations, only: [:edit]
-  resources :password_resets, only: [:edit, :new, :update, :create]
-  resources :microposts, only: [:create, :destroy]
+  resources :account_activations,   only: [:edit]
+  resources :password_resets,       only: [:edit, :new, :update, :create]
+  resources :microposts,            only: [:create, :destroy]
+  resources :relationships,         only: [:create, :destroy]
 end

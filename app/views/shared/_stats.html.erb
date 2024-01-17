@@ -1,0 +1,17 @@
+<!--since we will including stats  both user show pages and home page -->
+<!-- nothing happen if @user is nil -->
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="start">
+      <%= @user.following.count %>
+    </strong>
+    following
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="start">
+      <%= @user.followers.count %>
+    </strong>
+    followers
+  </a>
+</div>
