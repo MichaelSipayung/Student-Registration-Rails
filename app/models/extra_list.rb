@@ -1,0 +1,2 @@
+class ExtraList < ApplicationRecord
+end

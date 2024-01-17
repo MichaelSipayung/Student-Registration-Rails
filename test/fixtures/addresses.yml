@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  alamat: MyString
+  kelurahan: MyString
+  kecamatan: MyString
+  kode_pos: 1
+  provinsi: MyString
+  no_telepon: 1
+  kabupaten: MyString
+
+two:
+  alamat: MyString
+  kelurahan: MyString
+  kecamatan: MyString
+  kode_pos: 1
+  provinsi: MyString
+  no_telepon: 1
+  kabupaten: MyString

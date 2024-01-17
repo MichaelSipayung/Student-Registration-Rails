@@ -1,0 +1,2 @@
+class SourceInformationList < ApplicationRecord
+end

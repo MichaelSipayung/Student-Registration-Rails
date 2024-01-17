@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  biaya: 1
+  virtual_account: 1
+  voucher: MyString
+  total_bayar: 1
+  status_pembayaran: false
+
+two:
+  biaya: 1
+  virtual_account: 1
+  voucher: MyString
+  total_bayar: 1
+  status_pembayaran: false

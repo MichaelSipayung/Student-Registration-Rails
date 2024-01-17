@@ -1,0 +1,2 @@
+class SourceMotivationList < ApplicationRecord
+end

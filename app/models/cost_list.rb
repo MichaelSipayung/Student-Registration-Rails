@@ -1,0 +1,2 @@
+class CostList < ApplicationRecord
+end
