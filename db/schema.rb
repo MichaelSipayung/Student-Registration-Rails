@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_17_003654) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_17_024847) do
   create_table "achievements", force: :cascade do |t|
     t.string "nama_prestasi"
     t.date "tahun"
@@ -48,6 +48,28 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_003654) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "address_kabupaten_lists", force: :cascade do |t|
+    t.string "kabupaten"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "address_province_list_id", null: false
+    t.index ["address_province_list_id"], name: "index_address_kabupaten_lists_on_address_province_list_id"
+  end
+
+  create_table "address_kecamatan_lists", force: :cascade do |t|
+    t.string "kecamatan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "address_kabupaten_list_id", null: false
+    t.index ["address_kabupaten_list_id"], name: "index_address_kecamatan_lists_on_address_kabupaten_list_id"
+  end
+
+  create_table "address_province_lists", force: :cascade do |t|
+    t.string "provinsi"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "addresses", force: :cascade do |t|
@@ -152,6 +174,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_003654) do
     t.index ["user_id"], name: "index_organizations_on_user_id"
   end
 
+  create_table "parent_education_lists", force: :cascade do |t|
+    t.string "pendidikan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parent_job_lists", force: :cascade do |t|
+    t.string "pekerjaan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "parents", force: :cascade do |t|
     t.string "nama_ayah"
     t.string "nama_ibu"
@@ -167,6 +201,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_003654) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_parents_on_user_id"
+  end
+
+  create_table "personal_gender_lists", force: :cascade do |t|
+    t.string "jenis_kelamin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "personal_religion_lists", force: :cascade do |t|
+    t.string "agama"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "personals", force: :cascade do |t|
@@ -236,6 +282,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_003654) do
   add_foreign_key "achievements", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "address_kabupaten_lists", "address_province_lists"
+  add_foreign_key "address_kecamatan_lists", "address_kabupaten_lists"
   add_foreign_key "addresses", "users"
   add_foreign_key "costs", "users"
   add_foreign_key "extras", "users"

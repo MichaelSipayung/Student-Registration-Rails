@@ -1,0 +1,2 @@
+class AddressKabupatenList < ApplicationRecord
+end

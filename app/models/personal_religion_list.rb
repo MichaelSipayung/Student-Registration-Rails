@@ -1,0 +1,2 @@
+class PersonalReligionList < ApplicationRecord
+end

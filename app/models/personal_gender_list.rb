@@ -1,0 +1,2 @@
+class PersonalGenderList < ApplicationRecord
+end

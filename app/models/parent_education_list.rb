@@ -1,0 +1,2 @@
+class ParentEducationList < ApplicationRecord
+end
