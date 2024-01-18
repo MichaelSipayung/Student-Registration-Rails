@@ -20,6 +20,7 @@ class User < ApplicationRecord
   # before user created, using before_create callback
   before_create :create_activation_digest
   has_one :personal
+  has_one :parent
   #validates the user input
   validates(:name, presence: true)
   validates(:name, length: {maximum: 50})

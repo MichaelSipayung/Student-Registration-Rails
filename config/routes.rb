@@ -44,4 +44,5 @@ Rails.application.routes.draw do
   resources :microposts,            only: [:create, :destroy]
   resources :relationships,         only: [:create, :destroy]
   resources :personals,             only: [:new, :create, :edit, :update, :show]
+  resources :parents,               only: [:new, :create, :edit, :update, :show]
 end
