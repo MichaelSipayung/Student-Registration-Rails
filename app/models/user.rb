@@ -19,6 +19,7 @@ class User < ApplicationRecord
   # assign an activation token and digest to each user
   # before user created, using before_create callback
   before_create :create_activation_digest
+  has_one :personal
   #validates the user input
   validates(:name, presence: true)
   validates(:name, length: {maximum: 50})

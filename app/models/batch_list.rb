@@ -1,0 +1,2 @@
+class BatchList < ApplicationRecord
+end

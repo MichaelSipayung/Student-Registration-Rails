@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_17_024847) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_17_033421) do
   create_table "achievements", force: :cascade do |t|
     t.string "nama_prestasi"
     t.date "tahun"
@@ -86,6 +86,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_024847) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "batch_lists", force: :cascade do |t|
+    t.string "gelombang"
+    t.boolean "aktif"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cost_lists", force: :cascade do |t|
     t.integer "biaya"
     t.datetime "created_at", null: false
@@ -146,6 +153,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_024847) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_languages_on_user_id"
+  end
+
+  create_table "majors", force: :cascade do |t|
+    t.string "jurusan_1"
+    t.string "jurusan_2"
+    t.string "jurusan_3"
+    t.string "gelombang"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_majors_on_user_id"
   end
 
   create_table "microposts", force: :cascade do |t|
@@ -288,6 +306,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_024847) do
   add_foreign_key "costs", "users"
   add_foreign_key "extras", "users"
   add_foreign_key "languages", "users"
+  add_foreign_key "majors", "users"
   add_foreign_key "microposts", "users"
   add_foreign_key "organizations", "users"
   add_foreign_key "parents", "users"

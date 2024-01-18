@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # get 'personals/new'
+  # get 'personals/update'
+  # get 'personals/edit'
+  # get 'personals/show'
+  # get 'personals/create'
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
@@ -38,4 +43,5 @@ Rails.application.routes.draw do
   resources :password_resets,       only: [:edit, :new, :update, :create]
   resources :microposts,            only: [:create, :destroy]
   resources :relationships,         only: [:create, :destroy]
+  resources :personals,             only: [:new, :create, :edit, :update, :show]
 end

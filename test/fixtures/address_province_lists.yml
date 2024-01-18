@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  provinsi: MyString
+#one:
+#  provinsi: MyString
 
-two:
-  provinsi: MyString
+#two:
+#  provinsi: MyString
