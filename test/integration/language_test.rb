@@ -6,14 +6,14 @@ class LanguageTest < ActionDispatch::IntegrationTest
     post login_path, params: {session: {email: users(:archer).email, password: 'password'}}
   end
   test "should create new language" do
-    get new_languages_path
+    get new_language_path
     assert_difference 'Language.count' do
       post languages_path, params: {language: {
         nama_bahasa: 'indonesia', tingkat: 'mahir'
       }}
     end
     #insert multiple language
-    get new_languages_path
+    get new_language_path
     assert_difference 'Language.count' do
       post languages_path, params: {language: {
         nama_bahasa: 'mandarin', tingkat: 'pemula'
@@ -21,7 +21,7 @@ class LanguageTest < ActionDispatch::IntegrationTest
     end
   end
   test "should reject to create language" do
-    get new_languages_path
+    get new_language_path
     assert_no_difference 'Language.count' do
       post languages_path, params: {language: {
         nama_bahasa: 'ind', tingkat: 'pem'
@@ -29,7 +29,7 @@ class LanguageTest < ActionDispatch::IntegrationTest
     end
   end
   test "should not create language based on unpermited params" do
-    get new_languages_path
+    get new_language_path
     assert_difference  'Language.count' do
       post languages_path, params: {language: {
         nama_bahasa: 'chinese', tingkat: 'profesional', user_id: 138974
@@ -41,17 +41,17 @@ class LanguageTest < ActionDispatch::IntegrationTest
   test "should update language" do
     get login_path
     post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
-    get edit_languages_path languages(:bahasa)
+    get edit_language_path languages(:bahasa)
     assert_template 'languages/edit'
-    patch languages_path(languages(:bahasa)), params: {language: {
+    patch language_path(languages(:bahasa)), params: {language: {
       nama_bahasa: 'spanyol', tingkat: 'advanced'
     }}
     assert_equal 'spanyol', languages(:bahasa).reload.nama_bahasa
     assert_equal 'advanced', languages(:bahasa).reload.tingkat
     #update multiple times
-    get edit_languages_path languages(:batak)
+    get edit_language_path languages(:batak)
     assert_template 'languages/edit'
-    patch languages_path(languages(:batak)), params: {language: {
+    patch language_path(languages(:batak)), params: {language: {
       nama_bahasa: 'batak mandailing', tingkat: 'mahir'
     }}
     assert_equal 'batak mandailing', languages(:batak).reload.nama_bahasa
@@ -60,9 +60,9 @@ class LanguageTest < ActionDispatch::IntegrationTest
   test "should reject to update language" do
     get login_path
     post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
-    get edit_languages_path languages(:bahasa)
+    get edit_language_path languages(:bahasa)
     assert_template 'languages/edit'
-    patch languages_path(languages(:bahasa)), params: {language: {
+    patch language_path(languages(:bahasa)), params: {language: {
       nama_bahasa: 'spa', tingkat: 'adv'
     }}
     assert_not_equal 'spa', languages(:bahasa).reload.nama_bahasa
@@ -71,9 +71,9 @@ class LanguageTest < ActionDispatch::IntegrationTest
   test "should not allow unpermited attribute to update" do
     get login_path
     post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
-    get edit_languages_path languages(:bahasa)
+    get edit_language_path languages(:bahasa)
     assert_template 'languages/edit'
-    patch languages_path(languages(:bahasa)), params: {language: {
+    patch language_path(languages(:bahasa)), params: {language: {
       nama_bahasa: 'spanyol', tingkat: 'advanced', user_id: 139685142
     }}
     assert_not_equal 139685142, languages(:bahasa).reload.user_id

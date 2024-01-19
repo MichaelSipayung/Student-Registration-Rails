@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  nama_organisasi: MyString
-#  mulai: 2024-01-16
-#  berakhir: 2024-01-16
-#  jabatan: MyString
+one:
+  user: michael
+  nama_organisasi: osis
+  mulai: 2024-01-16
+  berakhir: 2024-01-16
+  jabatan: wakil
 
-#two:
-#  nama_organisasi: MyString
-#  mulai: 2024-01-16
-#  berakhir: 2024-01-16
-#  jabatan: MyString
+two:
+  user: michael
+  nama_organisasi: pmk itb
+  mulai: 2024-01-16
+  berakhir: 2024-01-16
+  jabatan: ketua

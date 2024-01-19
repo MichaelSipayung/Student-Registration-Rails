@@ -1,5 +1,6 @@
 # handle sessions (login, logout, etc.) for the application
 class SessionsController < ApplicationController
+  skip_before_action :logged_in_user, only: [:new, :create] #skip the logged_in_user method for new and create action
   def new
   end
   def create
