@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :addresses
   has_many :languages
   has_many :achievements
+  has_many :extras
   #validates the user input
   validates(:name, presence: true)
   validates(:name, length: {maximum: 50})

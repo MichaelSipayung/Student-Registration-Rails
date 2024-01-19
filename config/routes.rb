@@ -48,4 +48,5 @@ Rails.application.routes.draw do
   resources :addresses,             only: [:new, :create, :edit, :update, :show]
   resource  :languages,             only: [:new, :create, :edit, :update, :show]
   resource  :achievements,          only: [:new, :create, :edit, :update, :show]
+  resources :extras,                only: [:new, :create, :edit, :update, :show]
 end

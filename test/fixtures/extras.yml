@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  nama_kegiatan: MyString
-#  mulai: 2024-01-16
-#  berakhir: 2024-01-16
-#  predikat: MyString
+first_extra:
+  user: michael
+  nama_kegiatan: lomba menari
+  mulai: 2024-01-16
+  berakhir: 2024-01-16
+  predikat: tidak lulus
 
-#two:
-#  nama_kegiatan: MyString
-#  mulai: 2024-01-16
-#  berakhir: 2024-01-16
-#  predikat: MyString
+second_extra:
+  user: michael
+  nama_kegiatan: lomba merias
+  mulai: 2024-01-16
+  berakhir: 2024-01-16
+  predikat: lulus
