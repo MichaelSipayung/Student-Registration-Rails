@@ -5,6 +5,7 @@ bahasa:
   nama_bahasa: MyString
   tingkat: MyString
 
-#two:
-#  nama_bahasa: MyString
-#  tingkat: MyString
+batak:
+  user: michael
+  nama_bahasa: batak
+  tingkat: pemula

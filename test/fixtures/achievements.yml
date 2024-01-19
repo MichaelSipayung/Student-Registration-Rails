@@ -1,9 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  user: michael
-#  nama_prestasi: MyString
-#  tahun: 2024-01-16
-#  tingkat: MyString
-#  kategori: MyString
-
+first_achievement:
+  user: michael
+  nama_prestasi: porseni
+  tahun: 2024-01-16
+  tingkat: nasioanl
+  kategori: akademik
+second_achievement:
+  user: michael
+  nama_prestasi: paskibra
+  tahun: 2024-01-16
+  tingkat: provinsi
+  kategori: non akademik

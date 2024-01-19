@@ -38,4 +38,44 @@ class LanguageTest < ActionDispatch::IntegrationTest
     unpermited_id = Language.find_by_user_id(138974)
     assert_nil unpermited_id
   end
+  test "should update language" do
+    get login_path
+    post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
+    get edit_languages_path languages(:bahasa)
+    assert_template 'languages/edit'
+    patch languages_path(languages(:bahasa)), params: {language: {
+      nama_bahasa: 'spanyol', tingkat: 'advanced'
+    }}
+    assert_equal 'spanyol', languages(:bahasa).reload.nama_bahasa
+    assert_equal 'advanced', languages(:bahasa).reload.tingkat
+    #update multiple times
+    get edit_languages_path languages(:batak)
+    assert_template 'languages/edit'
+    patch languages_path(languages(:batak)), params: {language: {
+      nama_bahasa: 'batak mandailing', tingkat: 'mahir'
+    }}
+    assert_equal 'batak mandailing', languages(:batak).reload.nama_bahasa
+    assert_equal 'mahir', languages(:batak).reload.tingkat
+  end
+  test "should reject to update language" do
+    get login_path
+    post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
+    get edit_languages_path languages(:bahasa)
+    assert_template 'languages/edit'
+    patch languages_path(languages(:bahasa)), params: {language: {
+      nama_bahasa: 'spa', tingkat: 'adv'
+    }}
+    assert_not_equal 'spa', languages(:bahasa).reload.nama_bahasa
+    assert_not_equal 'adv', languages(:bahasa).reload.tingkat
+  end
+  test "should not allow unpermited attribute to update" do
+    get login_path
+    post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
+    get edit_languages_path languages(:bahasa)
+    assert_template 'languages/edit'
+    patch languages_path(languages(:bahasa)), params: {language: {
+      nama_bahasa: 'spanyol', tingkat: 'advanced', user_id: 139685142
+    }}
+    assert_not_equal 139685142, languages(:bahasa).reload.user_id
+  end
 end
