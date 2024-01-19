@@ -21,6 +21,8 @@ class User < ApplicationRecord
   before_create :create_activation_digest
   has_one :personal
   has_one :parent
+  has_many :addresses
+  has_many :languages
   #validates the user input
   validates(:name, presence: true)
   validates(:name, length: {maximum: 50})

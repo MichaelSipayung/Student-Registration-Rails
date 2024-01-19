@@ -45,4 +45,6 @@ Rails.application.routes.draw do
   resources :relationships,         only: [:create, :destroy]
   resources :personals,             only: [:new, :create, :edit, :update, :show]
   resources :parents,               only: [:new, :create, :edit, :update, :show]
+  resources :addresses,             only: [:new, :create, :edit, :update, :show]
+  resource  :languages,             only: [:new, :create, :edit, :update, :show]
 end
