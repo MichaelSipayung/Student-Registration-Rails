@@ -1,4 +1,5 @@
 class AccountActivationsController < ApplicationController
+  before_action :logged_in_user, except: [:edit]
   def edit #edit action for token activation
     user = User.find_by(email: params[:email])
     if user && !user.activated? && user.authenticated?(:activation, params[:id])

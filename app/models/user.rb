@@ -20,6 +20,7 @@ class User < ApplicationRecord
   # before user created, using before_create callback
   before_create :create_activation_digest
   has_one :personal
+  has_one :source
   has_one :parent
   has_many :addresses
   has_many :languages

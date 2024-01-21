@@ -1,6 +1,7 @@
 class PasswordResetsController < ApplicationController
   #Because confirmation of the existence of a valid @user
   # is needed in both the update and edit actions
+  before_action :logged_in_user, except: [:update, :new, :create, :edit]
   before_action :get_user, only: [:edit, :update]
   before_action :valid_user, only: [:edit, :update]
   #make sure the reset password is not expired

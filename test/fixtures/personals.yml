@@ -12,13 +12,14 @@ one:
   jenis_kelamin: MyString
   domisili: MyString
 
-#two:
-#  nama_lengkap: MyString
-#  agama: MyString
-#  nik: 1
-#  nisn: 1
-#  no_kps: 1
-#  tanggal_lahir: 2024-01-16
-#  tempat_lahir: MyString
-#  jenis_kelamin: MyString
-#  domisili: MyString
+two:
+  user: archer
+  nama_lengkap: MyString
+  agama: MyString
+  nik: 1234567891234567
+  nisn: 1234567890
+  no_kps: 123456
+  tanggal_lahir: 2024-01-16
+  tempat_lahir: MyString
+  jenis_kelamin: MyString
+  domisili: MyString

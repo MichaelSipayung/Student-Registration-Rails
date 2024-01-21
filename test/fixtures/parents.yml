@@ -12,15 +12,3 @@ myparent:
   tanggal_lahir_ibu: 2024-01-16
   pekerjaan_ayah: MyString
   pekerjaan_ibu: MyString
-
-#two:
-#  nama_ayah: MyString
-#  nama_ibu: MyString
-#  nik_ayah: 1
-#  nik_ibu: 1
-#  pendidikan_ayah: MyString
-#  pendidikan_ibu: MyString
-#  tanggal_lahir_ayah: 2024-01-16
-#  tanggal_lahir_ibu: 2024-01-16
-#  pekerjaan_ayah: MyString
-#  pekerjaan_ibu: MyString

@@ -10,7 +10,7 @@ class ExtrasControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   test "should get edit" do
-    get edit_extra_path(:first_extra)
+    get edit_extra_path(extras(:first_extra))
     assert_response :success
   end
 end

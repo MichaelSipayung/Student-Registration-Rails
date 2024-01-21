@@ -79,6 +79,10 @@ class OrganizationTest < ActionDispatch::IntegrationTest
     }}
     assert_equal 'pmk ui medan', organizations(:two).reload.nama_organisasi
     assert_equal 'wakil ketua', organizations(:two).reload.jabatan
+    assert_not_nil Organization.find_by_nama_organisasi('pmk ui medan')
+    assert_not_nil Organization.find_by_nama_organisasi('pmk ui jakarta')
+    assert_not_nil Organization.find_by_jabatan('wakil ketua pmk')
+    assert_not_nil  Organization.find_by_jabatan('wakil ketua')
   end
   test "should reject to update organization" do
     get edit_organization_path(organizations(:one))
@@ -89,6 +93,8 @@ class OrganizationTest < ActionDispatch::IntegrationTest
     }}
     assert_not_equal 'pmk', organizations(:one).reload.nama_organisasi
     assert_not_equal 'wak', organizations(:one).reload.jabatan
+    assert_nil Organization.find_by_nama_organisasi('pmk')
+    assert_nil Organization.find_by_jabatan('wak')
   end
   test "should not update non permited params" do
     get edit_organization_path(organizations(:one))
@@ -97,6 +103,6 @@ class OrganizationTest < ActionDispatch::IntegrationTest
       nama_organisasi: 'pmk ui', mulai: '2020-12-11',
       berakhir: '2011-10-11', jabatan: 'wakil', user_id: 98908700
     }}
-    assert_not_equal 98908700, organizations(:one).reload.user_id
+    assert_nil Organization.find_by_user_id 98908700
   end
 end

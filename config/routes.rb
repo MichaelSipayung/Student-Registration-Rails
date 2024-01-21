@@ -51,4 +51,6 @@ Rails.application.routes.draw do
   resources :achievements,          only: [:new, :create, :edit, :update, :show]
   resources :extras,                only: [:new, :create, :edit, :update, :show]
   resources :organizations,         only: [:new, :create, :edit, :update, :show]
+  resources :sources,               only: [:new, :create, :edit, :update, :show]
+
 end

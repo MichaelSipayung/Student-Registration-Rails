@@ -24,6 +24,8 @@ class ExtraTest < ActionDispatch::IntegrationTest
                  berakhir: '2021-12-13',predikat: 'tidak lulus'}}
     end
     assert_not_nil Extra.find_by_nama_kegiatan 'extakurikuler 2'
+    assert_not_nil Extra.find_by_nama_kegiatan 'extakurikuler 1'
+
   end
   test "should reject to create new extra activity" do
     get new_extra_path
@@ -43,6 +45,8 @@ class ExtraTest < ActionDispatch::IntegrationTest
         berakhir: '2021-12-11', predikat: 'lulus'
       }}
     end
+    assert_nil Extra.find_by_nama_kegiatan('ext')
+    assert_nil Extra.find_by_nama_kegiatan('')
   end
   test "reject non permited params while create an activity" do
     get new_extra_path
@@ -73,6 +77,9 @@ class ExtraTest < ActionDispatch::IntegrationTest
     }}
     assert_equal 'jitsu', extras(:second_extra).reload.nama_kegiatan
     assert_equal 'lulus', extras(:second_extra).reload.predikat
+    #compare first with the last updated
+    assert_not_equal extras(:second_extra).reload.nama_kegiatan,
+                     extras(:first_extra).reload.nama_kegiatan
   end
   test "should reject to update for wrong information" do
     get edit_extra_path(extras(:first_extra))
@@ -91,7 +98,7 @@ class ExtraTest < ActionDispatch::IntegrationTest
       berakhir: '2023-12-11', predikat: 'lul'
     }}
     assert_nil Extra.find_by_nama_kegiatan 'nia'
-    assert_nil Extra.find_by_nama_kegiatan 'lul'
+    assert_nil Extra.find_by_nama_kegiatan 'jiu'
   end
   test "should reject update for non permited param" do
     get edit_extra_path(extras(:first_extra))
