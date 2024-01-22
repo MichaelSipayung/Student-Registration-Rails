@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  jurusan_1: MyString
-#  jurusan_2: MyString
-#  jurusan_3: MyString
-#  gelombang: MyString
+one:
+  user: michael
+  jurusan_1: fisika
+  jurusan_2: biologi
+  jurusan_3: sains data
+  gelombang: pmdk sumut
 
-#two:
-#  jurusan_1: MyString
-#  jurusan_2: MyString
-#  jurusan_3: MyString
-#  gelombang: MyString
+two:
+  user: iana
+  jurusan_1: teknik informatika
+  jurusan_2: sistem informasi
+  jurusan_3: teknik komputer
+  gelombang: utbk

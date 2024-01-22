@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_one :personal
   has_one :source
   has_one :parent
+  has_one :major
   has_many :addresses
   has_many :languages
   has_many :achievements

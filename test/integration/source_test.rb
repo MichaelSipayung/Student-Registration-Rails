@@ -64,4 +64,43 @@ class SourceTest < ActionDispatch::IntegrationTest
     assert_not_nil Source.find_by_sumber_informasi 'facebook'
     assert_nil Source.find_by_user_id 1231212109
   end
+  test "should update the source" do
+    @user = users(:michael)
+    get login_path
+    post login_path, params: {session: {email: @user.email, password: 'password'}}
+    get edit_source_path sources(:one)
+    patch source_path(sources(:one)), params: {source: {
+      sumber_informasi: 'facebook', jumlah_n: 3, motivasi: 'pendidikan'
+    }}
+    assert_equal 'facebook', sources(:one).reload.sumber_informasi
+    assert_equal 3, sources(:one).reload.jumlah_n
+    assert_equal 'pendidikan', sources(:one).reload.motivasi
+  end
+  test "should update but prevent the non permited params" do
+    @user = users(:michael)
+    get login_path
+    post login_path, params: {session: {email: @user.email, password: 'password'}}
+    get edit_source_path sources(:one)
+    patch source_path(sources(:one)), params: {source: {
+      sumber_informasi: 'facebook', jumlah_n: 3, motivasi: 'pendidikan', user_id: 90890909
+    }}
+    assert_equal 'facebook', sources(:one).reload.sumber_informasi
+    assert_equal 3, sources(:one).reload.jumlah_n
+    assert_equal 'pendidikan', sources(:one).reload.motivasi
+    assert_nil Source.find_by_user_id 90890909
+  end
+  test "should reject to update for invalid information" do
+    @user = users(:michael)
+    get login_path
+    post login_path, params: {session: {email: @user.email, password: 'password'}}
+    get edit_source_path sources(:one)
+    patch source_path(sources(:one)), params: {source: {
+      sumber_informasi: 'facebook', jumlah_n: 56, motivasi: 'pendidikan'
+    }}
+    sources(:one).reload
+    assert_nil Source.find_by_sumber_informasi 'facebook'
+    assert_nil Source.find_by_motivasi 'pendidikan'
+    assert_nil Source.find_by_jumlah_n 20
+  end
+
 end

@@ -4,7 +4,7 @@ class SourcesController < ApplicationController
   end
 
   def update
-    @source  = current_user.build_source
+    @source  = current_user.source
     if @source.update(source_params)
       flash[:success] = "source of information is updated"
     else
@@ -22,7 +22,7 @@ class SourcesController < ApplicationController
   end
 
   def edit
-    @source = current_user.build_source
+    @source = current_user.source
   end
 
   def show
