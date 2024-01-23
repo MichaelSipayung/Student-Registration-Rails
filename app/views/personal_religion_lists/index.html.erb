@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Personal religion lists</h1>
+
+<div id="personal_religion_lists">
+  <% @personal_religion_lists.each do |personal_religion_list| %>
+    <%= render personal_religion_list %>
+    <p>
+      <%= link_to "Show this personal religion list", personal_religion_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New personal religion list", new_personal_religion_list_path %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @personal_religion_list %>
+
+<div>
+  <%= link_to "Edit this personal religion list", edit_personal_religion_list_path(@personal_religion_list) %> |
+  <%= link_to "Back to personal religion lists", personal_religion_lists_path %>
+
+  <%= button_to "Destroy this personal religion list", @personal_religion_list, method: :delete %>
+</div>

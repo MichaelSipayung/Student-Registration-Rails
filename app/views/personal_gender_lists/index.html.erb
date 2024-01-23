@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Personal gender lists</h1>
+
+<div id="personal_gender_lists">
+  <% @personal_gender_lists.each do |personal_gender_list| %>
+    <%= render personal_gender_list %>
+    <p>
+      <%= link_to "Show this personal gender list", personal_gender_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New personal gender list", new_personal_gender_list_path %>

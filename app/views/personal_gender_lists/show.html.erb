@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @personal_gender_list %>
+
+<div>
+  <%= link_to "Edit this personal gender list", edit_personal_gender_list_path(@personal_gender_list) %> |
+  <%= link_to "Back to personal gender lists", personal_gender_lists_path %>
+
+  <%= button_to "Destroy this personal gender list", @personal_gender_list, method: :delete %>
+</div>
