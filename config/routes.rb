@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :personal_religion_lists
+  resources :personal_gender_lists
   resources :parent_education_lists
   resources :parent_job_lists
   resources :high_school_majors
