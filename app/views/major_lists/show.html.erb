@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @major_list %>
+
+<div>
+  <%= link_to "Edit this major list", edit_major_list_path(@major_list) %> |
+  <%= link_to "Back to major lists", major_lists_path %>
+
+  <%= button_to "Destroy this major list", @major_list, method: :delete %>
+</div>

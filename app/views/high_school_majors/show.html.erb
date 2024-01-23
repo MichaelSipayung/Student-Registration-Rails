@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @high_school_major %>
+
+<div>
+  <%= link_to "Edit this high school major", edit_high_school_major_path(@high_school_major) %> |
+  <%= link_to "Back to high school majors", high_school_majors_path %>
+
+  <%= button_to "Destroy this high school major", @high_school_major, method: :delete %>
+</div>

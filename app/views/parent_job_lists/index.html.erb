@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Parent job lists</h1>
+
+<div id="parent_job_lists">
+  <% @parent_job_lists.each do |parent_job_list| %>
+    <%= render parent_job_list %>
+    <p>
+      <%= link_to "Show this parent job list", parent_job_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New parent job list", new_parent_job_list_path %>

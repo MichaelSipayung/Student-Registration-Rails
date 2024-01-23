@@ -1,0 +1,22 @@
+<%= form_with(model: parent_education_list) do |form| %>
+  <% if parent_education_list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(parent_education_list.errors.count, "error") %> prohibited this parent_education_list from being saved:</h2>
+
+      <ul>
+        <% parent_education_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :pendidikan, style: "display: block" %>
+    <%= form.text_field :pendidikan %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

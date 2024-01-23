@@ -1,0 +1,22 @@
+<%= form_with(model: high_school_major) do |form| %>
+  <% if high_school_major.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(high_school_major.errors.count, "error") %> prohibited this high_school_major from being saved:</h2>
+
+      <ul>
+        <% high_school_major.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :jurusan, style: "display: block" %>
+    <%= form.text_field :jurusan %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

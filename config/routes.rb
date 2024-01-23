@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :parent_education_lists
+  resources :parent_job_lists
+  resources :high_school_majors
+  resources :major_lists
   # get 'personals/new'
   # get 'personals/update'
   # get 'personals/edit'

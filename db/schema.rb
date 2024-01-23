@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_17_033421) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_23_040009) do
   create_table "achievements", force: :cascade do |t|
     t.string "nama_prestasi"
     t.date "tahun"
@@ -134,6 +134,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_033421) do
     t.index ["user_id"], name: "index_extras_on_user_id"
   end
 
+  create_table "high_school_majors", force: :cascade do |t|
+    t.string "jurusan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "language_degree_lists", force: :cascade do |t|
     t.string "tingkat"
     t.datetime "created_at", null: false
@@ -153,6 +159,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_033421) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_languages_on_user_id"
+  end
+
+  create_table "major_lists", force: :cascade do |t|
+    t.string "jurusan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "majors", force: :cascade do |t|

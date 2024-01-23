@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Major lists</h1>
+
+<div id="major_lists">
+  <% @major_lists.each do |major_list| %>
+    <%= render major_list %>
+    <p>
+      <%= link_to "Show this major list", major_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New major list", new_major_list_path %>

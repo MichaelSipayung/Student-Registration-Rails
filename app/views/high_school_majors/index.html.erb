@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>High school majors</h1>
+
+<div id="high_school_majors">
+  <% @high_school_majors.each do |high_school_major| %>
+    <%= render high_school_major %>
+    <p>
+      <%= link_to "Show this high school major", high_school_major %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New high school major", new_high_school_major_path %>

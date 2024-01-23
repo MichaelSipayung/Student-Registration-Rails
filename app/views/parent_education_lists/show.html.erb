@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @parent_education_list %>
+
+<div>
+  <%= link_to "Edit this parent education list", edit_parent_education_list_path(@parent_education_list) %> |
+  <%= link_to "Back to parent education lists", parent_education_lists_path %>
+
+  <%= button_to "Destroy this parent education list", @parent_education_list, method: :delete %>
+</div>

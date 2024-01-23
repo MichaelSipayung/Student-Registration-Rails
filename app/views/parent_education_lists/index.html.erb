@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Parent education lists</h1>
+
+<div id="parent_education_lists">
+  <% @parent_education_lists.each do |parent_education_list| %>
+    <%= render parent_education_list %>
+    <p>
+      <%= link_to "Show this parent education list", parent_education_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New parent education list", new_parent_education_list_path %>
