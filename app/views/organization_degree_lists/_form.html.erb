@@ -1,0 +1,22 @@
+<%= form_with(model: organization_degree_list) do |form| %>
+  <% if organization_degree_list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(organization_degree_list.errors.count, "error") %> prohibited this organization_degree_list from being saved:</h2>
+
+      <ul>
+        <% organization_degree_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :jabatan, style: "display: block" %>
+    <%= form.text_field :jabatan %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @organization_degree_list %>
+
+<div>
+  <%= link_to "Edit this organization degree list", edit_organization_degree_list_path(@organization_degree_list) %> |
+  <%= link_to "Back to organization degree lists", organization_degree_lists_path %>
+
+  <%= button_to "Destroy this organization degree list", @organization_degree_list, method: :delete %>
+</div>

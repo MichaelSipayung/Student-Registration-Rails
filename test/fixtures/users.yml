@@ -12,6 +12,12 @@ archer: #for invalid access
   password_digest: <%=User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+tempdona: #for invalid access
+  name: dona denim
+  email: donal123@gmail.com
+  password_digest: <%=User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 iana: #for invalid access
   name: iana sigh
   email: ianag23@gmail.com

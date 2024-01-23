@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :organization_degree_lists
+  resources :language_degree_lists
+  resources :language_name_lists
+  resources :extra_lists
   resources :personal_religion_lists
   resources :personal_gender_lists
   resources :parent_education_lists

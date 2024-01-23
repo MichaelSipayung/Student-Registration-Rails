@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @extra_list %>
+
+<div>
+  <%= link_to "Edit this extra list", edit_extra_list_path(@extra_list) %> |
+  <%= link_to "Back to extra lists", extra_lists_path %>
+
+  <%= button_to "Destroy this extra list", @extra_list, method: :delete %>
+</div>

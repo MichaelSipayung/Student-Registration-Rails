@@ -1,0 +1,22 @@
+<%= form_with(model: extra_list) do |form| %>
+  <% if extra_list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(extra_list.errors.count, "error") %> prohibited this extra_list from being saved:</h2>
+
+      <ul>
+        <% extra_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :predikat, style: "display: block" %>
+    <%= form.text_field :predikat %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

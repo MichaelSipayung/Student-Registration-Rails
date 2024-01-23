@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Organization degree lists</h1>
+
+<div id="organization_degree_lists">
+  <% @organization_degree_lists.each do |organization_degree_list| %>
+    <%= render organization_degree_list %>
+    <p>
+      <%= link_to "Show this organization degree list", organization_degree_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New organization degree list", new_organization_degree_list_path %>

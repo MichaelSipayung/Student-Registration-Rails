@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @language_degree_list %>
+
+<div>
+  <%= link_to "Edit this language degree list", edit_language_degree_list_path(@language_degree_list) %> |
+  <%= link_to "Back to language degree lists", language_degree_lists_path %>
+
+  <%= button_to "Destroy this language degree list", @language_degree_list, method: :delete %>
+</div>

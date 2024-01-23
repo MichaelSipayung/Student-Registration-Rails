@@ -88,7 +88,7 @@ class ParentTest < ActiveSupport::TestCase
     assert_not @parent.valid?
   end
   test "pekerjaan_ayah should not be too short" do
-    @parent.pekerjaan_ayah = "a"*3
+    @parent.pekerjaan_ayah = "a"*2
     assert_not @parent.valid?
   end
   test "pekerjaan_ayah should not be too long" do
@@ -100,7 +100,7 @@ class ParentTest < ActiveSupport::TestCase
     assert_not @parent.valid?
   end
   test "pekerjaan_ibu should not be too short" do
-    @parent.pekerjaan_ibu = "a"*3
+    @parent.pekerjaan_ibu = "a"*2
     assert_not @parent.valid?
   end
   test "pekerjaan_ibu should not be too long" do

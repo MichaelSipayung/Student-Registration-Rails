@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Language name lists</h1>
+
+<div id="language_name_lists">
+  <% @language_name_lists.each do |language_name_list| %>
+    <%= render language_name_list %>
+    <p>
+      <%= link_to "Show this language name list", language_name_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New language name list", new_language_name_list_path %>

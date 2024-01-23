@@ -21,7 +21,8 @@ class ParentEducationListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create parent_education_list" do
     assert_difference("ParentEducationList.count") do
-      post parent_education_lists_url, params: { parent_education_list: { pendidikan: @parent_education_list.pendidikan } }
+      post parent_education_lists_url, params: {
+        parent_education_list: { pendidikan: 'slta' } }
     end
 
     assert_redirected_to parent_education_list_url(ParentEducationList.last)
@@ -38,7 +39,8 @@ class ParentEducationListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update parent_education_list" do
-    patch parent_education_list_url(@parent_education_list), params: { parent_education_list: { pendidikan: @parent_education_list.pendidikan } }
+    patch parent_education_list_url(@parent_education_list),
+          params: { parent_education_list: { pendidikan: 'sltp' } }
     assert_redirected_to parent_education_list_url(@parent_education_list)
   end
 

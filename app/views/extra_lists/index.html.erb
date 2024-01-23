@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Extra lists</h1>
+
+<div id="extra_lists">
+  <% @extra_lists.each do |extra_list| %>
+    <%= render extra_list %>
+    <p>
+      <%= link_to "Show this extra list", extra_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New extra list", new_extra_list_path %>

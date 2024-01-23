@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @language_name_list %>
+
+<div>
+  <%= link_to "Edit this language name list", edit_language_name_list_path(@language_name_list) %> |
+  <%= link_to "Back to language name lists", language_name_lists_path %>
+
+  <%= button_to "Destroy this language name list", @language_name_list, method: :delete %>
+</div>
