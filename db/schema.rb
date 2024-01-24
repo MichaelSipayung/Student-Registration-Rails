@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_24_030936) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_24_071057) do
+  create_table "accreditation_school_lists", force: :cascade do |t|
+    t.string "akreditasi"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "achievement_kategori_lists", force: :cascade do |t|
     t.string "kategori"
     t.datetime "created_at", null: false
@@ -96,6 +102,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_030936) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "all_school_lists", force: :cascade do |t|
+    t.string "sekolah"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "batch_lists", force: :cascade do |t|
@@ -271,6 +283,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_030936) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_personals_on_user_id"
+  end
+
+  create_table "pmdk_school_lists", force: :cascade do |t|
+    t.string "sekolah"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "relationships", force: :cascade do |t|

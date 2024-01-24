@@ -2,6 +2,10 @@ require "test_helper"
 
 class AccreditationSchoolListsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    get login_path
+    post login_path, params: {session: {
+      email: users(:michael).email, password: 'password'
+    }}
     @accreditation_school_list = accreditation_school_lists(:one)
   end
 
@@ -17,7 +21,8 @@ class AccreditationSchoolListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create accreditation_school_list" do
     assert_difference("AccreditationSchoolList.count") do
-      post accreditation_school_lists_url, params: { accreditation_school_list: { akreditasi: @accreditation_school_list.akreditasi } }
+      post accreditation_school_lists_url,
+           params: { accreditation_school_list: { akreditasi: 'baik' } }
     end
 
     assert_redirected_to accreditation_school_list_url(AccreditationSchoolList.last)
@@ -34,7 +39,8 @@ class AccreditationSchoolListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update accreditation_school_list" do
-    patch accreditation_school_list_url(@accreditation_school_list), params: { accreditation_school_list: { akreditasi: @accreditation_school_list.akreditasi } }
+    patch accreditation_school_list_url(@accreditation_school_list),
+          params: { accreditation_school_list: { akreditasi: 'terakreditasi' } }
     assert_redirected_to accreditation_school_list_url(@accreditation_school_list)
   end
 

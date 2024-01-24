@@ -2,6 +2,10 @@ require "test_helper"
 
 class PmdkSchoolListsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    get login_path
+    post login_path, params: {
+      session: {email: users(:michael).email,password: 'password'}
+    }
     @pmdk_school_list = pmdk_school_lists(:one)
   end
 
@@ -17,7 +21,7 @@ class PmdkSchoolListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create pmdk_school_list" do
     assert_difference("PmdkSchoolList.count") do
-      post pmdk_school_lists_url, params: { pmdk_school_list: { sekolah: @pmdk_school_list.sekolah } }
+      post pmdk_school_lists_url, params: { pmdk_school_list: { sekolah: 'sma 1 bangsa' } }
     end
 
     assert_redirected_to pmdk_school_list_url(PmdkSchoolList.last)
@@ -34,7 +38,8 @@ class PmdkSchoolListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update pmdk_school_list" do
-    patch pmdk_school_list_url(@pmdk_school_list), params: { pmdk_school_list: { sekolah: @pmdk_school_list.sekolah } }
+    patch pmdk_school_list_url(@pmdk_school_list),
+          params: { pmdk_school_list: { sekolah: 'smk 1 tarutung' } }
     assert_redirected_to pmdk_school_list_url(@pmdk_school_list)
   end
 
