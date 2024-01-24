@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @address_province_list %>
+
+<div>
+  <%= link_to "Edit this address province list", edit_address_province_list_path(@address_province_list) %> |
+  <%= link_to "Back to address province lists", address_province_lists_path %>
+
+  <%= button_to "Destroy this address province list", @address_province_list, method: :delete %>
+</div>

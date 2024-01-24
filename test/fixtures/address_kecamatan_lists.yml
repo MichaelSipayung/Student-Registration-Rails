@@ -1,7 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  kecamatan: MyString
+acehtengah:
+  id: 19009
+  address_province_list_id: 1300900
+  kecamatan: aceh tengah
 
-#two:
-#  kecamatan: MyString
+acehselatan:
+  address_province_list_id: 1300900
+  kecamatan: aceh selatan
+
+acehtimur:
+  address_province_list_id: 1300900
+  kecamatan: aceh timur
+tobasamosir:
+  address_province_list_id: 1300911
+  kecamatan: toba samosir

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Address kabupaten lists</h1>
+
+<div id="address_kabupaten_lists">
+  <% @address_kabupaten_lists.each do |address_kabupaten_list| %>
+    <%= render address_kabupaten_list %>
+    <p>
+      <%= link_to "Show this address kabupaten list", address_kabupaten_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New address kabupaten list", new_address_kabupaten_list_path %>

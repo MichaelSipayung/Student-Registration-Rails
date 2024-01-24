@@ -1,0 +1,22 @@
+<%= form_with(model: address_kecamatan_list) do |form| %>
+  <% if address_kecamatan_list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(address_kecamatan_list.errors.count, "error") %> prohibited this address_kecamatan_list from being saved:</h2>
+
+      <ul>
+        <% address_kecamatan_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :kecamatan, style: "display: block" %>
+    <%= form.text_field :kecamatan %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

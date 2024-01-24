@@ -1,7 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  kabupaten: MyString
+kabacehtengah:
+  address_kecamatan_list_id: 19009
+  kabupaten: kab aceh tengah
 
-#two:
-#  kabupaten: MyString
+kabacehselatan:
+  address_kecamatan_list_id: 19009
+  kabupaten: kab aceh selatan
+
+kabacehtimur:
+  address_kecamatan_list_id: 19009
+  kabupaten: kab aceh timur

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :address_kabupaten_lists
+  resources :address_kecamatan_lists
+  resources :address_province_lists
   resources :achievement_kategori_lists
   resources :achievement_tingkat_lists
   resources :source_motivation_lists

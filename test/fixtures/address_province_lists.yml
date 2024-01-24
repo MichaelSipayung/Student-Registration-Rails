@@ -1,7 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  provinsi: MyString
+aceh:
+  id: 1300900
+  provinsi: aceh nag
 
-#two:
-#  provinsi: MyString
+sumut:
+  id: 1300911
+  provinsi: sumatera utara

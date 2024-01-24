@@ -2,7 +2,7 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 require "minitest/reporters"
-Minitest::Reporters.use!
+# Minitest::Reporters.use!
 #for convenience, but conflict on rubymine idea
 
 module ActiveSupport

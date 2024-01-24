@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Address province lists</h1>
+
+<div id="address_province_lists">
+  <% @address_province_lists.each do |address_province_list| %>
+    <%= render address_province_list %>
+    <p>
+      <%= link_to "Show this address province list", address_province_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New address province list", new_address_province_list_path %>

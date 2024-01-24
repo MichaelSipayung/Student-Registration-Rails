@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @address_kabupaten_list %>
+
+<div>
+  <%= link_to "Edit this address kabupaten list", edit_address_kabupaten_list_path(@address_kabupaten_list) %> |
+  <%= link_to "Back to address kabupaten lists", address_kabupaten_lists_path %>
+
+  <%= button_to "Destroy this address kabupaten list", @address_kabupaten_list, method: :delete %>
+</div>

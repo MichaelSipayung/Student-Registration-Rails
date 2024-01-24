@@ -1,0 +1,22 @@
+<%= form_with(model: address_kabupaten_list) do |form| %>
+  <% if address_kabupaten_list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(address_kabupaten_list.errors.count, "error") %> prohibited this address_kabupaten_list from being saved:</h2>
+
+      <ul>
+        <% address_kabupaten_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :kabupaten, style: "display: block" %>
+    <%= form.text_field :kabupaten %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
