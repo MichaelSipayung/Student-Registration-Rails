@@ -1,0 +1,2 @@
+module AccreditationSchoolListsHelper
+end

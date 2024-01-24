@@ -1,0 +1,2 @@
+class AccreditationSchoolList < ApplicationRecord
+end

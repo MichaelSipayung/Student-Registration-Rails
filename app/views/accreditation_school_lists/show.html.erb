@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @accreditation_school_list %>
+
+<div>
+  <%= link_to "Edit this accreditation school list", edit_accreditation_school_list_path(@accreditation_school_list) %> |
+  <%= link_to "Back to accreditation school lists", accreditation_school_lists_path %>
+
+  <%= button_to "Destroy this accreditation school list", @accreditation_school_list, method: :delete %>
+</div>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @all_school_list %>
+
+<div>
+  <%= link_to "Edit this all school list", edit_all_school_list_path(@all_school_list) %> |
+  <%= link_to "Back to all school lists", all_school_lists_path %>
+
+  <%= button_to "Destroy this all school list", @all_school_list, method: :delete %>
+</div>

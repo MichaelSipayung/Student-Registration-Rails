@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>All school lists</h1>
+
+<div id="all_school_lists">
+  <% @all_school_lists.each do |all_school_list| %>
+    <%= render all_school_list %>
+    <p>
+      <%= link_to "Show this all school list", all_school_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New all school list", new_all_school_list_path %>

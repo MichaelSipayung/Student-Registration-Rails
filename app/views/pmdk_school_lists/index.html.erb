@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pmdk school lists</h1>
+
+<div id="pmdk_school_lists">
+  <% @pmdk_school_lists.each do |pmdk_school_list| %>
+    <%= render pmdk_school_list %>
+    <p>
+      <%= link_to "Show this pmdk school list", pmdk_school_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New pmdk school list", new_pmdk_school_list_path %>

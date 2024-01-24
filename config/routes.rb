@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :accreditation_school_lists
+  resources :pmdk_school_lists
+  resources :all_school_lists
   resources :address_kabupaten_lists
   resources :address_kecamatan_lists
   resources :address_province_lists

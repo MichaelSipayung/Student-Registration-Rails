@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pmdk_school_list %>
+
+<div>
+  <%= link_to "Edit this pmdk school list", edit_pmdk_school_list_path(@pmdk_school_list) %> |
+  <%= link_to "Back to pmdk school lists", pmdk_school_lists_path %>
+
+  <%= button_to "Destroy this pmdk school list", @pmdk_school_list, method: :delete %>
+</div>

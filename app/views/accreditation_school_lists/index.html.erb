@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Accreditation school lists</h1>
+
+<div id="accreditation_school_lists">
+  <% @accreditation_school_lists.each do |accreditation_school_list| %>
+    <%= render accreditation_school_list %>
+    <p>
+      <%= link_to "Show this accreditation school list", accreditation_school_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New accreditation school list", new_accreditation_school_list_path %>
