@@ -52,7 +52,8 @@ class AddressKecamatanListsController < ApplicationController
     @address_kecamatan_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to address_kecamatan_lists_url, notice: "Address kecamatan list was successfully destroyed." }
+      format.html { redirect_to address_kecamatan_lists_url,
+                                notice: "Address kecamatan list was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,6 @@ class AddressKecamatanListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def address_kecamatan_list_params
-      params.require(:address_kecamatan_list).permit(:kecamatan, :address_province_list_id)
+      params.require(:address_kecamatan_list).permit(:kecamatan, :address_kabupaten_list_id)
     end
 end

@@ -1,6 +1,6 @@
 class AddressKabupatenList < ApplicationRecord
-  belongs_to :address_kecamatan_list
+  has_many :address_kecamatan_lists, dependent: :destroy
   validates :kabupaten, presence: true, uniqueness: true,
             length: { minimum: 3, maximum: 35 }
-  validates :address_kecamatan_list_id, presence: true
+  validates :address_province_list_id, presence: true
 end

@@ -65,6 +65,6 @@ class AddressKabupatenListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def address_kabupaten_list_params
-      params.require(:address_kabupaten_list).permit(:kabupaten, :address_kecamatan_list_id)
+      params.require(:address_kabupaten_list).permit(:kabupaten, :address_province_list_id)
     end
 end

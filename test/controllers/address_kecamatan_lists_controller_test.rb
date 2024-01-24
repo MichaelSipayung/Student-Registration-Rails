@@ -6,7 +6,7 @@ class AddressKecamatanListsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: {
       session: {email: users(:michael).email, password: 'password'}
     }
-    @address_kecamatan_list = address_kecamatan_lists(:acehtengah)
+    @address_kecamatan_list = address_kecamatan_lists(:kecacehtengah)
   end
 
   test "should get index" do
@@ -20,11 +20,11 @@ class AddressKecamatanListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create address_kecamatan_list" do
-    @province = address_province_lists(:aceh)
+    @kab = address_kabupaten_lists(:acehtengah)
     assert_difference("AddressKecamatanList.count") do
       post address_kecamatan_lists_url,
            params: { address_kecamatan_list: { kecamatan: 'aceh barat',
-                                               address_province_list_id: @province.id} }
+                                               address_kabupaten_list_id: @kab.id} }
     end
     assert_not_nil AddressKecamatanList.find_by_kecamatan 'aceh barat'
     assert_redirected_to address_kecamatan_list_url(AddressKecamatanList.last)

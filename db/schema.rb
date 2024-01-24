@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_24_071057) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_24_102935) do
   create_table "accreditation_school_lists", force: :cascade do |t|
     t.string "akreditasi"
     t.datetime "created_at", null: false
@@ -72,16 +72,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_071057) do
     t.string "kabupaten"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "address_kecamatan_list_id", null: false
-    t.index ["address_kecamatan_list_id"], name: "index_address_kabupaten_lists_on_address_kecamatan_list_id"
+    t.integer "address_province_list_id", null: false
+    t.index ["address_province_list_id"], name: "index_address_kabupaten_lists_on_address_province_list_id"
   end
 
   create_table "address_kecamatan_lists", force: :cascade do |t|
     t.string "kecamatan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "address_province_list_id", null: false
-    t.index ["address_province_list_id"], name: "index_address_kecamatan_lists_on_address_province_list_id"
+    t.integer "address_kabupaten_list_id", null: false
+    t.index ["address_kabupaten_list_id"], name: "index_address_kecamatan_lists_on_address_kabupaten_list_id"
   end
 
   create_table "address_province_lists", force: :cascade do |t|
@@ -342,8 +342,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_071057) do
   add_foreign_key "achievements", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "address_kabupaten_lists", "address_kecamatan_lists"
-  add_foreign_key "address_kecamatan_lists", "address_province_lists"
+  add_foreign_key "address_kabupaten_lists", "address_province_lists"
+  add_foreign_key "address_kecamatan_lists", "address_kabupaten_lists"
   add_foreign_key "addresses", "users"
   add_foreign_key "costs", "users"
   add_foreign_key "extras", "users"
