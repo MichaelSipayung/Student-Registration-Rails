@@ -4,7 +4,7 @@ class AddressKabupatenListTest < ActiveSupport::TestCase
   def setup
     @address_kabupaten  =
       AddressKabupatenList.new(kabupaten: 'toba',
-                               address_kecamatan_list_id: address_kecamatan_lists(:one).id)
+                               address_kecamatan_list_id: address_kecamatan_lists(:acehtengah).id)
   end
   test "should be valid kabupaten" do
     assert @address_kabupaten.valid?
@@ -20,10 +20,14 @@ class AddressKabupatenListTest < ActiveSupport::TestCase
   end
   test "should reject for too long kabupaten" do
     @address_kabupaten.kabupaten = "a" * 36
-    assert @address_kabupaten.valid?
+    assert_not @address_kabupaten.valid?
   end
   test "should reject for too short kebupaten" do
     @address_kabupaten.kabupaten = 'a'*2
+    assert_not @address_kabupaten.valid?
+  end
+  test "should reject for nill kecamatan_id" do
+    @address_kabupaten.address_kecamatan_list_id=nil
     assert_not @address_kabupaten.valid?
   end
 end

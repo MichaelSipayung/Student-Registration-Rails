@@ -4,7 +4,7 @@ class AddressKecamatanListTest < ActiveSupport::TestCase
   def setup
     @address_kecamatan  =
       AddressKecamatanList.new(kecamatan: 'toba',
-                               address_province_list_id:  address_province_lists(:one).id)
+                               address_province_list_id:  address_province_lists(:aceh).id)
   end
   test "should be valid kecamatan" do
     assert @address_kecamatan.valid?
@@ -24,6 +24,10 @@ class AddressKecamatanListTest < ActiveSupport::TestCase
   end
   test "should reject for too short kecamatan" do
     @address_kecamatan.kecamatan = "a" * 2
+    assert_not @address_kecamatan.valid?
+  end
+  test "should reject for null province id" do
+    @address_kecamatan.address_province_list_id=nil
     assert_not @address_kecamatan.valid?
   end
 end

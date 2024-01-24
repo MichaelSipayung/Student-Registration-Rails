@@ -22,9 +22,10 @@ class AddressKabupatenListsControllerTest < ActionDispatch::IntegrationTest
   test "should create address_kabupaten_list" do
     assert_difference("AddressKabupatenList.count") do
       post address_kabupaten_lists_url,
-           params: { address_kabupaten_list: { kabupaten: 'luake' } }
+           params: { address_kabupaten_list:
+                       { kabupaten: 'luake',
+                         address_kecamatan_list_id: address_kecamatan_lists(:acehtimur).id} }
     end
-
     assert_redirected_to address_kabupaten_list_url(AddressKabupatenList.last)
   end
 
