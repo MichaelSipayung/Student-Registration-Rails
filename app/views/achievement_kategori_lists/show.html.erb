@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @achievement_kategori_list %>
+
+<div>
+  <%= link_to "Edit this achievement kategori list", edit_achievement_kategori_list_path(@achievement_kategori_list) %> |
+  <%= link_to "Back to achievement kategori lists", achievement_kategori_lists_path %>
+
+  <%= button_to "Destroy this achievement kategori list", @achievement_kategori_list, method: :delete %>
+</div>

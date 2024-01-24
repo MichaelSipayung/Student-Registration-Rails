@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @achievement_tingkat_list %>
+
+<div>
+  <%= link_to "Edit this achievement tingkat list", edit_achievement_tingkat_list_path(@achievement_tingkat_list) %> |
+  <%= link_to "Back to achievement tingkat lists", achievement_tingkat_lists_path %>
+
+  <%= button_to "Destroy this achievement tingkat list", @achievement_tingkat_list, method: :delete %>
+</div>

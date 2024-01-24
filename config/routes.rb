@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :achievement_kategori_lists
+  resources :achievement_tingkat_lists
   resources :source_motivation_lists
   resources :source_information_lists
   resources :batch_lists

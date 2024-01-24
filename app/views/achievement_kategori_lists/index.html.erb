@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Achievement kategori lists</h1>
+
+<div id="achievement_kategori_lists">
+  <% @achievement_kategori_lists.each do |achievement_kategori_list| %>
+    <%= render achievement_kategori_list %>
+    <p>
+      <%= link_to "Show this achievement kategori list", achievement_kategori_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New achievement kategori list", new_achievement_kategori_list_path %>
