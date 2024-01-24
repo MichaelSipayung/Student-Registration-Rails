@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Source information lists</h1>
+
+<div id="source_information_lists">
+  <% @source_information_lists.each do |source_information_list| %>
+    <%= render source_information_list %>
+    <p>
+      <%= link_to "Show this source information list", source_information_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New source information list", new_source_information_list_path %>

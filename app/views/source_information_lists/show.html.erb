@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @source_information_list %>
+
+<div>
+  <%= link_to "Edit this source information list", edit_source_information_list_path(@source_information_list) %> |
+  <%= link_to "Back to source information lists", source_information_lists_path %>
+
+  <%= button_to "Destroy this source information list", @source_information_list, method: :delete %>
+</div>

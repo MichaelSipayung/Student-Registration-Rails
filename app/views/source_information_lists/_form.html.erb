@@ -1,0 +1,22 @@
+<%= form_with(model: source_information_list) do |form| %>
+  <% if source_information_list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(source_information_list.errors.count, "error") %> prohibited this source_information_list from being saved:</h2>
+
+      <ul>
+        <% source_information_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :informasi, style: "display: block" %>
+    <%= form.text_field :informasi %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

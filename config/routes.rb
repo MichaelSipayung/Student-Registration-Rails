@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :source_motivation_lists
+  resources :source_information_lists
+  resources :batch_lists
   resources :organization_degree_lists
   resources :language_degree_lists
   resources :language_name_lists

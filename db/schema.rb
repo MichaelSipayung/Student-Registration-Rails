@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_23_041957) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_23_231407) do
   create_table "achievements", force: :cascade do |t|
     t.string "nama_prestasi"
     t.date "tahun"

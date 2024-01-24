@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @batch_list %>
+
+<div>
+  <%= link_to "Edit this batch list", edit_batch_list_path(@batch_list) %> |
+  <%= link_to "Back to batch lists", batch_lists_path %>
+
+  <%= button_to "Destroy this batch list", @batch_list, method: :delete %>
+</div>

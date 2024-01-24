@@ -1,0 +1,2 @@
+module BatchListsHelper
+end

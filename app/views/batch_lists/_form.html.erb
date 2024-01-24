@@ -1,0 +1,27 @@
+<%= form_with(model: batch_list) do |form| %>
+  <% if batch_list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(batch_list.errors.count, "error") %> prohibited this batch_list from being saved:</h2>
+
+      <ul>
+        <% batch_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :gelombang, style: "display: block" %>
+    <%= form.text_field :gelombang %>
+  </div>
+
+  <div>
+    <%= form.label :aktif, style: "display: block" %>
+    <%= form.check_box :aktif %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

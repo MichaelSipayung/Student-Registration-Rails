@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Batch lists</h1>
+
+<div id="batch_lists">
+  <% @batch_lists.each do |batch_list| %>
+    <%= render batch_list %>
+    <p>
+      <%= link_to "Show this batch list", batch_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New batch list", new_batch_list_path %>

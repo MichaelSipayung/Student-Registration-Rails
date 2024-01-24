@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Source motivation lists</h1>
+
+<div id="source_motivation_lists">
+  <% @source_motivation_lists.each do |source_motivation_list| %>
+    <%= render source_motivation_list %>
+    <p>
+      <%= link_to "Show this source motivation list", source_motivation_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New source motivation list", new_source_motivation_list_path %>

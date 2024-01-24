@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @source_motivation_list %>
+
+<div>
+  <%= link_to "Edit this source motivation list", edit_source_motivation_list_path(@source_motivation_list) %> |
+  <%= link_to "Back to source motivation lists", source_motivation_lists_path %>
+
+  <%= button_to "Destroy this source motivation list", @source_motivation_list, method: :delete %>
+</div>
