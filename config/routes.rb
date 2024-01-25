@@ -80,4 +80,6 @@ Rails.application.routes.draw do
   resources :pmdk_each_score_informations,  only: [:new, :create, :edit, :update, :show]
   resources :pmdk_total_score_informations, only: [:new, :create, :edit, :update, :show]
 
+  resources :utbk_scores,               only: [:new, :create, :edit, :update, :show]
+  resources :utbk_school_informations,  only: [:new, :create, :edit, :update, :show]
 end

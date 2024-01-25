@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  no_peserta: MyString
+  tanggal_ujian: 2024-01-25
+
+two:
+  no_peserta: MyString
+  tanggal_ujian: 2024-01-25

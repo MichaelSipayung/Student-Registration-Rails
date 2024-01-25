@@ -28,9 +28,13 @@ class User < ApplicationRecord
   has_many :achievements, dependent: :destroy
   has_many :extras, dependent: :destroy
   has_many :organizations, dependent: :destroy
+
   has_one :pmdk_each_score_information, dependent: :destroy
   has_one :pmdk_total_score_information, dependent: :destroy
   has_one :pmdk_school_information, dependent: :destroy
+
+  has_one :utbk_score, dependent: :destroy
+  has_one :utbk_school_information, dependent: :destroy
   #validates the user input
   validates(:name, presence: true)
   validates(:name, length: {maximum: 50})

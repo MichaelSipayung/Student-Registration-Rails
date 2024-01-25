@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_25_025449) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_25_035732) do
   create_table "accreditation_school_lists", force: :cascade do |t|
     t.string "akreditasi"
     t.datetime "created_at", null: false
@@ -394,6 +394,32 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_025449) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "utbk_school_informations", force: :cascade do |t|
+    t.string "asal_sekolah"
+    t.string "akreditas"
+    t.decimal "jumlah_pelajaran_un"
+    t.decimal "jumlah_nilai_un"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_utbk_school_informations_on_user_id"
+  end
+
+  create_table "utbk_scores", force: :cascade do |t|
+    t.string "no_peserta"
+    t.date "tanggal_ujian"
+    t.decimal "nilai_penalaran_umum"
+    t.decimal "nilai_pengetahuan_kuantitatif"
+    t.decimal "nilai_pengetahuan_dan_pemahaman_umum"
+    t.decimal "nilai_kemampuan_memahami_bacaan_dan_menulis"
+    t.decimal "jumlah_pelajaran_semester_6"
+    t.decimal "jumlah_nilai_semester_6"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_utbk_scores_on_user_id"
+  end
+
   add_foreign_key "achievements", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
@@ -412,4 +438,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_025449) do
   add_foreign_key "pmdk_school_informations", "users"
   add_foreign_key "pmdk_total_score_informations", "users"
   add_foreign_key "sources", "users"
+  add_foreign_key "utbk_school_informations", "users"
+  add_foreign_key "utbk_scores", "users"
 end

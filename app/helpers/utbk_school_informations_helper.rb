@@ -1,0 +1,2 @@
+module UtbkSchoolInformationsHelper
+end
