@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_24_102935) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_25_025449) do
   create_table "accreditation_school_lists", force: :cascade do |t|
     t.string "akreditasi"
     t.datetime "created_at", null: false
@@ -285,10 +285,65 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_102935) do
     t.index ["user_id"], name: "index_personals_on_user_id"
   end
 
+  create_table "pmdk_each_score_informations", force: :cascade do |t|
+    t.decimal "matematika_semester_1"
+    t.decimal "matematika_semester_2"
+    t.decimal "matematika_semester_3"
+    t.decimal "matematika_semester_4"
+    t.decimal "matematika_semester_5"
+    t.decimal "fisika_semester_1"
+    t.decimal "fisika_semester_2"
+    t.decimal "fisika_semester_3"
+    t.decimal "fisika_semester_4"
+    t.decimal "fisika_semester_5"
+    t.decimal "kimia_semester_1"
+    t.decimal "kimia_semester_2"
+    t.decimal "kimia_semester_3"
+    t.decimal "kimia_semester_4"
+    t.decimal "kimia_semester_5"
+    t.decimal "bahasa_inggris_semester_1"
+    t.decimal "bahasa_inggris_semester_2"
+    t.decimal "bahasa_inggris_semester_3"
+    t.decimal "bahasa_inggris_semester_4"
+    t.decimal "bahasa_inggris_semester_5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_pmdk_each_score_informations_on_user_id"
+  end
+
+  create_table "pmdk_school_informations", force: :cascade do |t|
+    t.string "asal_sekolah"
+    t.string "akreditas"
+    t.decimal "jumlah_pelajaran_un"
+    t.decimal "jumlah_nilai_un"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_pmdk_school_informations_on_user_id"
+  end
+
   create_table "pmdk_school_lists", force: :cascade do |t|
     t.string "sekolah"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pmdk_total_score_informations", force: :cascade do |t|
+    t.decimal "jumlah_nilai_semester_1"
+    t.decimal "jumlah_nilai_semester_2"
+    t.decimal "jumlah_nilai_semester_3"
+    t.decimal "jumlah_nilai_semester_4"
+    t.decimal "jumlah_nilai_semester_5"
+    t.decimal "jumlah_pelajaran_semester_1"
+    t.decimal "jumlah_pelajaran_semester_2"
+    t.decimal "jumlah_pelajaran_semester_3"
+    t.decimal "jumlah_pelajaran_semester_4"
+    t.decimal "jumlah_pelajaran_semester_5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_pmdk_total_score_informations_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -353,5 +408,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_102935) do
   add_foreign_key "organizations", "users"
   add_foreign_key "parents", "users"
   add_foreign_key "personals", "users"
+  add_foreign_key "pmdk_each_score_informations", "users"
+  add_foreign_key "pmdk_school_informations", "users"
+  add_foreign_key "pmdk_total_score_informations", "users"
   add_foreign_key "sources", "users"
 end

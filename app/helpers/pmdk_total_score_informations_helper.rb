@@ -1,0 +1,2 @@
+module PmdkTotalScoreInformationsHelper
+end

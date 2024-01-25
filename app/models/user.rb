@@ -19,15 +19,18 @@ class User < ApplicationRecord
   # assign an activation token and digest to each user
   # before user created, using before_create callback
   before_create :create_activation_digest
-  has_one :personal
-  has_one :source
-  has_one :parent
-  has_one :major
-  has_many :addresses
-  has_many :languages
-  has_many :achievements
-  has_many :extras
-  has_many :organizations
+  has_one :personal, dependent: :destroy
+  has_one :source, dependent: :destroy
+  has_one :parent, dependent: :destroy
+  has_one :major, dependent: :destroy
+  has_many :addresses, dependent: :destroy
+  has_many :languages, dependent: :destroy
+  has_many :achievements, dependent: :destroy
+  has_many :extras, dependent: :destroy
+  has_many :organizations, dependent: :destroy
+  has_one :pmdk_each_score_information, dependent: :destroy
+  has_one :pmdk_total_score_information, dependent: :destroy
+  has_one :pmdk_school_information, dependent: :destroy
   #validates the user input
   validates(:name, presence: true)
   validates(:name, length: {maximum: 50})

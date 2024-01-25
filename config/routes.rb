@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :parent_job_lists
   resources :high_school_majors
   resources :major_lists
+
   # get 'personals/new'
   # get 'personals/update'
   # get 'personals/edit'
@@ -73,7 +74,10 @@ Rails.application.routes.draw do
   resources :extras,                only: [:new, :create, :edit, :update, :show]
   resources :organizations,         only: [:new, :create, :edit, :update, :show]
   resources :sources,               only: [:new, :create, :edit, :update, :show]
-  resources :majors,               only: [:new, :create, :edit, :update, :show]
+  resources :majors,                only: [:new, :create, :edit, :update, :show]
 
+  resources :pmdk_school_informations,      only: [:new, :create, :edit, :update, :show]
+  resources :pmdk_each_score_informations,  only: [:new, :create, :edit, :update, :show]
+  resources :pmdk_total_score_informations, only: [:new, :create, :edit, :update, :show]
 
 end
