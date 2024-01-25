@@ -1,9 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+utbk_score_one:
+  user: archer
   no_peserta: MyString
   tanggal_ujian: 2024-01-25
+  nilai_penalaran_umum: 179.5
 
-two:
+utbk_score_two:
+  user: iana
   no_peserta: MyString
   tanggal_ujian: 2024-01-25
+  nilai_penalaran_umum: 189.5
+
