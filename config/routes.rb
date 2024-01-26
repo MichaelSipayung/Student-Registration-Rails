@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'usm_school_informations/new'
-  get 'usm_school_informations/update'
-  get 'usm_school_informations/create'
-  get 'usm_school_informations/edit'
-  get 'usm_school_informations/show'
   resources :accreditation_school_lists
   resources :pmdk_school_lists
   resources :all_school_lists
@@ -85,6 +80,8 @@ Rails.application.routes.draw do
   resources :pmdk_each_score_informations,  only: [:new, :create, :edit, :update, :show]
   resources :pmdk_total_score_informations, only: [:new, :create, :edit, :update, :show]
 
-  resources :utbk_scores,               only: [:new, :create, :edit, :update, :show]
-  resources :utbk_school_informations,  only: [:new, :create, :edit, :update, :show]
+  resources :utbk_scores,                 only: [:new, :create, :edit, :update, :show]
+  resources :utbk_school_informations,    only: [:new, :create, :edit, :update, :show]
+  resources :usm_school_informations,     only: [:new, :create, :edit, :update, :show]
+
 end

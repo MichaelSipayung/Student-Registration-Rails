@@ -35,6 +35,7 @@ class User < ApplicationRecord
 
   has_one :utbk_score, dependent: :destroy
   has_one :utbk_school_information, dependent: :destroy
+  has_one :usm_school_information
   #validates the user input
   validates(:name, presence: true)
   validates(:name, length: {maximum: 50})
