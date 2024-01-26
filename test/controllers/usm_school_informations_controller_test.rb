@@ -77,8 +77,8 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
         jumlah_pelajaran_semester_5: 15, jumlah_nilai_semester_5: 799.9
       }
     }
+    assert_equal 'usm school information is updated', flash[:success]
     usm_school_informations(:usm_one).reload
-    puts usm_school_informations(:usm_one).reload.jurusan_sekolah
     assert_equal 'ipa MA', usm_school_informations(:usm_one).reload.jurusan_sekolah
     assert_equal 'sma santo tomas 2', usm_school_informations(:usm_one).asal_sekolah
     assert_equal 'terakreditasi', usm_school_informations(:usm_one).akreditas

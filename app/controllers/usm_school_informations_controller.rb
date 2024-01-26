@@ -8,6 +8,7 @@ class UsmSchoolInformationsController < ApplicationController
     if @usm_school.update(usm_school_information_params)
       flash[:success] = "usm school information is updated"
     else
+      puts @usm_school.errors.full_messages
       render 'edit'
     end
   end
@@ -28,10 +29,10 @@ class UsmSchoolInformationsController < ApplicationController
   def show
   end
   private
-  def usm_school_information_params
-    params.require(:usm_school_information).permit(
-    :jurusan_sekolah, :asal_sekolah, :akreditas, :jumlah_nilai_un,
-    :jumlah_pelajaran_un, :jumlah_pelajaran_semester_5, :jumlah_nilai_semester_5
-    )
-  end
+    def usm_school_information_params
+      params.require(:usm_school_information).permit(
+      :jurusan_sekolah, :asal_sekolah, :akreditas, :jumlah_nilai_un,
+      :jumlah_pelajaran_un, :jumlah_pelajaran_semester_5, :jumlah_nilai_semester_5
+      )
+    end
 end
