@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  asal_sekolah: MyString
-#  akreditas: MyString
-#  jumlah_pelajaran_un: MyString
-#  jumlah_nilai_un: MyString
+utbk_sc_one:
+  user: archer
+  asal_sekolah: MyString
+  akreditas: MyString
+  jumlah_pelajaran_un: 2
+  jumlah_nilai_un: 90.8
 
-#two:
-#  asal_sekolah: MyString
-#  akreditas: MyString
-#  jumlah_pelajaran_un: MyString
-#  jumlah_nilai_un: MyString
+utbk_sc_two:
+  user: iana
+  asal_sekolah: MyString
+  akreditas: MyString
+  jumlah_pelajaran_un: 4
+  jumlah_nilai_un: 90.9
