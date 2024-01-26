@@ -1,6 +1,6 @@
 require "test_helper"
 
-class LanguageTest < ActionDispatch::IntegrationTest
+class LanguageTestAll < ActionDispatch::IntegrationTest
   def setup
     get login_path
     post login_path, params: {session: {email: users(:archer).email, password: 'password'}}

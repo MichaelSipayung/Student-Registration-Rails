@@ -55,6 +55,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'PmdkSchoolInformation.count' do
       post pmdk_school_informations_path, params: {
         pmdk_school_information: {
+          jurusan_sekolah: 'slta',
           asal_sekolah: 'sma juanda timur',
           akreditas: 'Unggul',
           jumlah_nilai_un: 90.78,
@@ -73,6 +74,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'PmdkSchoolInformation.count' do
       post pmdk_school_informations_path, params: {
         pmdk_school_information: {
+          jurusan_sekolah: 'smk taruna',
           asal_sekolah: 'sma juanda timur',
           akreditas: 'Unggul',
           jumlah_nilai_un: 90.78,

@@ -17,6 +17,7 @@ class UtbkScoresController < ApplicationController
     if @utbk_score.save
       flash[:success] = "utbk score is saved"
     else
+      puts @utbk_score.errors.full_messages
       render 'new'
     end
   end

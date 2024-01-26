@@ -1,5 +1,6 @@
 class PmdkSchoolInformation < ApplicationRecord
   belongs_to :user
+  validates :jurusan_sekolah, presence: true, length: {minimum: 3, maximum: 50}
   validates :asal_sekolah, presence: true, length: {minimum: 3, maximum: 50}
   validates :akreditas, presence: true, length: {minimum: 1, maximum: 20}
   validates :jumlah_nilai_un, presence: false, numericality: {

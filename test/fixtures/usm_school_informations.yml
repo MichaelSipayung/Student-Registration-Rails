@@ -4,7 +4,6 @@ usm_one:
   user: archer
   asal_sekolah: MyString
   akreditas: MyString
-  jumlah_pelajaran_un: 2
   jumlah_nilai_un: 9.99
   jurusan_sekolah: MyString
   jumlah_pelajaran_semester_5: 1

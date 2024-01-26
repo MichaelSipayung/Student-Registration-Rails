@@ -29,7 +29,7 @@ class PmdkSchoolInformationsController < ApplicationController
   end
   private
   def pmdk_school_information_params
-    params.require(:pmdk_school_information).permit(:asal_sekolah,
+    params.require(:pmdk_school_information).permit(:asal_sekolah, :jurusan_sekolah,
                                                     :akreditas,
                                                     :jumlah_pelajaran_un,
                                                     :jumlah_nilai_un)

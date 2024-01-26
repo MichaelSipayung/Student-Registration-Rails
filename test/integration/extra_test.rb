@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ExtraTest < ActionDispatch::IntegrationTest
+class ExtraTestAll < ActionDispatch::IntegrationTest
   def setup
     get login_path
     post login_path, params: {session: {email: users(:michael).email, password: 'password'}}

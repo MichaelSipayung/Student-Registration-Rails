@@ -29,7 +29,7 @@ class UtbkSchoolInformationsController < ApplicationController
   end
   private
   def utbk_school_information_params
-    params.require(:utbk_school_information).permit(:asal_sekolah, :akreditas,
+    params.require(:utbk_school_information).permit(:asal_sekolah, :akreditas, :jurusan_sekolah,
                                                     :jumlah_pelajaran_un,
                                                     :jumlah_nilai_un)
   end

@@ -70,7 +70,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
       post utbk_school_informations_path, params: {
         utbk_school_information: {
           asal_sekolah: 'sma 2 tarutung', jumlah_pelajaran_un: 9,
-          jumlah_nilai_un: 100.5, akreditas: 'Baik'
+          jumlah_nilai_un: 100.5, akreditas: 'Baik', jurusan_sekolah: 'ipa'
         }
       }
     end
@@ -85,6 +85,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'UtbkSchoolInformation.count' do
       post utbk_school_informations_path, params: {
         utbk_school_information: {
+          jurusan_sekolah: 'smu tunas',
           asal_sekolah: 'sm', jumlah_pelajaran_un: 9,
           jumlah_nilai_un: 100.5, akreditas: 'Baik'
         }
@@ -98,6 +99,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'UtbkSchoolInformation.count' do
       post utbk_school_informations_path, params: {
         utbk_school_information: {
+          jurusan_sekolah: 'smk teknik',
           asal_sekolah: 'sma 1 nauli', jumlah_pelajaran_un: 9,
           jumlah_nilai_un: 100.5, akreditas: 'Baik', user_id: 98978
         }

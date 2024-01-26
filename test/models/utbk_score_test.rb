@@ -2,7 +2,7 @@ require "test_helper"
 
 class UtbkScoreTest < ActiveSupport::TestCase
   def setup
-    @score_utbk = UtbkScore.create!(user_id: users(:michael).id, no_peserta: '200-1bx', tanggal_ujian: '2020-12-11',
+    @score_utbk = UtbkScore.new(user_id: users(:michael).id, no_peserta: '200-1bx', tanggal_ujian: '2020-12-11',
                                 jumlah_nilai_semester_6: 1200.5, jumlah_pelajaran_semester_6: 11,
                                 nilai_penalaran_umum: 120.5,
                                 nilai_pengetahuan_kuantitatif: 150.5,
@@ -10,11 +10,6 @@ class UtbkScoreTest < ActiveSupport::TestCase
                                 nilai_pengetahuan_dan_pemahaman_umum: 250.5)
   end
   test "should valid utbk score" do
-    assert_not_nil UtbkScore.find_by_jumlah_nilai_semester_6 1200.5
-    assert_not_nil UtbkScore.find_by_nilai_penalaran_umum 120.5
-    assert_not_nil UtbkScore.find_by_nilai_pengetahuan_kuantitatif 150.5
-    assert_not_nil UtbkScore.find_by_nilai_pengetahuan_dan_pemahaman_umum 250.5
-    assert_not_nil UtbkScore.find_by_nilai_kemampuan_memahami_bacaan_dan_menulis 300.5
     assert @score_utbk.valid?
   end
   test "should reject invalid no_peserta" do

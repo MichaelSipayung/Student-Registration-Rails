@@ -8,7 +8,7 @@ class UsmSchoolInformationsController < ApplicationController
     if @usm_school.update(usm_school_information_params)
       flash[:success] = "usm school information is updated"
     else
-      puts @usm_school.errors.full_messages
+      # puts @usm_school.errors.full_messages
       render 'edit'
     end
   end

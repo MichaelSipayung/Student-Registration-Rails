@@ -1,6 +1,6 @@
 require "test_helper"
 
-class OrganizationTest < ActionDispatch::IntegrationTest
+class OrganizationTestAll < ActionDispatch::IntegrationTest
   def setup
     get login_path
     post login_path, params: {session: {

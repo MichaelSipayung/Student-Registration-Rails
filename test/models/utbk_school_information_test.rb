@@ -2,8 +2,8 @@ require "test_helper"
 
 class UtbkSchoolInformationTest < ActiveSupport::TestCase
   def setup
-    @usm_school = UtbkSchoolInformation.new(
-      user_id: users(:michael).id, asal_sekolah: 'sma tarutung',
+    @utbk_information = UtbkSchoolInformation.new(
+      user_id: users(:michael).id, asal_sekolah: 'sma tarutung',jurusan_sekolah: 'ips',
       jumlah_pelajaran_un: 5, jumlah_nilai_un: 50.5, akreditas: 'A'
     )
   end

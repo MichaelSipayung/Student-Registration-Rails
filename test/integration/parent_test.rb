@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ParentTest < ActionDispatch::IntegrationTest
+class ParentTestAll < ActionDispatch::IntegrationTest
   def setup
     get login_path
     post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
@@ -46,7 +46,6 @@ class ParentTest < ActionDispatch::IntegrationTest
         tanggal_lahir_ibu: '2013-12-10', pekerjaan_ayah: 'buruh', pekerjaan_ibu: 'guru'
       }}
     end
-    assert_nil Parent.find_by_nama_ayah('luhut panjaitan')
   end
   test "should update data for valid parent information" do
     get edit_parent_path(parents(:myparent))

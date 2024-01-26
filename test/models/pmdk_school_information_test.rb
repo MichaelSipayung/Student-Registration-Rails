@@ -3,7 +3,7 @@ require "test_helper"
 class PmdkSchoolInformationTest < ActiveSupport::TestCase
   def setup
     @pmdk_information = PmdkSchoolInformation.new(
-      user_id: users(:michael).id, asal_sekolah: 'sma tarutung',
+      user_id: users(:michael).id, asal_sekolah: 'sma tarutung', jurusan_sekolah: 'ips',
       jumlah_pelajaran_un: 5, jumlah_nilai_un: 50.5, akreditas: 'A'
     )
   end

@@ -2,6 +2,7 @@
 
 pmdk_sc_one:
   user: archer
+  jurusan_sekolah: smk teknik
   asal_sekolah: MyString
   akreditas: MyString
   jumlah_pelajaran_un: 2
@@ -9,6 +10,7 @@ pmdk_sc_one:
 
 pmdk_sc_two:
   user: iana
+  jurusan_sekolah: smk perminyakan
   asal_sekolah: MyString
   akreditas: MyString
   jumlah_pelajaran_un: 7

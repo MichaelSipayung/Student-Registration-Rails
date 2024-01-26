@@ -33,6 +33,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
         }
       }
     end
+    assert_equal 'usm school information is saved', flash[:success]
     assert_not_nil UsmSchoolInformation.find_by_jurusan_sekolah 'ipa MA'
     assert_not_nil UsmSchoolInformation.find_by_asal_sekolah 'sma santo tomas 2'
     assert_not_nil UsmSchoolInformation.find_by_jumlah_pelajaran_semester_5 15

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class AchievementTest < ActionDispatch::IntegrationTest
+class AchievementTests < ActionDispatch::IntegrationTest
   def setup
     get login_path
     post login_path, params: {session: {email: users(:michael).email, password: 'password'}}

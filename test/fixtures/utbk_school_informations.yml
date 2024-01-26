@@ -2,6 +2,7 @@
 
 utbk_sc_one:
   user: archer
+  jurusan_sekolah: 'ips'
   asal_sekolah: MyString
   akreditas: MyString
   jumlah_pelajaran_un: 2
@@ -9,6 +10,7 @@ utbk_sc_one:
 
 utbk_sc_two:
   user: iana
+  jurusan_sekolah: 'ips'
   asal_sekolah: MyString
   akreditas: MyString
   jumlah_pelajaran_un: 4
