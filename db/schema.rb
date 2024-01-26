@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_25_035732) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_26_085158) do
   create_table "accreditation_school_lists", force: :cascade do |t|
     t.string "akreditasi"
     t.datetime "created_at", null: false
@@ -394,6 +394,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_035732) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "usm_school_informations", force: :cascade do |t|
+    t.string "asal_sekolah"
+    t.string "akreditas"
+    t.integer "jumlah_pelajaran_un"
+    t.decimal "jumlah_nilai_un"
+    t.string "jurusan_sekolah"
+    t.integer "jumlah_pelajaran_semester_5"
+    t.decimal "jumlah_nilai_semester_5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_usm_school_informations_on_user_id"
+  end
+
   create_table "utbk_school_informations", force: :cascade do |t|
     t.string "asal_sekolah"
     t.string "akreditas"
@@ -438,6 +452,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_035732) do
   add_foreign_key "pmdk_school_informations", "users"
   add_foreign_key "pmdk_total_score_informations", "users"
   add_foreign_key "sources", "users"
+  add_foreign_key "usm_school_informations", "users"
   add_foreign_key "utbk_school_informations", "users"
   add_foreign_key "utbk_scores", "users"
 end

@@ -3,8 +3,7 @@ require "test_helper"
 class ParentTest < ActiveSupport::TestCase
   def setup
     @user  =   users(:michael)
-    @parent = Parent.new(user_id: @user.id, nama_ayah: 'example', nama_ibu: 'example',
-                     nik_ayah: 1234567891234567, nik_ibu: 1234567891234567, pendidikan_ayah: 'sma',
+    @parent = Parent.new(user_id: @user.id, nama_ayah: 'example', nama_ibu: 'example', pendidikan_ayah: 'sma',
                      pendidikan_ibu: 'sma', pekerjaan_ayah: 'wiraswasta', pekerjaan_ibu: 'wiraswasta',
                      tanggal_lahir_ayah: '1997-12-12', tanggal_lahir_ibu: '1997-12-12')
   end
@@ -35,9 +34,9 @@ class ParentTest < ActiveSupport::TestCase
     @parent.nama_ibu = "a"*26
     assert_not @parent.valid?
   end
-  test "nik_ayah should be present" do
+  test "nik_ayah should not be present" do
     @parent.nik_ayah = ""
-    assert_not @parent.valid?
+    assert @parent.valid?
   end
   test "nik_ayah should not be too short" do
     @parent.nik_ayah = "a"*15
@@ -47,9 +46,9 @@ class ParentTest < ActiveSupport::TestCase
     @parent.nik_ayah = "a"*17
     assert_not @parent.valid?
   end
-  test "nik_ibu should be present" do
+  test "nik_ibu should not be present" do
     @parent.nik_ibu = ""
-    assert_not @parent.valid?
+    assert @parent.valid?
   end
   test "nik_ibu should not be too short" do
     @parent.nik_ibu = "a"*15

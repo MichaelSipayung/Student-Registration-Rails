@@ -5,7 +5,7 @@ class PersonalTest < ActiveSupport::TestCase
     @user  = users(:michael)
     @personal  = Personal.new(user_id: @user.id, nama_lengkap: "Example User", agama: 'islam', jenis_kelamin: 'laki-laki',
                               tempat_lahir: 'jakarta', tanggal_lahir: '1997-12-12',
-                              nik: 1234567890123456, nisn: 1234567890, no_kps: 123456, domisili: 'jakarta')
+                              nik: 1234567890123456, nisn: 1234567890, domisili: 'jakarta')
   end
   test "should be valid" do
     assert @personal.valid?
