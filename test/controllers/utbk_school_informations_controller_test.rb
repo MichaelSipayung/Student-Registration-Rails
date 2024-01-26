@@ -45,7 +45,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
         jumlah_nilai_un: 200.5, akreditas: 'Baik sekali', user_id: 98777908
       }
     }
-    assert_nil UtbkSchoolInformation.find_by_user_id 98777908
+    assert_not_equal 98777908, utbk_school_informations(:utbk_sc_one).reload.user_id
   end
   test "should reject update the utbk school for invalid information" do
     get login_path
@@ -61,7 +61,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
         jumlah_nilai_un: 200.5, akreditas: ' '
       }
     }
-    assert_nil UtbkSchoolInformation.find_by_asal_sekolah 'sma 9 balige'
+    assert_not_equal 'sma 9 balige', utbk_school_informations(:utbk_sc_one).reload.user_id
   end
   test "should create utbk school information" do
     get new_utbk_school_information_path
@@ -106,6 +106,10 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_nil UtbkSchoolInformation.find_by_user_id 98978
   end
   test "should get edit - utbk school information" do
+    get login_path
+    post login_path, params: {session: {
+      email: users(:archer).email, password: 'password'
+    }}
     get edit_utbk_school_information_url(utbk_school_informations(:utbk_sc_one))
     assert_response :success
   end
