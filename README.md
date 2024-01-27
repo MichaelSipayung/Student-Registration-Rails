@@ -1,24 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a spmb application (student registration site), my purpose to write this application is not mean to replace the current application, but to propose a new
+direction how the good spmb application look like. Feel free to use it and pull request are welcome.
+Current status: experimental. 
