@@ -1,0 +1,14 @@
+<% provide(:title, "Parent Information") %>
+<h1>Informasi Prestasi Akademik/ Non Akademik</h1>
+<div class="row">
+  <div col-md-6 col-md-offset-3>
+    <%= form_with(model: @achievement, local: true, data: {turbo: false}) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <%= f.text_field :nama_prestasi, class: 'form-control', placeholder: 'Nama Prestasi' %>
+          <%= f.text_field :tingkat, class: 'form-control', placeholder: 'Tingkat' %>
+          <%= f.text_field :tahun, class: 'form-control', placeholder: 'Tahun' %>
+          <%= f.text_field :kategori, class: 'form-control', placeholder: 'Kategori' %>
+          <%= f.submit "Simpan", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

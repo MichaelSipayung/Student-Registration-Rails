@@ -1,0 +1,17 @@
+<% provide(:title, "Parent Information") %>
+<h1>Informasi Data Orang Tua</h1>
+<div class="row">
+  <div col-md-6 col-md-offset-3>
+    <%= form_with(model: @address, local: true, data: {turbo: false}) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <%= f.text_field :alamat, class: 'form-control', placeholder: 'Alamat' %>
+          <%= f.text_field :kelurahan, class: 'form-control', placeholder: 'Kelurahan' %>
+          <%= f.text_field :provinsi, class: 'form-control', placeholder: 'Provinsi' %>
+          <%= f.text_field :kabupaten, class: 'form-control', placeholder: 'Kabupaten' %>
+          <%= f.text_field :kecamatan, class: 'form-control', placeholder: 'Kecamatan' %>
+          <%= f.text_field :kode_pos, class: 'form-control', placeholder: 'Kode Pos' %>
+          <%= f.text_field :no_telepon, class: 'form-control', placeholder: 'No Telepon' %>
+          <%= f.submit "Simpan", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

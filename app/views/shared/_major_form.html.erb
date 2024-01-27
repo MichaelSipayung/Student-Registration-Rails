@@ -1,0 +1,14 @@
+<% provide(:title, "Majors Information") %>
+<h1>Informasi Pilihan Jurusan</h1>
+<div class="row">
+  <div col-md-6 col-md-offset-3>
+    <%= form_with(model: @major, local: true, data: {turbo: false}) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <%= f.text_field :jurusan_1, class: 'form-control', placeholder: 'Jurusan 1' %>
+          <%= f.text_field :jurusan_2, class: 'form-control', placeholder: 'Jurusan 2' %>
+          <%= f.text_field :jurusan_3, class: 'form-control', placeholder: 'Jurusan 3' %>
+          <%= f.text_field :gelombang, class: 'form-control', placeholder: 'Gelombang' %>
+          <%= f.submit "Simpan", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

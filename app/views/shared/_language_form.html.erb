@@ -1,0 +1,12 @@
+<% provide(:title, "Language Ability Information") %>
+<h1>Informasi Kemampuan Bahasa Asing</h1>
+<div class="row">
+  <div col-md-6 col-md-offset-3>
+    <%= form_with(model: @language, local: true, data: {turbo: false}) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <%= f.text_field :nama_bahasa, class: 'form-control', placeholder: 'Nama Bahasa Asing' %>
+          <%= f.text_field :tingkat, class: 'form-control', placeholder: 'Tingkat' %>
+          <%= f.submit "Simpan", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

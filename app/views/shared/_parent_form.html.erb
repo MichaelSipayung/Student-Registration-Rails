@@ -1,0 +1,20 @@
+<% provide(:title, "Parent Information") %>
+<h1>Informasi Data Orang Tua</h1>
+<div class="row">
+  <div col-md-6 col-md-offset-3>
+    <%= form_with(model: @parent, local: true, data: {turbo: false}) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <%= f.text_field :nama_ayah, class: 'form-control', placeholder: 'Nama Ayah' %>
+          <%= f.text_field :nama_ibu, class: 'form-control', placeholder: 'Nama Ibu' %>
+          <%= f.text_field :nik_ayah, class: 'form-control', placeholder: 'Nik Ayah' %>
+          <%= f.text_field :nik_ibu, class: 'form-control', placeholder: 'Nik Ibu' %>
+          <%= f.text_field :pendidikan_ayah, class: 'form-control', placeholder: 'Pendidikan Ayah' %>
+          <%= f.text_field :pendidikan_ibu, class: 'form-control', placeholder: 'Nomor Induk Kependudukan' %>
+          <%= f.text_field :pekerjaan_ayah, class: 'form-control', placeholder: 'Pekerjaan Ayah' %>
+          <%= f.text_field :pekerjaan_ibu, class: 'form-control', placeholder: 'Pekerjaan Ibu' %>
+          <%= f.text_field :tanggal_lahir_ayah, class: 'form-control', placeholder: 'Tanggal Lahir Ayah' %>
+          <%= f.text_field :tanggal_lahir_ibu, class: 'form-control', placeholder: 'Tanggal Lahir Ibu' %>
+          <%= f.submit "Simpan", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
