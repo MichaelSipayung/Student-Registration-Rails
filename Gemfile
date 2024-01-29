@@ -75,6 +75,7 @@ group :test do
   gem "minitest"
   gem "minitest-reporters"
   gem 'rails-controller-testing'
+  gem 'pg', '~> 1.2' # Add this line
 end
 #
 # group :production do
