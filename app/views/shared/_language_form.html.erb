@@ -4,8 +4,12 @@
   <div col-md-6 col-md-offset-3>
     <%= form_with(model: @language, local: true, data: {turbo: false}) do |f| %>
         <%= render "shared/error_messages", object: f.object %>
-          <%= f.text_field :nama_bahasa, class: 'form-control', placeholder: 'Nama Bahasa Asing' %>
-          <%= f.text_field :tingkat, class: 'form-control', placeholder: 'Tingkat' %>
+          <%= f.select :nama_bahasa, options_from_collection_for_select(
+            @language_name_list, 'bahasa', 'bahasa'
+          ), {}, {class: 'form-select', required: true} %>
+          <%= f.select :tingkat, options_from_collection_for_select(
+            @language_degree_list, 'tingkat', 'tingkat'
+          ), {}, {class: 'form-select', required: true} %>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>
     <% end %>
   </div>

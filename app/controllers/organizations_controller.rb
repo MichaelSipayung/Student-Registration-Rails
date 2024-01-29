@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+  before_action :set_organization_dropdown_menu, only: [:new, :create, :edit, :update]
   def new
     @organization = current_user.organizations.build
   end
@@ -30,5 +31,8 @@ class OrganizationsController < ApplicationController
   private
   def organization_params
     params.require(:organization).permit(:nama_organisasi, :mulai, :berakhir, :jabatan)
+  end
+  def set_organization_dropdown_menu
+    @organization_degree_list = OrganizationDegreeList.all
   end
 end

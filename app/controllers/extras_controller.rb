@@ -1,4 +1,5 @@
 class ExtrasController < ApplicationController
+  before_action :set_extra_dropdown_menu, only: [:new, :create, :edit, :update]
   def new
     @extra = current_user.extras.build
   end
@@ -30,5 +31,8 @@ class ExtrasController < ApplicationController
   private
   def extra_params
     params.require(:extra).permit(:nama_kegiatan, :mulai, :berakhir, :predikat)
+  end
+  def set_extra_dropdown_menu
+    @extra_list = ExtraList.all
   end
 end

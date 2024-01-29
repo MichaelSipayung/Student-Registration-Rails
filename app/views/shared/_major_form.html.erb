@@ -4,10 +4,14 @@
   <div col-md-6 col-md-offset-3>
     <%= form_with(model: @major, local: true, data: {turbo: false}) do |f| %>
         <%= render "shared/error_messages", object: f.object %>
-          <%= f.text_field :jurusan_1, class: 'form-control', placeholder: 'Jurusan 1' %>
-          <%= f.text_field :jurusan_2, class: 'form-control', placeholder: 'Jurusan 2' %>
-          <%= f.text_field :jurusan_3, class: 'form-control', placeholder: 'Jurusan 3' %>
-          <%= f.text_field :gelombang, class: 'form-control', placeholder: 'Gelombang' %>
+          <%= f.select :jurusan_1, options_from_collection_for_select(@major_list, 'jurusan', 'jurusan'),
+                       {}, {class: 'form-select', required: true}%>
+          <%= f.select :jurusan_2, options_from_collection_for_select(@major_list, 'jurusan', 'jurusan'),
+                   {}, {class: 'form-select', required: true}%>
+          <%= f.select :jurusan_3, options_from_collection_for_select(@major_list, 'jurusan', 'jurusan'),
+                   {}, {class: 'form-select', required: true}%>
+          <%= f.select :gelombang, options_from_collection_for_select(@batch_list, 'gelombang', 'gelombang'),
+                   {}, {class: 'form-select', required: true}%>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>
     <% end %>
   </div>

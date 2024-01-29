@@ -5,9 +5,13 @@
     <%= form_with(model: @achievement, local: true, data: {turbo: false}) do |f| %>
         <%= render "shared/error_messages", object: f.object %>
           <%= f.text_field :nama_prestasi, class: 'form-control', placeholder: 'Nama Prestasi' %>
-          <%= f.text_field :tingkat, class: 'form-control', placeholder: 'Tingkat' %>
-          <%= f.text_field :tahun, class: 'form-control', placeholder: 'Tahun' %>
-          <%= f.text_field :kategori, class: 'form-control', placeholder: 'Kategori' %>
+          <%= f.select :tingkat, options_from_collection_for_select(
+            @achievement_tingkat_list, 'tingkat', 'tingkat'
+          ), {}, {class: 'form-selection', required: true} %>
+          <%= f.date_field :tahun, class: 'form-control', placeholder: 'Tahun' %>
+          <%= f.select :kategori, options_from_collection_for_select(
+                         @achievement_kategori_list, 'kategori', 'kategori'),{},
+                       {class: 'form-selection', required: true}%>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>
     <% end %>
   </div>

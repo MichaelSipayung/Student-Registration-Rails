@@ -5,9 +5,10 @@
     <%= form_with(model: @extra, local: true, data: {turbo: false}) do |f| %>
         <%= render "shared/error_messages", object: f.object %>
           <%= f.text_field :nama_kegiatan, class: 'form-control', placeholder: 'Nama Kegiatan' %>
-          <%= f.text_field :predikat, class: 'form-control', placeholder: 'Predikat' %>
-          <%= f.text_field :mulai, class: 'form-control', placeholder: 'Mulai' %>
-          <%= f.text_field :berakhir, class: 'form-control', placeholder: 'Berakhir' %>
+          <%= f.select :predikat, options_from_collection_for_select(
+            @extra_list, 'predikat', 'predikat'), {}, {class: 'form-select', required: true} %>
+          <%= f.date_field :mulai, class: 'form-control', placeholder: 'Mulai' %>
+          <%= f.date_field :berakhir, class: 'form-control', placeholder: 'Berakhir' %>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>
     <% end %>
   </div>

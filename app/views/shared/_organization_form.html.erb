@@ -5,9 +5,11 @@
     <%= form_with(model: @organization, local: true, data: {turbo: false}) do |f| %>
         <%= render "shared/error_messages", object: f.object %>
           <%= f.text_field :nama_organisasi, class: 'form-control', placeholder: 'Nama Organisasi' %>
-          <%= f.text_field :jabatan, class: 'form-control', placeholder: 'Jabatan' %>
-          <%= f.text_field :mulai, class: 'form-control', placeholder: 'Mulai' %>
-          <%= f.text_field :berakhir, class: 'form-control', placeholder: 'Berakhir' %>
+          <%= f.select :jabatan, options_from_collection_for_select(
+            @organization_degree_list, 'jabatan','jabatan'
+          ), {}, {class: 'form-select', required: true} %>
+          <%= f.date_field :mulai, class: 'form-control', placeholder: 'Mulai' %>
+          <%= f.date_field :berakhir, class: 'form-control', placeholder: 'Berakhir' %>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>
     <% end %>
   </div>

@@ -1,4 +1,5 @@
 class SourcesController < ApplicationController
+  before_action :set_source_dropdown_menu, only: [:new, :create, :edit, :update]
   def new
     @source = current_user.build_source
   end
@@ -30,5 +31,9 @@ class SourcesController < ApplicationController
   private
   def source_params
     params.require(:source).permit(:jumlah_n, :sumber_informasi, :motivasi)
+  end
+  def set_source_dropdown_menu
+    @source_motivation_list = SourceMotivationList.all
+    @source_information_list = SourceInformationList.all
   end
 end

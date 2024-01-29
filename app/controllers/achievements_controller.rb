@@ -1,4 +1,5 @@
 class AchievementsController < ApplicationController
+  before_action :set_achievement_dropdown_menu, only: [:new, :create, :edit, :update]
   def new
     @achievement = current_user.achievements.build
   end
@@ -30,5 +31,9 @@ class AchievementsController < ApplicationController
   private
     def achievement_params
       params.require(:achievement).permit(:nama_prestasi, :tahun, :tingkat, :kategori)
+    end
+    def set_achievement_dropdown_menu
+      @achievement_tingkat_list = AchievementTingkatList.all
+      @achievement_kategori_list = AchievementKategoriList.all
     end
 end
