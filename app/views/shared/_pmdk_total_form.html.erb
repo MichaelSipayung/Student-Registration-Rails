@@ -1,0 +1,30 @@
+<% provide(:title, "PMDK Information") %>
+<h1>Informasi Nilai Akademik</h1>
+<div class="row">
+  <div col-md-6 col-md-offset-3>
+    <%= form_with(model: @pmdk_total_score, local: true, data: {turbo: false}) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <%= f.text_field :jumlah_nilai_semester_1, class: 'form-control',
+                           placeholder: 'Jumlah Nilai Semester 1' %>
+          <%= f.text_field :jumlah_pelajaran_semester_1, class: 'form-control',
+                       placeholder: 'Jumlah Pelajaran Semester 1' %>
+          <%= f.text_field :jumlah_nilai_semester_2, class: 'form-control',
+                           placeholder: 'Jumlah Nilai Semester 2' %>
+          <%= f.text_field :jumlah_pelajaran_semester_2, class: 'form-control',
+                           placeholder: 'Jumlah Pelajaran Semester 2' %>
+          <%= f.text_field :jumlah_nilai_semester_3, class: 'form-control',
+                           placeholder: 'Jumlah Nilai Semester 3' %>
+          <%= f.text_field :jumlah_pelajaran_semester_3, class: 'form-control',
+                           placeholder: 'Jumlah Pelajaran Semester 3' %>
+          <%= f.text_field :jumlah_nilai_semester_4, class: 'form-control',
+                           placeholder: 'Jumlah Nilai Semester 4' %>
+          <%= f.text_field :jumlah_pelajaran_semester_4, class: 'form-control',
+                           placeholder: 'Jumlah Pelajaran Semester 4' %>
+          <%= f.text_field :jumlah_nilai_semester_5, class: 'form-control',
+                           placeholder: 'Jumlah Nilai Semester 5' %>
+          <%= f.text_field :jumlah_pelajaran_semester_5, class: 'form-control',
+                           placeholder: 'Jumlah Pelajaran Semester 5' %>
+              <%= f.submit "Simpan", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

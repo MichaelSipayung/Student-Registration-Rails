@@ -1,4 +1,5 @@
 class PmdkSchoolInformationsController < ApplicationController
+  before_action :set_pmdk_school_dropdown, only: [:new, :create, :edit, :update]
   def new
     @pmdk_school_information  = current_user.build_pmdk_school_information
   end
@@ -33,5 +34,9 @@ class PmdkSchoolInformationsController < ApplicationController
                                                     :akreditas,
                                                     :jumlah_pelajaran_un,
                                                     :jumlah_nilai_un)
+  end
+  def set_pmdk_school_dropdown
+    @accreditation = AccreditationSchoolList.all
+    @high_school_major = HighSchoolMajor.all
   end
 end
