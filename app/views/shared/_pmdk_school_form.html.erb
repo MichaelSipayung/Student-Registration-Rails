@@ -1,0 +1,17 @@
+<% provide(:title, "PMDK School Information") %>
+<h1>Informasi Sekolah</h1>
+<div class="row">
+  <div col-md-6 col-md-offset-3>
+    <%= form_with(model: @pmdk_school_information, local: true, data: {turbo: false}) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <%= f.text_field :asal_sekolah, class: 'form-control', placeholder: 'Cari Sekolah Asal' %>
+          <%= f.select :jurusan_sekolah, options_from_collection_for_select(
+          @high_school_major, 'jurusan', 'jurusan'), {} , {class: 'form-select', required: true}  %>
+          <%= f.select :akreditas, options_from_collection_for_select(
+          @accreditation, 'akreditasi','akreditasi'), {} , {class: 'form-select', required: true}  %>
+          <%= f.number_field :jumlah_pelajaran_un, class: 'form-control', placeholder: 'Jumlah Pelajaran UN' %>
+          <%= f.text_field :jumlah_nilai_un, class: 'form-control', placeholder: 'Jumlah Nilai UN' %>
+          <%= f.submit "Simpan", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

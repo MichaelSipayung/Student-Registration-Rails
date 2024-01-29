@@ -1,4 +1,5 @@
 class UtbkSchoolInformationsController < ApplicationController
+  before_action :set_utbk_school_dropdown, only: [:new, :create, :edit, :update]
   def new
     @utbk_school_information = current_user.build_utbk_school_information
   end
@@ -32,5 +33,9 @@ class UtbkSchoolInformationsController < ApplicationController
     params.require(:utbk_school_information).permit(:asal_sekolah, :akreditas, :jurusan_sekolah,
                                                     :jumlah_pelajaran_un,
                                                     :jumlah_nilai_un)
+  end
+  def set_utbk_school_dropdown
+    @accreditation = AccreditationSchoolList.all
+    @high_school_major = HighSchoolMajor.all
   end
 end
