@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+  before_action :set_address_dropdown_menu, only: [:new, :create, :edit, :update]
   def new
     @address  = current_user.addresses.build
   end
@@ -31,5 +32,10 @@ class AddressesController < ApplicationController
   def address_params
     params.require(:address).permit(:alamat, :kelurahan, :kecamatan, :kode_pos, :provinsi,
                                     :no_telepon, :kabupaten)
+  end
+  def set_address_dropdown_menu
+    @province = AddressProvinceList.all #provinsi
+    @kabupaten = AddressKabupatenList.all #kabupaten
+    @kecamatan = AddressKecamatanList.all #kecamatan
   end
 end

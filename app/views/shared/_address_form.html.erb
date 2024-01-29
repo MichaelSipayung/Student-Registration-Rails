@@ -6,11 +6,14 @@
         <%= render "shared/error_messages", object: f.object %>
           <%= f.text_field :alamat, class: 'form-control', placeholder: 'Alamat' %>
           <%= f.text_field :kelurahan, class: 'form-control', placeholder: 'Kelurahan' %>
-          <%= f.text_field :provinsi, class: 'form-control', placeholder: 'Provinsi' %>
-          <%= f.text_field :kabupaten, class: 'form-control', placeholder: 'Kabupaten' %>
-          <%= f.text_field :kecamatan, class: 'form-control', placeholder: 'Kecamatan' %>
-          <%= f.text_field :kode_pos, class: 'form-control', placeholder: 'Kode Pos' %>
-          <%= f.text_field :no_telepon, class: 'form-control', placeholder: 'No Telepon' %>
+          <%= f.select :provinsi, options_from_collection_for_select(@province, 'provinsi', 'provinsi'),
+                       {}, {class: 'form-select', required: true} %>
+          <%= f.select :kabupaten, options_from_collection_for_select(@kabupaten, 'kabupaten', 'kabupaten'),
+                       {}, {class: 'form-select', required: true} %>
+          <%= f.select :kecamatan, options_from_collection_for_select(@kecamatan, 'kecamatan', 'kecamatan'),
+                       {}, {class: 'form-select', required: true} %>
+          <%= f.number_field :kode_pos, class: 'form-control', placeholder: 'Kode Pos' %>
+          <%= f.number_field :no_telepon, class: 'form-control', placeholder: 'No Telepon' %>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>
     <% end %>
   </div>

@@ -1,8 +1,8 @@
 class Major < ApplicationRecord
   belongs_to :user
-  validates :jurusan_1, presence: true, length: { minimum: 4, maximum: 20 }
-  validates :jurusan_2, presence: true, length: { minimum: 4, maximum: 20 }
-  validates :jurusan_3, presence: true, length: { minimum: 4, maximum: 20 }
+  validates :jurusan_1, presence: true, length: { minimum: 4, maximum: 30 }
+  validates :jurusan_2, presence: true, length: { minimum: 4, maximum: 30 }
+  validates :jurusan_3, presence: true, length: { minimum: 4, maximum: 30 }
   validates :gelombang, presence: true, length: { minimum: 4, maximum: 30 }
   #each jurusan_1 is different from jurusan_2 and jurusan_3
   # each jurusan_2 is different from jurusan_3

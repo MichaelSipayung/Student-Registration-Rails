@@ -1,4 +1,5 @@
 class ParentsController < ApplicationController
+  before_action :set_parent_dropdown_menu, only: [:new, :create, :edit, :update]
   def new
     @parent  = current_user.build_parent
   end
@@ -33,4 +34,8 @@ class ParentsController < ApplicationController
                                      :pendidikan_ibu, :tanggal_lahir_ayah, :tanggal_lahir_ibu,
                                      :pekerjaan_ayah, :pekerjaan_ibu)
     end
+  def set_parent_dropdown_menu
+    @parent_education = ParentEducationList.all
+    @parant_job = ParentJobList.all
+  end
 end

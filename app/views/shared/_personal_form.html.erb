@@ -1,19 +1,82 @@
 <% provide(:title, "Personal Information") %>
-<h1>Informasi Data Pribadi Siswa</h1>
-<div class="row">
-  <div col-md-6 col-md-offset-3>
-    <%= form_with(model: @personal, local: true, data: {turbo: false}) do |f| %>
-        <%= render "shared/error_messages", object: f.object %>
-          <%= f.text_field :nama_lengkap, class: 'form-control', placeholder: 'Nama Lengkap' %>
-          <%= f.text_field :agama, class: 'form-control', placeholder: 'Agama' %>
-          <%= f.text_field :jenis_kelamin, class: 'form-control', placeholder: 'Jenis Kelamin' %>
-          <%= f.text_field :tempat_lahir, class: 'form-control', placeholder: 'Tempat Lahir' %>
-          <%= f.text_field :tanggal_lahir, class: 'form-control', placeholder: 'Tanggal Lahir' %>
-          <%= f.text_field :nik, class: 'form-control', placeholder: 'Nomor Induk Kependudukan' %>
-          <%= f.text_field :nisn, class: 'form-control', placeholder: 'Nomor Induk Siswa Nasional' %>
-          <%= f.text_field :no_kps, class: 'form-control', placeholder: 'Nomor Kartu Perlindungan Sosial' %>
-          <%= f.text_field :domisili, class: 'form-control', placeholder: 'Kabupaten Domisili' %>
-          <%= f.submit "Simpan", class: 'btn btn-primary' %>
-    <% end %>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <h1 class="card-title text-center mb-4">Informasi Data Pribadi Siswa</h1>
+          <%= form_with(model: @personal, local: true, data: {turbo: false}) do |f| %>
+            <%= render "shared/error_messages", object: f.object %>
+            <div class="mb-3">
+              <%= f.label :nama_lengkap, class: 'form-label' %>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                <%= f.text_field :nama_lengkap, class: 'form-control', placeholder: 'Nama Lengkap', required: true %>
+              </div>
+            </div>
+            <div class="mb-3">
+              <%= f.label :agama, class: 'form-label' %>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-book-fill"></i></span>
+                <%= f.select :agama, options_from_collection_for_select(@personal_religion, 'agama', 'agama'), {},
+                             {class: 'form-select', required: true} %>
+              </div>
+            </div>
+            <div class="mb-3">
+              <%= f.label :jenis_kelamin, class: 'form-label' %>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-gender-ambiguous"></i></span>
+                <%= f.select :jenis_kelamin, options_from_collection_for_select(@personal_gender, 'jenis_kelamin', 'jenis_kelamin'), {}, {class: 'form-select', required: true} %>
+              </div>
+            </div>
+            <div class="mb-3">
+              <%= f.label :tempat_lahir, class: 'form-label' %>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-geo-fill"></i></span>
+                <%= f.text_field :tempat_lahir, class: 'form-control', placeholder: 'Tempat Lahir', required: true %>
+              </div>
+            </div>
+            <div class="mb-3">
+              <%= f.label :tanggal_lahir, class: 'form-label' %>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-calendar-fill"></i></span>
+                <%= f.text_field :tanggal_lahir, class: 'form-control', placeholder: 'Tanggal Lahir', required: true %>
+              </div>
+            </div>
+            <div class="mb-3">
+              <%= f.label :nik, class: 'form-label' %>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                <%= f.text_field :nik, class: 'form-control', placeholder: 'Nomor Induk Kependudukan', required: true %>
+              </div>
+            </div>
+            <div class="mb-3">
+              <%= f.label :no_kps, class: 'form-label' %>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                <%= f.text_field :no_kps, class: 'form-control', placeholder: 'Nomor Kartu Perlindungan Sosial', required: true %>
+              </div>
+            </div>
+           <div class="mb-3">
+              <%= f.label :nisn, class: 'form-label' %>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                <%= f.text_field :nisn, class: 'form-control', placeholder: 'Nomor Induk Siswa Nasional', required: true %>
+              </div>
+            </div>
+            <div class="mb-3">
+              <%= f.label :domisili, class: 'form-label' %>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                <%= f.text_field :domisili, class: 'form-control', placeholder: 'Domisili', required: true %>
+              </div>
+            </div>
+            <div class="mb-3">
+              <%= f.submit "Simpan", class: 'btn btn-primary w-100' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

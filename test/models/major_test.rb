@@ -46,7 +46,7 @@ class MajorTest < ActiveSupport::TestCase
     assert_not @major.valid?
   end
   test "jurusan_1 should not be to long" do
-    @major.jurusan_1 = "a"*21
+    @major.jurusan_1 = "a"*31
     assert_not @major.valid?
   end
   test "jurusan_2 should not be to short" do
@@ -54,7 +54,7 @@ class MajorTest < ActiveSupport::TestCase
     assert_not @major.valid?
   end
   test "jurusan_2 should not be to long" do
-    @major.jurusan_2 = "a"*21
+    @major.jurusan_2 = "a"*31
     assert_not @major.valid?
   end
   test "jurusan_3 should not be to short" do
@@ -62,7 +62,7 @@ class MajorTest < ActiveSupport::TestCase
     assert_not @major.valid?
   end
   test "jurusan_3 should not be to long" do
-    @major.jurusan_3 = "a"*21
+    @major.jurusan_3 = "a"*31
     assert_not @major.valid?
   end
   test "gelombang should not be to short" do
