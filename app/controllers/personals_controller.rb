@@ -1,4 +1,5 @@
 class PersonalsController < ApplicationController
+  before_action :set_personal_dropdown_menu, only: [:new, :create, :edit, :update]
   def new
     @personal = current_user.build_personal
   end
@@ -27,5 +28,9 @@ class PersonalsController < ApplicationController
     def personal_params
       params.require(:personal).permit(:nama_lengkap, :agama, :nik, :nisn, :no_kps, :tanggal_lahir,
                                        :tempat_lahir, :jenis_kelamin, :domisili)
+    end
+    def set_personal_dropdown_menu
+      @personal_religion = PersonalReligionList.all
+      @personal_gender = PersonalGenderList.all
     end
 end

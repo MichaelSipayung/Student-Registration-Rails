@@ -16,7 +16,7 @@ class MajorListTest < ActiveSupport::TestCase
     assert_not @major.valid?
   end
   test "should reject for major greater than 25" do
-    @major.jurusan ='a'*26
+    @major.jurusan ='a'*31
     assert_not @major.valid?
   end
   test "should reject for non unique major" do
