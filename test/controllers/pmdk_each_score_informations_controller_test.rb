@@ -12,6 +12,11 @@ class PmdkEachScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   test "should get edit pmdk each score information" do
+    assert is_logged_in?
+    get login_path
+    post login_path, params: {session: {
+      email: users(:archer).email, password: 'password'
+    }}
     get edit_pmdk_each_score_information_path(pmdk_each_score_informations(:pmdk_each_score_one))
     assert_response :success
   end
