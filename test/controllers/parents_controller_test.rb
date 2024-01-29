@@ -12,6 +12,8 @@ class ParentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
+    get login_path
+    post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
     assert is_logged_in?
     get edit_parent_path(parents(:myparent))
     assert_response :success
