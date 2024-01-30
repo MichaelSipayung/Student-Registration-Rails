@@ -1,4 +1,5 @@
 class PmdkTotalScoreInformationsController < ApplicationController
+  before_action :set_pmdk_total_score, only: %i[edit update show]
   def new
     @pmdk_total_score = current_user.build_pmdk_total_score_information
   end
@@ -36,5 +37,8 @@ class PmdkTotalScoreInformationsController < ApplicationController
       :jumlah_pelajaran_semester_3, :jumlah_pelajaran_semester_4, :jumlah_pelajaran_semester_5,
       :surat_rekomendasi
     )
+  end
+  def set_pmdk_total_score
+    @pmdk_total_score = PmdkTotalScoreInformation.find(params[:id])
   end
 end

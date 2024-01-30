@@ -1,5 +1,7 @@
 class UsmSchoolInformationsController < ApplicationController
   before_action :set_usm_school_dropdown, only: [:new, :create, :edit, :update]
+  before_action :set_usm_school, only: %i[edit update show]
+
   def new
     @usm_school = current_user.build_usm_school_information
   end
@@ -40,4 +42,7 @@ class UsmSchoolInformationsController < ApplicationController
       @accreditation = AccreditationSchoolList.all
       @high_school_major = HighSchoolMajor.all
     end
+  def set_usm_school
+    @usm_school = UsmSchoolInformation.find(params[:id])
+  end
 end

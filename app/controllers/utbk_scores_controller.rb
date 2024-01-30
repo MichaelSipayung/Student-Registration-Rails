@@ -1,4 +1,6 @@
 class UtbkScoresController < ApplicationController
+  before_action :set_utbk_score, only: %i[edit update show]
+
   def new
     @utbk_score = current_user.build_utbk_score
   end
@@ -37,5 +39,8 @@ class UtbkScoresController < ApplicationController
                                        :nilai_pengetahuan_kuantitatif,
                                        :nilai_kemampuan_memahami_bacaan_dan_menulis,
                                        :nilai_pengetahuan_dan_pemahaman_umum, :sertifikat_utbk)
+  end
+  def set_utbk_score
+    @utbk_score = UtbkScore.find(params[:id])
   end
 end
