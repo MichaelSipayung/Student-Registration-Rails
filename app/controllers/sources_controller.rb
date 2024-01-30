@@ -1,5 +1,7 @@
 class SourcesController < ApplicationController
   before_action :set_source_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_source_information, only: %i[edit update show]
+
   def new
     @source = current_user.build_source
   end
@@ -35,5 +37,8 @@ class SourcesController < ApplicationController
   def set_source_dropdown_menu
     @source_motivation_list = SourceMotivationList.all
     @source_information_list = SourceInformationList.all
+  end
+  def set_source_information
+    @source = Source.find(params[:id])
   end
 end
