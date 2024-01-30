@@ -1,0 +1,24 @@
+<% provide(:title, "UTBK School Information") %>
+<h1>Informasi Sekolah</h1>
+<div class="row">
+  <div col-md-6 col-md-offset-3>
+    <%= form_with(model: @utbk_score, local: true, data: {turbo: false}) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <%= f.text_field :no_peserta, class: 'form-control', placeholder: 'No Peserta UTBK' %>
+          <%= f.date_field :tanggal_ujian, class: 'form-control', placeholder: 'Tanggal Ujian UTBK' %>
+          <%= f.text_field :nilai_penalaran_umum, class: 'form-control',
+                           placeholder: 'Nilai Penalaran Umum' %>
+          <%= f.text_field :nilai_pengetahuan_dan_pemahaman_umum, class: 'form-control',
+                           placeholder: 'Nilai Pengetahuan dan Pemahaman Umum' %>
+          <%= f.text_field :nilai_pengetahuan_kuantitatif, class: 'form-control',
+                           placeholder: 'Nilai Pengetahuan Kuantitatif' %>
+          <%= f.text_field :nilai_kemampuan_memahami_bacaan_dan_menulis, class: 'form-control',
+                           placeholder: 'Nilai Kemampuan Memahami Bacaan & Menulis' %>
+          <%= f.text_field :jumlah_nilai_semester_6, class: 'form-control',
+                       placeholder: 'Jumlah Nilai Semester 6' %>
+          <%= f.number_field :jumlah_pelajaran_semester_6, class: 'form-control',
+                       placeholder: 'Jumlah Pelajaran Semester 6' %>
+          <%= f.submit "Simpan", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
