@@ -47,6 +47,13 @@
                            placeholder: 'Nilai Bahasa Inggris Semester 4' %>
           <%= f.text_field :bahasa_inggris_semester_5, class: 'form-control',
                            placeholder: 'Nilai Bahasa Inggris Semester 5' %>
+          <%= f.file_field :sertifikat, accept: 'application/pdf' %>
+          <% if @pmdk_each_score.persisted? && @pmdk_each_score.sertifikat.attached? %>
+            <span class="content">
+                <%= link_to 'Lihat file sertifikat',
+                            rails_blob_path(@pmdk_each_score.sertifikat, disposition: 'attachment') %>
+            </span>
+          <%end %>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>
     <% end %>
   </div>

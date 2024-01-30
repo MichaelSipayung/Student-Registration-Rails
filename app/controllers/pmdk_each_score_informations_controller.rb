@@ -34,7 +34,7 @@ class PmdkEachScoreInformationsController < ApplicationController
       :matematika_semester_5, :kimia_semester_1, :kimia_semester_2, :kimia_semester_3, :kimia_semester_4,
       :kimia_semester_5, :fisika_semester_1, :fisika_semester_2, :fisika_semester_3, :fisika_semester_4,
       :fisika_semester_5, :bahasa_inggris_semester_1, :bahasa_inggris_semester_2, :bahasa_inggris_semester_3,
-      :bahasa_inggris_semester_4, :bahasa_inggris_semester_5
+      :bahasa_inggris_semester_4, :bahasa_inggris_semester_5, :sertifikat
     )
   end
 end

@@ -33,7 +33,8 @@ class PmdkTotalScoreInformationsController < ApplicationController
       :jumlah_nilai_semester_1, :jumlah_nilai_semester_2, :jumlah_nilai_semester_3,
       :jumlah_nilai_semester_4, :jumlah_nilai_semester_5,
       :jumlah_pelajaran_semester_1, :jumlah_pelajaran_semester_2,
-      :jumlah_pelajaran_semester_3, :jumlah_pelajaran_semester_4, :jumlah_pelajaran_semester_5
+      :jumlah_pelajaran_semester_3, :jumlah_pelajaran_semester_4, :jumlah_pelajaran_semester_5,
+      :surat_rekomendasi
     )
   end
 end

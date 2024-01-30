@@ -33,7 +33,7 @@ class PmdkSchoolInformationsController < ApplicationController
     params.require(:pmdk_school_information).permit(:asal_sekolah, :jurusan_sekolah,
                                                     :akreditas,
                                                     :jumlah_pelajaran_un,
-                                                    :jumlah_nilai_un)
+                                                    :jumlah_nilai_un, :nilai_rapor)
   end
   def set_pmdk_school_dropdown
     @accreditation = AccreditationSchoolList.all

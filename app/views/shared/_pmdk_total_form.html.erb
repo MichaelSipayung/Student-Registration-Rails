@@ -24,7 +24,15 @@
                            placeholder: 'Jumlah Nilai Semester 5' %>
           <%= f.text_field :jumlah_pelajaran_semester_5, class: 'form-control',
                            placeholder: 'Jumlah Pelajaran Semester 5' %>
-              <%= f.submit "Simpan", class: 'btn btn-primary' %>
+          <%= f.file_field :surat_rekomendasi, accept: 'application/pdf' %>
+          <%if @pmdk_total_score.persisted? &&
+            @pmdk_total_score.surat_rekomendasi.attached?%>
+                <span class="content">
+                  <%= link_to "Lihat file surat rekomendasi", rails_blob_path(@pmdk_total_score.surat_rekomendasi,
+                                                                  disposition: 'attachment')%>
+                </span>
+          <%end %>
+          <%= f.submit "Simpan", class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>

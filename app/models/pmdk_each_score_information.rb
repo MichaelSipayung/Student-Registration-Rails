@@ -6,4 +6,6 @@ class PmdkEachScoreInformation < ApplicationRecord
             :fisika_semester_5, :bahasa_inggris_semester_1, :bahasa_inggris_semester_2, :bahasa_inggris_semester_3,
             :bahasa_inggris_semester_4, :bahasa_inggris_semester_5, presence: true,
             numericality: {only_integer: false, greater_than_or_equal_to: 2, less_than_or_equal_to: 100}
+  has_one_attached :sertifikat
+  validates :sertifikat, content_type: [:pdf], size: {less_than: 1.megabytes}
 end
