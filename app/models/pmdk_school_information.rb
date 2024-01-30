@@ -10,4 +10,6 @@ class PmdkSchoolInformation < ApplicationRecord
     only_integer: true, greater_than_or_equal_to: 2,
     less_than_or_equal_to: 10
   }, allow_nil: true
+  has_one_attached :nilai_rapor
+  validates :nilai_rapor, content_type: [:pdf], size: {less_than: 1.megabytes}
 end

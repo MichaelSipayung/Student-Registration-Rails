@@ -11,6 +11,16 @@
           @accreditation, 'akreditasi','akreditasi'), {} , {class: 'form-select', required: true}  %>
           <%= f.number_field :jumlah_pelajaran_un, class: 'form-control', placeholder: 'Jumlah Pelajaran UN' %>
           <%= f.text_field :jumlah_nilai_un, class: 'form-control', placeholder: 'Jumlah Nilai UN' %>
+          <span class="image">
+              <%= f.file_field :nilai_rapor, accept: 'application/pdf' %>
+          </span>
+          <%if @pmdk_school_information.persisted? &&
+            @pmdk_school_information.nilai_rapor.attached?%>
+            <span class="content">
+              <%= link_to "Lihat file rapor", rails_blob_path(@pmdk_school_information.nilai_rapor,
+                disposition: 'attachment')%>
+            </span>
+          <%end %>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>
     <% end %>
   </div>

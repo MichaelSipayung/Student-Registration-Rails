@@ -36,6 +36,6 @@ class UtbkScoresController < ApplicationController
                                        :nilai_penalaran_umum,
                                        :nilai_pengetahuan_kuantitatif,
                                        :nilai_kemampuan_memahami_bacaan_dan_menulis,
-                                       :nilai_pengetahuan_dan_pemahaman_umum)
+                                       :nilai_pengetahuan_dan_pemahaman_umum, :sertifikat_utbk)
   end
 end
