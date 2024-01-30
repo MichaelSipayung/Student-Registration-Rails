@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_26_221827) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_30_043242) do
   create_table "accreditation_school_lists", force: :cascade do |t|
     t.string "akreditasi"
     t.datetime "created_at", null: false
@@ -315,7 +315,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_26_221827) do
   create_table "pmdk_school_informations", force: :cascade do |t|
     t.string "asal_sekolah"
     t.string "akreditas"
-    t.decimal "jumlah_pelajaran_un"
+    t.integer "jumlah_pelajaran_un"
     t.decimal "jumlah_nilai_un"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -336,11 +336,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_26_221827) do
     t.decimal "jumlah_nilai_semester_3"
     t.decimal "jumlah_nilai_semester_4"
     t.decimal "jumlah_nilai_semester_5"
-    t.decimal "jumlah_pelajaran_semester_1"
-    t.decimal "jumlah_pelajaran_semester_2"
-    t.decimal "jumlah_pelajaran_semester_3"
-    t.decimal "jumlah_pelajaran_semester_4"
-    t.decimal "jumlah_pelajaran_semester_5"
+    t.integer "jumlah_pelajaran_semester_1"
+    t.integer "jumlah_pelajaran_semester_2"
+    t.integer "jumlah_pelajaran_semester_3"
+    t.integer "jumlah_pelajaran_semester_4"
+    t.integer "jumlah_pelajaran_semester_5"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
@@ -412,7 +412,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_26_221827) do
   create_table "utbk_school_informations", force: :cascade do |t|
     t.string "asal_sekolah"
     t.string "akreditas"
-    t.decimal "jumlah_pelajaran_un"
+    t.integer "jumlah_pelajaran_un"
     t.decimal "jumlah_nilai_un"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

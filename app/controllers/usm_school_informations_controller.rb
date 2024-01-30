@@ -1,4 +1,5 @@
 class UsmSchoolInformationsController < ApplicationController
+  before_action :set_usm_school_dropdown, only: [:new, :create, :edit, :update]
   def new
     @usm_school = current_user.build_usm_school_information
   end
@@ -34,5 +35,9 @@ class UsmSchoolInformationsController < ApplicationController
       :jurusan_sekolah, :asal_sekolah, :akreditas, :jumlah_nilai_un,
       :jumlah_pelajaran_un, :jumlah_pelajaran_semester_5, :jumlah_nilai_semester_5
       )
+    end
+    def set_usm_school_dropdown
+      @accreditation = AccreditationSchoolList.all
+      @high_school_major = HighSchoolMajor.all
     end
 end
