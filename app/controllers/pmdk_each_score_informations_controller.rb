@@ -1,4 +1,5 @@
 class PmdkEachScoreInformationsController < ApplicationController
+  before_action :set_pmdk_each_score, only: %i[show edit update]
   def new
     @pmdk_each_score = current_user.build_pmdk_each_score_information
   end
@@ -36,5 +37,9 @@ class PmdkEachScoreInformationsController < ApplicationController
       :fisika_semester_5, :bahasa_inggris_semester_1, :bahasa_inggris_semester_2, :bahasa_inggris_semester_3,
       :bahasa_inggris_semester_4, :bahasa_inggris_semester_5, :sertifikat
     )
+  end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pmdk_each_score
+    @pmdk_each_score = PmdkEachScoreInformation.find(params[:id])
   end
 end

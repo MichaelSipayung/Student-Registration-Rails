@@ -1,5 +1,6 @@
 class PmdkSchoolInformationsController < ApplicationController
   before_action :set_pmdk_school_dropdown, only: [:new, :create, :edit, :update]
+  before_action :set_pmdk_school, only: %i[edit update show]
   def new
     @pmdk_school_information  = current_user.build_pmdk_school_information
   end
@@ -38,5 +39,8 @@ class PmdkSchoolInformationsController < ApplicationController
   def set_pmdk_school_dropdown
     @accreditation = AccreditationSchoolList.all
     @high_school_major = HighSchoolMajor.all
+  end
+  def set_pmdk_school
+    @pmdk_school_information = PmdkSchoolInformation.find(params[:id])
   end
 end
