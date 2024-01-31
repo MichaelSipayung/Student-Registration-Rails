@@ -10,7 +10,7 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     } }
   end
   test 'should get new score' do
-    assert is_logged_in?
+    assert logged_in?
     get new_utbk_score_url
     assert_response :success
   end
@@ -65,7 +65,7 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:iana).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_utbk_score_url(utbk_scores(:utbk_score_two))
     assert_response :success
   end

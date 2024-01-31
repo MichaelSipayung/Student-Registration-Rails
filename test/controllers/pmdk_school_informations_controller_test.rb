@@ -19,7 +19,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_pmdk_school_information_path(pmdk_school_informations(:pmdk_sc_one))
     assert_response :success
     patch pmdk_school_information_path(pmdk_school_informations(:pmdk_sc_one)),
@@ -39,7 +39,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:iana).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_pmdk_school_information_path(pmdk_school_informations(:pmdk_sc_two))
     assert_response :success
     patch pmdk_school_information_path(pmdk_school_informations(:pmdk_sc_two)),
@@ -107,7 +107,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_pmdk_school_information_path(pmdk_school_informations(:pmdk_sc_one))
     assert_response :success
   end

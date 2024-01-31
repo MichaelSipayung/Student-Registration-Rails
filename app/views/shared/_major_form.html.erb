@@ -4,12 +4,12 @@
   <div col-md-6 col-md-offset-3>
     <%= form_with(model: @major, local: true, data: {turbo: false}) do |f| %>
         <%= render "shared/error_messages", object: f.object %>
-          <%= f.select :jurusan_1, options_from_collection_for_select(@major_list, 'jurusan', 'jurusan'),
+          <%= f.select :jurusan1, options_from_collection_for_select(@major_list, 'jurusan', 'jurusan'),
                        {}, {class: 'form-select', required: true}%>
-          <%= f.select :jurusan_2, options_from_collection_for_select(@major_list, 'jurusan', 'jurusan'),
-                   {}, {class: 'form-select', required: true}%>
-          <%= f.select :jurusan_3, options_from_collection_for_select(@major_list, 'jurusan', 'jurusan'),
-                   {}, {class: 'form-select', required: true}%>
+          <%= f.select :jurusan2, options_from_collection_for_select(@major_list, 'jurusan', 'jurusan'),
+                       {}, {class: 'form-select', required: true}%>
+          <%= f.select :jurusan3, options_from_collection_for_select(@major_list, 'jurusan', 'jurusan'),
+                       {}, {class: 'form-select', required: true}%>
           <%= f.select :gelombang, options_from_collection_for_select(@batch_list, 'gelombang', 'gelombang'),
                    {}, {class: 'form-select', required: true}%>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>

@@ -5,22 +5,22 @@ require 'test_helper'
 class MajorTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    @major = Major.new(user_id: @user.id, jurusan_1: 'example', jurusan_2: 'example1', jurusan_3: 'example3',
+    @major = Major.new(user_id: @user.id, jurusan1: 'example', jurusan2: 'example1', jurusan3: 'example3',
                        gelombang: 'example')
   end
   test 'should be valid' do
     assert @major.valid?
   end
   test 'jurusan_1  is required' do
-    @major.jurusan_1 = ''
+    @major.jurusan1 = ''
     assert_not @major.valid?
   end
   test 'jurusan_2  is required' do
-    @major.jurusan_2 = ''
+    @major.jurusan2 = ''
     assert_not @major.valid?
   end
   test 'jurusan_3  is required' do
-    @major.jurusan_3 = ''
+    @major.jurusan3 = ''
     assert_not @major.valid?
   end
   test 'gelombang  is required' do
@@ -29,43 +29,43 @@ class MajorTest < ActiveSupport::TestCase
   end
 
   test "jurusan_1 can't be equal to jurusan_2" do
-    @major.jurusan_1 = 'example'
-    @major.jurusan_2 = 'example'
+    @major.jurusan1 = 'example'
+    @major.jurusan2 = 'example'
     assert_not @major.valid?
   end
   test "jurusan_1 can't be equal to jurusan_3" do
-    @major.jurusan_1 = 'example'
-    @major.jurusan_3 = 'example'
+    @major.jurusan1 = 'example'
+    @major.jurusan3 = 'example'
     assert_not @major.valid?
   end
   test "jurusan_2 can't be equal to jurusan_3" do
-    @major.jurusan_2 = 'example'
-    @major.jurusan_3 = 'example'
+    @major.jurusan2 = 'example'
+    @major.jurusan3 = 'example'
     assert_not @major.valid?
   end
 
   test 'jurusan_1 should not be to short' do
-    @major.jurusan_1 = 'a' * 3
+    @major.jurusan1 = 'a' * 3
     assert_not @major.valid?
   end
   test 'jurusan_1 should not be to long' do
-    @major.jurusan_1 = 'a' * 31
+    @major.jurusan1 = 'a' * 31
     assert_not @major.valid?
   end
   test 'jurusan_2 should not be to short' do
-    @major.jurusan_2 = 'a' * 3
+    @major.jurusan2 = 'a' * 3
     assert_not @major.valid?
   end
   test 'jurusan_2 should not be to long' do
-    @major.jurusan_2 = 'a' * 31
+    @major.jurusan2 = 'a' * 31
     assert_not @major.valid?
   end
   test 'jurusan_3 should not be to short' do
-    @major.jurusan_3 = 'a' * 3
+    @major.jurusan3 = 'a' * 3
     assert_not @major.valid?
   end
   test 'jurusan_3 should not be to long' do
-    @major.jurusan_3 = 'a' * 31
+    @major.jurusan3 = 'a' * 31
     assert_not @major.valid?
   end
   test 'gelombang should not be to short' do

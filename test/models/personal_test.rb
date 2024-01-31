@@ -5,9 +5,10 @@ require 'test_helper'
 class PersonalTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    @personal = Personal.new(user_id: @user.id, nama_lengkap: 'Example User', agama: 'islam', jenis_kelamin: 'laki-laki',
-                             tempat_lahir: 'jakarta', tanggal_lahir: '1997-12-12',
-                             nik: 1_234_567_890_123_456, nisn: 1_234_567_890, domisili: 'jakarta')
+    @personal =
+      Personal.new(user_id: @user.id, nama_lengkap: 'Example User', agama: 'islam',
+                   jenis_kelamin: 'laki-laki', tempat_lahir: 'jakarta', tanggal_lahir: '1997-12-12',
+                   nik: 1_234_567_890_123_456, nisn: 1_234_567_890, domisili: 'jakarta')
   end
   test 'should be valid' do
     assert @personal.valid?

@@ -13,7 +13,7 @@ class AchievementsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit' do
-    assert is_logged_in?
+    assert logged_in?
     puts users(:michael).inspect # This will print the michael user to the console
     get edit_achievement_path achievements(:first_achievement)
     assert_response :success

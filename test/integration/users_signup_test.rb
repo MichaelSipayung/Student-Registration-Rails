@@ -52,15 +52,15 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     # try login before activation
     get login_path
     post login_path, params: { session: { email: user.email, password: 'password' } }
-    assert_not is_logged_in?
+    assert_not logged_in?
     # valid token wrong email
     get edit_account_activation_path(user.activation_token, email: 'wrong')
-    assert_not is_logged_in?
+    assert_not logged_in?
     # valid activation
     get edit_account_activation_path(user.activation_token, email: user.email)
     assert user.reload.activated?
     follow_redirect!
     assert_template 'users/show'
-    assert is_logged_in?
+    assert logged_in?
   end
 end

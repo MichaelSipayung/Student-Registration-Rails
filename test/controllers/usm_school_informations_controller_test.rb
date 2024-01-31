@@ -10,7 +10,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     } }
   end
   test 'should get new usm school information' do
-    assert is_logged_in?
+    assert logged_in?
     get new_usm_school_information_url
     assert_response :success
   end
@@ -20,7 +20,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_usm_school_information_url(usm_school_informations(:usm_one))
     assert_response :success
   end
@@ -71,7 +71,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_usm_school_information_url(usm_school_informations(:usm_one))
     assert_response :success
     patch usm_school_information_path(usm_school_informations(:usm_one)), params: {
@@ -93,7 +93,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_usm_school_information_url(usm_school_informations(:usm_one))
     assert_response :success
     patch usm_school_information_path(usm_school_informations(:usm_one)), params: {
@@ -110,7 +110,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_usm_school_information_url(usm_school_informations(:usm_one))
     assert_response :success
     patch usm_school_information_path(usm_school_informations(:usm_one)), params: {

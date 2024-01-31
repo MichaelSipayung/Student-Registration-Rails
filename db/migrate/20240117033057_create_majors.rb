@@ -3,9 +3,9 @@
 class CreateMajors < ActiveRecord::Migration[7.1]
   def change
     create_table :majors do |t|
-      t.string :jurusan_1
-      t.string :jurusan_2
-      t.string :jurusan_3
+      t.string :jurusan1
+      t.string :jurusan2
+      t.string :jurusan3
       t.string :gelombang
 
       t.timestamps

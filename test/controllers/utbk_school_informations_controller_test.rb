@@ -19,7 +19,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_utbk_school_information_url(utbk_school_informations(:utbk_sc_one))
     assert_response :success
     patch utbk_school_information_path(utbk_school_informations(:utbk_sc_one)), params: {
@@ -38,7 +38,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_utbk_school_information_url(utbk_school_informations(:utbk_sc_one))
     assert_response :success
     patch utbk_school_information_path(utbk_school_informations(:utbk_sc_one)), params: {
@@ -54,7 +54,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_utbk_school_information_url(utbk_school_informations(:utbk_sc_one))
     assert_response :success
     patch utbk_school_information_path(utbk_school_informations(:utbk_sc_one)), params: {

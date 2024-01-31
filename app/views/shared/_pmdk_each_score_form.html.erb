@@ -4,48 +4,48 @@
   <div col-md-6 col-md-offset-3>
     <%= form_with(model: @pmdk_each_score, local: true, data: {turbo: false}) do |f| %>
         <%= render "shared/error_messages", object: f.object %>
-          <%= f.text_field :matematika_semester_1, class: 'form-control',
+          <%= f.text_field :matematika_semester1, class: 'form-control',
                            placeholder: 'Nilai Matematika Semester 1' %>
-          <%= f.text_field :matematika_semester_2, class: 'form-control',
-                       placeholder: 'Nilai Matematika Semester 2' %>
-          <%= f.text_field :matematika_semester_3, class: 'form-control',
+          <%= f.text_field :matematika_semester2, class: 'form-control',
+                           placeholder: 'Nilai Matematika Semester 2' %>
+          <%= f.text_field :matematika_semester3, class: 'form-control',
                            placeholder: 'Nilai Matematika Semester 3' %>
-          <%= f.text_field :matematika_semester_4, class: 'form-control',
+          <%= f.text_field :matematika_semester4, class: 'form-control',
                            placeholder: 'Nilai Matematika Semester 4' %>
-          <%= f.text_field :matematika_semester_5, class: 'form-control',
+          <%= f.text_field :matematika5, class: 'form-control',
                            placeholder: 'Nilai Matematika Semester 5' %>
 
-          <%= f.text_field :kimia_semester_1, class: 'form-control',
+          <%= f.text_field :kimia1, class: 'form-control',
                            placeholder: 'Nilai Kimia Semester 1' %>
-          <%= f.text_field :kimia_semester_2, class: 'form-control',
+          <%= f.text_field :kimia2, class: 'form-control',
                            placeholder: 'Nilai Kimia Semester 2' %>
-          <%= f.text_field :kimia_semester_3, class: 'form-control',
+          <%= f.text_field :kimia3, class: 'form-control',
                            placeholder: 'Nilai Kimia Semester 3' %>
-          <%= f.text_field :kimia_semester_4, class: 'form-control',
+          <%= f.text_field :kimia4, class: 'form-control',
                            placeholder: 'Nilai Kimia Semester 4' %>
-          <%= f.text_field :kimia_semester_5, class: 'form-control',
+          <%= f.text_field :kimia5, class: 'form-control',
                            placeholder: 'Nilai Kimia Semester 5' %>
 
-          <%= f.text_field :fisika_semester_1, class: 'form-control',
+          <%= f.text_field :fisika1, class: 'form-control',
                            placeholder: 'Nilai Fisika Semester 1' %>
-          <%= f.text_field :fisika_semester_2, class: 'form-control',
+          <%= f.text_field :fisika2, class: 'form-control',
                            placeholder: 'Nilai Fisika Semester 2' %>
-          <%= f.text_field :fisika_semester_3, class: 'form-control',
+          <%= f.text_field :fisika3, class: 'form-control',
                            placeholder: 'Nilai Fisika Semester 3' %>
-          <%= f.text_field :fisika_semester_4, class: 'form-control',
+          <%= f.text_field :fisika4, class: 'form-control',
                            placeholder: 'Nilai Fisika Semester 4' %>
           <%= f.text_field :fisika_semester_5, class: 'form-control',
                            placeholder: 'Nilai Fisika Semester 5' %>
 
-          <%= f.text_field :bahasa_inggris_semester_1, class: 'form-control',
+          <%= f.text_field :inggris1, class: 'form-control',
                            placeholder: 'Nilai Bahasa Inggris Semester 1' %>
-          <%= f.text_field :bahasa_inggris_semester_2, class: 'form-control',
+          <%= f.text_field :inggris2, class: 'form-control',
                            placeholder: 'Nilai Bahasa Inggris Semester 2' %>
-          <%= f.text_field :bahasa_inggris_semester_3, class: 'form-control',
+          <%= f.text_field :inggris3, class: 'form-control',
                            placeholder: 'Nilai Bahasa Inggris Semester 3' %>
-          <%= f.text_field :bahasa_inggris_semester_4, class: 'form-control',
+          <%= f.text_field :inggris4, class: 'form-control',
                            placeholder: 'Nilai Bahasa Inggris Semester 4' %>
-          <%= f.text_field :bahasa_inggris_semester_5, class: 'form-control',
+          <%= f.text_field :inggris5, class: 'form-control',
                            placeholder: 'Nilai Bahasa Inggris Semester 5' %>
           <%= f.file_field :sertifikat, accept: 'application/pdf' %>
           <% if @pmdk_each_score.persisted? && @pmdk_each_score.sertifikat.attached? %>

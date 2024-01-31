@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_131_042_931) do
+ActiveRecord::Schema[7.1].define(version: 20_240_131_233_338) do
   create_table 'accreditation_school_lists', force: :cascade do |t|
     t.string 'akreditasi'
     t.datetime 'created_at', null: false
@@ -195,9 +195,9 @@ ActiveRecord::Schema[7.1].define(version: 20_240_131_042_931) do
   end
 
   create_table 'majors', force: :cascade do |t|
-    t.string 'jurusan_1'
-    t.string 'jurusan_2'
-    t.string 'jurusan_3'
+    t.string 'jurusan1'
+    t.string 'jurusan2'
+    t.string 'jurusan3'
     t.string 'gelombang'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
@@ -289,26 +289,26 @@ ActiveRecord::Schema[7.1].define(version: 20_240_131_042_931) do
   end
 
   create_table 'pmdk_each_score_informations', force: :cascade do |t|
-    t.decimal 'matematika_semester_1'
-    t.decimal 'matematika_semester_2'
-    t.decimal 'matematika_semester_3'
-    t.decimal 'matematika_semester_4'
-    t.decimal 'matematika_semester_5'
-    t.decimal 'fisika_semester_1'
-    t.decimal 'fisika_semester_2'
-    t.decimal 'fisika_semester_3'
-    t.decimal 'fisika_semester_4'
-    t.decimal 'fisika_semester_5'
-    t.decimal 'kimia_semester_1'
-    t.decimal 'kimia_semester_2'
-    t.decimal 'kimia_semester_3'
-    t.decimal 'kimia_semester_4'
-    t.decimal 'kimia_semester_5'
-    t.decimal 'bahasa_inggris_semester_1'
-    t.decimal 'bahasa_inggris_semester_2'
-    t.decimal 'bahasa_inggris_semester_3'
-    t.decimal 'bahasa_inggris_semester_4'
-    t.decimal 'bahasa_inggris_semester_5'
+    t.decimal 'matematika_semester1'
+    t.decimal 'matematika_semester2'
+    t.decimal 'matematika_semester3'
+    t.decimal 'matematika_semester4'
+    t.decimal 'matematika5'
+    t.decimal 'fisika1'
+    t.decimal 'fisika2'
+    t.decimal 'fisika3'
+    t.decimal 'fisika4'
+    t.decimal 'fisika5'
+    t.decimal 'kimia1'
+    t.decimal 'kimia2'
+    t.decimal 'kimia3'
+    t.decimal 'kimia4'
+    t.decimal 'kimia5'
+    t.decimal 'inggris1'
+    t.decimal 'inggris2'
+    t.decimal 'inggris3'
+    t.decimal 'inggris4'
+    t.decimal 'inggris5'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'user_id', null: false

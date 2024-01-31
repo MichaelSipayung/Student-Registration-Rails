@@ -21,7 +21,7 @@ class CreatePmdkEachScoreInformations < ActiveRecord::Migration[7.1]
       t.numeric :kimia_semester_4
       t.numeric :kimia_semester_5
 
-      t.numeric :bahasa_inggris_semester_1
+      t.numeric :inggris1
       t.numeric :bahasa_inggris_semester_2
       t.numeric :bahasa_inggris_semester_3
       t.numeric :bahasa_inggris_semester_4

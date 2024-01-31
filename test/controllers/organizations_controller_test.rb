@@ -14,7 +14,7 @@ class OrganizationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   test 'should get edit' do
-    assert is_logged_in?
+    assert logged_in?
     get edit_organization_path(organizations(:one))
     assert_response :success
   end

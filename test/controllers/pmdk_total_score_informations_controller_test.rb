@@ -18,7 +18,7 @@ class PmdkTotalScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
     } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_pmdk_total_score_information_path(pmdk_total_score_informations(:pmdk_total_one))
     assert_response :success
   end
