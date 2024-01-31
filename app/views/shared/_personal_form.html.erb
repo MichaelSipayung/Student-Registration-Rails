@@ -26,42 +26,49 @@
               <%= f.label :jenis_kelamin, class: 'form-label' %>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-gender-ambiguous"></i></span>
-                <%= f.select :jenis_kelamin, options_from_collection_for_select(@personal_gender, 'jenis_kelamin', 'jenis_kelamin'), {}, {class: 'form-select', required: true} %>
+                <%= f.select :jenis_kelamin,
+                             options_from_collection_for_select(@personal_gender, 'jenis_kelamin', 'jenis_kelamin'),
+                             {}, {class: 'form-select', required: true} %>
               </div>
             </div>
             <div class="mb-3">
               <%= f.label :tempat_lahir, class: 'form-label' %>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-geo-fill"></i></span>
-                <%= f.text_field :tempat_lahir, class: 'form-control', placeholder: 'Tempat Lahir', required: true %>
+                <%= f.text_field :tempat_lahir, class: 'form-control',
+                                 placeholder: 'Tempat Lahir', required: true %>
               </div>
             </div>
             <div class="mb-3">
               <%= f.label :tanggal_lahir, class: 'form-label' %>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-calendar-fill"></i></span>
-                <%= f.text_field :tanggal_lahir, class: 'form-control', placeholder: 'Tanggal Lahir', required: true %>
+                <%= f.text_field :tanggal_lahir, class: 'form-control',
+                                 placeholder: 'Tanggal Lahir', required: true %>
               </div>
             </div>
             <div class="mb-3">
               <%= f.label :nik, class: 'form-label' %>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-card-text"></i></span>
-                <%= f.text_field :nik, class: 'form-control', placeholder: 'Nomor Induk Kependudukan', required: true %>
+                <%= f.text_field :nik, class: 'form-control',
+                                 placeholder: 'Nomor Induk Kependudukan', required: true %>
               </div>
             </div>
             <div class="mb-3">
               <%= f.label :no_kps, class: 'form-label' %>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-card-text"></i></span>
-                <%= f.text_field :no_kps, class: 'form-control', placeholder: 'Nomor Kartu Perlindungan Sosial', required: true %>
+                <%= f.text_field :no_kps, class: 'form-control',
+                                 placeholder: 'Nomor Kartu Perlindungan Sosial', required: true %>
               </div>
             </div>
            <div class="mb-3">
               <%= f.label :nisn, class: 'form-label' %>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-card-text"></i></span>
-                <%= f.text_field :nisn, class: 'form-control', placeholder: 'Nomor Induk Siswa Nasional', required: true %>
+                <%= f.text_field :nisn, class: 'form-control',
+                                 placeholder: 'Nomor Induk Siswa Nasional', required: true %>
               </div>
             </div>
             <div class="mb-3">
@@ -71,6 +78,14 @@
                 <%= f.text_field :domisili, class: 'form-control', placeholder: 'Domisili', required: true %>
               </div>
             </div>
+            <div class="mb-3">
+              <%= f.file_field :pas_photo, accept: 'image/jpeg, image/png, image/jpg' %>
+            </div>
+            <%if @personal.persisted? && @personal.pas_photo.attached? %>
+              <span class="content">
+                <%= link_to 'Lihat Pas Photo', rails_blob_path(@personal.pas_photo, disposition: 'attachment') %>
+              </span>
+            <%end %>
             <div class="mb-3">
               <%= f.submit "Simpan", class: 'btn btn-primary w-100' %>
             </div>

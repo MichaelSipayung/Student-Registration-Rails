@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UtbkScoresController < ApplicationController
   before_action :set_utbk_score, only: %i[edit update show]
 
@@ -28,9 +30,10 @@ class UtbkScoresController < ApplicationController
     @utbk_score = current_user.utbk_score
   end
 
-  def show
-  end
+  def show; end
+
   private
+
   def utbk_score_params
     params.require(:utbk_score).permit(:no_peserta, :tanggal_ujian,
                                        :jumlah_nilai_semester_6,
@@ -40,6 +43,7 @@ class UtbkScoresController < ApplicationController
                                        :nilai_kemampuan_memahami_bacaan_dan_menulis,
                                        :nilai_pengetahuan_dan_pemahaman_umum, :sertifikat_utbk)
   end
+
   def set_utbk_score
     @utbk_score = UtbkScore.find(params[:id])
   end

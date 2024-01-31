@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddressKabupatenListsController < ApplicationController
   before_action :set_address_kabupaten_list, only: %i[ show edit update destroy ]
 
@@ -58,13 +59,14 @@ class AddressKabupatenListsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_address_kabupaten_list
-      @address_kabupaten_list = AddressKabupatenList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def address_kabupaten_list_params
-      params.require(:address_kabupaten_list).permit(:kabupaten, :address_province_list_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_address_kabupaten_list
+    @address_kabupaten_list = AddressKabupatenList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def address_kabupaten_list_params
+    params.require(:address_kabupaten_list).permit(:kabupaten, :address_province_list_id)
+  end
 end

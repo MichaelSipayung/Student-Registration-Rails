@@ -1,5 +1,5 @@
 class AchievementKategoriListsController < ApplicationController
-  before_action :set_achievement_kategori_list, only: %i[ show edit update destroy ]
+  before_action :set_achievement_kategori_list, only: %i[show edit update destroy]
 
   # GET /achievement_kategori_lists or /achievement_kategori_lists.json
   def index

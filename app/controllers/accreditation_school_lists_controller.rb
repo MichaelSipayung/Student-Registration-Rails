@@ -1,5 +1,7 @@
+# accreditation controller
+
 class AccreditationSchoolListsController < ApplicationController
-  before_action :set_accreditation_school_list, only: %i[ show edit update destroy ]
+  before_action :set_accreditation_school_list, only: %i[show edit update destroy]
 
   # GET /accreditation_school_lists or /accreditation_school_lists.json
   def index
@@ -58,13 +60,14 @@ class AccreditationSchoolListsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_accreditation_school_list
-      @accreditation_school_list = AccreditationSchoolList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def accreditation_school_list_params
-      params.require(:accreditation_school_list).permit(:akreditasi)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_accreditation_school_list
+    @accreditation_school_list = AccreditationSchoolList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def accreditation_school_list_params
+    params.require(:accreditation_school_list).permit(:akreditasi)
+  end
 end

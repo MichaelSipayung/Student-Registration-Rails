@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_30_043242) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_31_042931) do
   create_table "accreditation_school_lists", force: :cascade do |t|
     t.string "akreditasi"
     t.datetime "created_at", null: false
@@ -428,7 +428,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_043242) do
     t.decimal "nilai_pengetahuan_kuantitatif"
     t.decimal "nilai_pengetahuan_dan_pemahaman_umum"
     t.decimal "nilai_kemampuan_memahami_bacaan_dan_menulis"
-    t.decimal "jumlah_pelajaran_semester_6"
+    t.integer "jumlah_pelajaran_semester_6"
     t.decimal "jumlah_nilai_semester_6"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
