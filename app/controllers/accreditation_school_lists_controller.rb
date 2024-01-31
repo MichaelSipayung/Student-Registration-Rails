@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # accreditation controller
 
 class AccreditationSchoolListsController < ApplicationController
@@ -9,8 +11,7 @@ class AccreditationSchoolListsController < ApplicationController
   end
 
   # GET /accreditation_school_lists/1 or /accreditation_school_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /accreditation_school_lists/new
   def new
@@ -18,8 +19,7 @@ class AccreditationSchoolListsController < ApplicationController
   end
 
   # GET /accreditation_school_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /accreditation_school_lists or /accreditation_school_lists.json
   def create
@@ -27,7 +27,10 @@ class AccreditationSchoolListsController < ApplicationController
 
     respond_to do |format|
       if @accreditation_school_list.save
-        format.html { redirect_to accreditation_school_list_url(@accreditation_school_list), notice: "Accreditation school list was successfully created." }
+        format.html do
+          redirect_to accreditation_school_list_url(@accreditation_school_list),
+                      notice: 'Accreditation school list was successfully created.'
+        end
         format.json { render :show, status: :created, location: @accreditation_school_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +43,10 @@ class AccreditationSchoolListsController < ApplicationController
   def update
     respond_to do |format|
       if @accreditation_school_list.update(accreditation_school_list_params)
-        format.html { redirect_to accreditation_school_list_url(@accreditation_school_list), notice: "Accreditation school list was successfully updated." }
+        format.html do
+          redirect_to accreditation_school_list_url(@accreditation_school_list),
+                      notice: 'Accreditation school list was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @accreditation_school_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +60,9 @@ class AccreditationSchoolListsController < ApplicationController
     @accreditation_school_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to accreditation_school_lists_url, notice: "Accreditation school list was successfully destroyed." }
+      format.html do
+        redirect_to accreditation_school_lists_url, notice: 'Accreditation school list was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end

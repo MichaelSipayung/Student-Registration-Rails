@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AllSchoolListsController < ApplicationController
-  before_action :set_all_school_list, only: %i[ show edit update destroy ]
+  before_action :set_all_school_list, only: %i[show edit update destroy]
 
   # GET /all_school_lists or /all_school_lists.json
   def index
@@ -7,8 +9,7 @@ class AllSchoolListsController < ApplicationController
   end
 
   # GET /all_school_lists/1 or /all_school_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /all_school_lists/new
   def new
@@ -16,8 +17,7 @@ class AllSchoolListsController < ApplicationController
   end
 
   # GET /all_school_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /all_school_lists or /all_school_lists.json
   def create
@@ -25,7 +25,9 @@ class AllSchoolListsController < ApplicationController
 
     respond_to do |format|
       if @all_school_list.save
-        format.html { redirect_to all_school_list_url(@all_school_list), notice: "All school list was successfully created." }
+        format.html do
+          redirect_to all_school_list_url(@all_school_list), notice: 'All school list was successfully created.'
+        end
         format.json { render :show, status: :created, location: @all_school_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,9 @@ class AllSchoolListsController < ApplicationController
   def update
     respond_to do |format|
       if @all_school_list.update(all_school_list_params)
-        format.html { redirect_to all_school_list_url(@all_school_list), notice: "All school list was successfully updated." }
+        format.html do
+          redirect_to all_school_list_url(@all_school_list), notice: 'All school list was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @all_school_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +56,20 @@ class AllSchoolListsController < ApplicationController
     @all_school_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to all_school_lists_url, notice: "All school list was successfully destroyed." }
+      format.html { redirect_to all_school_lists_url, notice: 'All school list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_all_school_list
-      @all_school_list = AllSchoolList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def all_school_list_params
-      params.require(:all_school_list).permit(:sekolah)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_all_school_list
+    @all_school_list = AllSchoolList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def all_school_list_params
+    params.require(:all_school_list).permit(:sekolah)
+  end
 end

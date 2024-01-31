@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BatchListsController < ApplicationController
-  before_action :set_batch_list, only: %i[ show edit update destroy ]
+  before_action :set_batch_list, only: %i[show edit update destroy]
 
   # GET /batch_lists or /batch_lists.json
   def index
@@ -7,8 +9,7 @@ class BatchListsController < ApplicationController
   end
 
   # GET /batch_lists/1 or /batch_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /batch_lists/new
   def new
@@ -16,8 +17,7 @@ class BatchListsController < ApplicationController
   end
 
   # GET /batch_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /batch_lists or /batch_lists.json
   def create
@@ -25,7 +25,7 @@ class BatchListsController < ApplicationController
 
     respond_to do |format|
       if @batch_list.save
-        format.html { redirect_to batch_list_url(@batch_list), notice: "Batch list was successfully created." }
+        format.html { redirect_to batch_list_url(@batch_list), notice: 'Batch list was successfully created.' }
         format.json { render :show, status: :created, location: @batch_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class BatchListsController < ApplicationController
   def update
     respond_to do |format|
       if @batch_list.update(batch_list_params)
-        format.html { redirect_to batch_list_url(@batch_list), notice: "Batch list was successfully updated." }
+        format.html { redirect_to batch_list_url(@batch_list), notice: 'Batch list was successfully updated.' }
         format.json { render :show, status: :ok, location: @batch_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class BatchListsController < ApplicationController
     @batch_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to batch_lists_url, notice: "Batch list was successfully destroyed." }
+      format.html { redirect_to batch_lists_url, notice: 'Batch list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_batch_list
-      @batch_list = BatchList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def batch_list_params
-      params.require(:batch_list).permit(:gelombang, :aktif)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_batch_list
+    @batch_list = BatchList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def batch_list_params
+    params.require(:batch_list).permit(:gelombang, :aktif)
+  end
 end

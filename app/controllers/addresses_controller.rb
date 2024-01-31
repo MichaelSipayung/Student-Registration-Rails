@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AddressesController < ApplicationController
-  before_action :set_address_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_address_dropdown_menu, only: %i[new create edit update]
   before_action :set_address, only: %i[edit show update]
   def new
     @address  = current_user.addresses.build
@@ -15,7 +17,7 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address  = current_user.addresses.build(address_params)
+    @address = current_user.addresses.build(address_params)
     if @address.save
       flash[:success] = 'Address saved'
     else
@@ -24,21 +26,24 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    @address  = current_user.addresses.find(params[:id])
+    @address = current_user.addresses.find(params[:id])
   end
 
-  def show
-  end
+  def show; end
+
   private
+
   def address_params
     params.require(:address).permit(:alamat, :kelurahan, :kecamatan, :kode_pos, :provinsi,
                                     :no_telepon, :kabupaten)
   end
+
   def set_address_dropdown_menu
-    @province = AddressProvinceList.all #provinsi
-    @kabupaten = AddressKabupatenList.all #kabupaten
-    @kecamatan = AddressKecamatanList.all #kecamatan
+    @province = AddressProvinceList.all # provinsi
+    @kabupaten = AddressKabupatenList.all # kabupaten
+    @kecamatan = AddressKecamatanList.all # kecamatan
   end
+
   def set_address
     @address = Address.find(params[:id])
   end

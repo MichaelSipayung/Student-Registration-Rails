@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AchievementTingkatListsController < ApplicationController
   before_action :set_achievement_tingkat_list, only: %i[show edit update destroy]
 
@@ -7,8 +9,7 @@ class AchievementTingkatListsController < ApplicationController
   end
 
   # GET /achievement_tingkat_lists/1 or /achievement_tingkat_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /achievement_tingkat_lists/new
   def new
@@ -16,8 +17,7 @@ class AchievementTingkatListsController < ApplicationController
   end
 
   # GET /achievement_tingkat_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /achievement_tingkat_lists or /achievement_tingkat_lists.json
   def create
@@ -25,7 +25,10 @@ class AchievementTingkatListsController < ApplicationController
 
     respond_to do |format|
       if @achievement_tingkat_list.save
-        format.html { redirect_to achievement_tingkat_list_url(@achievement_tingkat_list), notice: "Achievement tingkat list was successfully created." }
+        format.html do
+          redirect_to achievement_tingkat_list_url(@achievement_tingkat_list),
+                      notice: 'Achievement tingkat list was successfully created.'
+        end
         format.json { render :show, status: :created, location: @achievement_tingkat_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,10 @@ class AchievementTingkatListsController < ApplicationController
   def update
     respond_to do |format|
       if @achievement_tingkat_list.update(achievement_tingkat_list_params)
-        format.html { redirect_to achievement_tingkat_list_url(@achievement_tingkat_list), notice: "Achievement tingkat list was successfully updated." }
+        format.html do
+          redirect_to achievement_tingkat_list_url(@achievement_tingkat_list),
+                      notice: 'Achievement tingkat list was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @achievement_tingkat_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +58,22 @@ class AchievementTingkatListsController < ApplicationController
     @achievement_tingkat_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to achievement_tingkat_lists_url, notice: "Achievement tingkat list was successfully destroyed." }
+      format.html do
+        redirect_to achievement_tingkat_lists_url, notice: 'Achievement tingkat list was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_achievement_tingkat_list
-      @achievement_tingkat_list = AchievementTingkatList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def achievement_tingkat_list_params
-      params.require(:achievement_tingkat_list).permit(:tingkat)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_achievement_tingkat_list
+    @achievement_tingkat_list = AchievementTingkatList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def achievement_tingkat_list_params
+    params.require(:achievement_tingkat_list).permit(:tingkat)
+  end
 end

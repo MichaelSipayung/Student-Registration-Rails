@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MajorListsController < ApplicationController
-  before_action :set_major_list, only: %i[ show edit update destroy ]
+  before_action :set_major_list, only: %i[show edit update destroy]
 
   # GET /major_lists or /major_lists.json
   def index
@@ -7,8 +9,7 @@ class MajorListsController < ApplicationController
   end
 
   # GET /major_lists/1 or /major_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /major_lists/new
   def new
@@ -16,8 +17,7 @@ class MajorListsController < ApplicationController
   end
 
   # GET /major_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /major_lists or /major_lists.json
   def create
@@ -25,7 +25,7 @@ class MajorListsController < ApplicationController
 
     respond_to do |format|
       if @major_list.save
-        format.html { redirect_to major_list_url(@major_list), notice: "Major list was successfully created." }
+        format.html { redirect_to major_list_url(@major_list), notice: 'Major list was successfully created.' }
         format.json { render :show, status: :created, location: @major_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class MajorListsController < ApplicationController
   def update
     respond_to do |format|
       if @major_list.update(major_list_params)
-        format.html { redirect_to major_list_url(@major_list), notice: "Major list was successfully updated." }
+        format.html { redirect_to major_list_url(@major_list), notice: 'Major list was successfully updated.' }
         format.json { render :show, status: :ok, location: @major_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class MajorListsController < ApplicationController
     @major_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to major_lists_url, notice: "Major list was successfully destroyed." }
+      format.html { redirect_to major_lists_url, notice: 'Major list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_major_list
-      @major_list = MajorList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def major_list_params
-      params.require(:major_list).permit(:jurusan)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_major_list
+    @major_list = MajorList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def major_list_params
+    params.require(:major_list).permit(:jurusan)
+  end
 end

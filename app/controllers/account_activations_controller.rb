@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class AccountActivationsController < ApplicationController
   before_action :logged_in_user, except: [:edit]
   # edit action for token activation

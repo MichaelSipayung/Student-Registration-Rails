@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PersonalGenderListsController < ApplicationController
-  before_action :set_personal_gender_list, only: %i[ show edit update destroy ]
+  before_action :set_personal_gender_list, only: %i[show edit update destroy]
 
   # GET /personal_gender_lists or /personal_gender_lists.json
   def index
@@ -7,8 +9,7 @@ class PersonalGenderListsController < ApplicationController
   end
 
   # GET /personal_gender_lists/1 or /personal_gender_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /personal_gender_lists/new
   def new
@@ -16,8 +17,7 @@ class PersonalGenderListsController < ApplicationController
   end
 
   # GET /personal_gender_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /personal_gender_lists or /personal_gender_lists.json
   def create
@@ -25,7 +25,10 @@ class PersonalGenderListsController < ApplicationController
 
     respond_to do |format|
       if @personal_gender_list.save
-        format.html { redirect_to personal_gender_list_url(@personal_gender_list), notice: "Personal gender list was successfully created." }
+        format.html do
+          redirect_to personal_gender_list_url(@personal_gender_list),
+                      notice: 'Personal gender list was successfully created.'
+        end
         format.json { render :show, status: :created, location: @personal_gender_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,10 @@ class PersonalGenderListsController < ApplicationController
   def update
     respond_to do |format|
       if @personal_gender_list.update(personal_gender_list_params)
-        format.html { redirect_to personal_gender_list_url(@personal_gender_list), notice: "Personal gender list was successfully updated." }
+        format.html do
+          redirect_to personal_gender_list_url(@personal_gender_list),
+                      notice: 'Personal gender list was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @personal_gender_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +58,20 @@ class PersonalGenderListsController < ApplicationController
     @personal_gender_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to personal_gender_lists_url, notice: "Personal gender list was successfully destroyed." }
+      format.html { redirect_to personal_gender_lists_url, notice: 'Personal gender list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_personal_gender_list
-      @personal_gender_list = PersonalGenderList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def personal_gender_list_params
-      params.require(:personal_gender_list).permit(:jenis_kelamin)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_personal_gender_list
+    @personal_gender_list = PersonalGenderList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def personal_gender_list_params
+    params.require(:personal_gender_list).permit(:jenis_kelamin)
+  end
 end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SourceMotivationListsController < ApplicationController
-  before_action :set_source_motivation_list, only: %i[ show edit update destroy ]
+  before_action :set_source_motivation_list, only: %i[show edit update destroy]
 
   # GET /source_motivation_lists or /source_motivation_lists.json
   def index
@@ -7,8 +9,7 @@ class SourceMotivationListsController < ApplicationController
   end
 
   # GET /source_motivation_lists/1 or /source_motivation_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /source_motivation_lists/new
   def new
@@ -16,8 +17,7 @@ class SourceMotivationListsController < ApplicationController
   end
 
   # GET /source_motivation_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /source_motivation_lists or /source_motivation_lists.json
   def create
@@ -25,7 +25,10 @@ class SourceMotivationListsController < ApplicationController
 
     respond_to do |format|
       if @source_motivation_list.save
-        format.html { redirect_to source_motivation_list_url(@source_motivation_list), notice: "Source motivation list was successfully created." }
+        format.html do
+          redirect_to source_motivation_list_url(@source_motivation_list),
+                      notice: 'Source motivation list was successfully created.'
+        end
         format.json { render :show, status: :created, location: @source_motivation_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,10 @@ class SourceMotivationListsController < ApplicationController
   def update
     respond_to do |format|
       if @source_motivation_list.update(source_motivation_list_params)
-        format.html { redirect_to source_motivation_list_url(@source_motivation_list), notice: "Source motivation list was successfully updated." }
+        format.html do
+          redirect_to source_motivation_list_url(@source_motivation_list),
+                      notice: 'Source motivation list was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @source_motivation_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +58,22 @@ class SourceMotivationListsController < ApplicationController
     @source_motivation_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to source_motivation_lists_url, notice: "Source motivation list was successfully destroyed." }
+      format.html do
+        redirect_to source_motivation_lists_url, notice: 'Source motivation list was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_source_motivation_list
-      @source_motivation_list = SourceMotivationList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def source_motivation_list_params
-      params.require(:source_motivation_list).permit(:motivasi)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_source_motivation_list
+    @source_motivation_list = SourceMotivationList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def source_motivation_list_params
+    params.require(:source_motivation_list).permit(:motivasi)
+  end
 end

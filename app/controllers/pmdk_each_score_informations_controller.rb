@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PmdkEachScoreInformationsController < ApplicationController
   before_action :set_pmdk_each_score, only: %i[show edit update]
   def new
@@ -7,7 +9,7 @@ class PmdkEachScoreInformationsController < ApplicationController
   def update
     @pmdk_each_score = current_user.pmdk_each_score_information
     if @pmdk_each_score.update(pmdk_each_score_information_params)
-      flash[:success] = "Pmdk each score information is updated"
+      flash[:success] = 'Pmdk each score information is updated'
     else
       render 'edit'
     end
@@ -16,7 +18,7 @@ class PmdkEachScoreInformationsController < ApplicationController
   def create
     @pmdk_each_score = current_user.build_pmdk_each_score_information(pmdk_each_score_information_params)
     if @pmdk_each_score.save
-      flash[:success] = "Pmdk each score information saved"
+      flash[:success] = 'Pmdk each score information saved'
     else
       render 'new'
     end
@@ -26,9 +28,10 @@ class PmdkEachScoreInformationsController < ApplicationController
     @pmdk_each_score = current_user.pmdk_each_score_information
   end
 
-  def show
-  end
+  def show; end
+
   private
+
   def pmdk_each_score_information_params
     params.require(:pmdk_each_score_information).permit(
       :matematika_semester_1, :matematika_semester_2, :matematika_semester_3, :matematika_semester_4,
@@ -38,6 +41,7 @@ class PmdkEachScoreInformationsController < ApplicationController
       :bahasa_inggris_semester_4, :bahasa_inggris_semester_5, :sertifikat
     )
   end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_pmdk_each_score
     @pmdk_each_score = PmdkEachScoreInformation.find(params[:id])

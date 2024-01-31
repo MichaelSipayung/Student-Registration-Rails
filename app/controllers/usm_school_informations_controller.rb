@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UsmSchoolInformationsController < ApplicationController
-  before_action :set_usm_school_dropdown, only: [:new, :create, :edit, :update]
+  before_action :set_usm_school_dropdown, only: %i[new create edit update]
   before_action :set_usm_school, only: %i[edit update show]
 
   def new
@@ -29,19 +31,22 @@ class UsmSchoolInformationsController < ApplicationController
     @usm_school = current_user.usm_school_information
   end
 
-  def show
-  end
+  def show; end
+
   private
-    def usm_school_information_params
-      params.require(:usm_school_information).permit(
+
+  def usm_school_information_params
+    params.require(:usm_school_information).permit(
       :jurusan_sekolah, :asal_sekolah, :akreditas, :jumlah_nilai_un,
       :jumlah_pelajaran_un, :jumlah_pelajaran_semester_5, :jumlah_nilai_semester_5
-      )
-    end
-    def set_usm_school_dropdown
-      @accreditation = AccreditationSchoolList.all
-      @high_school_major = HighSchoolMajor.all
-    end
+    )
+  end
+
+  def set_usm_school_dropdown
+    @accreditation = AccreditationSchoolList.all
+    @high_school_major = HighSchoolMajor.all
+  end
+
   def set_usm_school
     @usm_school = UsmSchoolInformation.find(params[:id])
   end

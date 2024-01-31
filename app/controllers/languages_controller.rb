@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class LanguagesController < ApplicationController
-  before_action :set_language_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_language_dropdown_menu, only: %i[new create edit update]
   before_action :set_language, only: %i[edit update show]
   def new
     @language = current_user.languages.build
@@ -15,9 +17,9 @@ class LanguagesController < ApplicationController
   end
 
   def create
-    @language  = current_user.languages.build(language_params)
+    @language = current_user.languages.build(language_params)
     if @language.save
-      flash[:success] =  'Language is created'
+      flash[:success] = 'Language is created'
     else
       render 'new'
     end
@@ -27,16 +29,19 @@ class LanguagesController < ApplicationController
     @language = current_user.languages.find(params[:id])
   end
 
-  def show
-  end
+  def show; end
+
   private
-    def language_params
-      params.require(:language).permit(:nama_bahasa, :tingkat)
-    end
+
+  def language_params
+    params.require(:language).permit(:nama_bahasa, :tingkat)
+  end
+
   def set_language_dropdown_menu
     @language_name_list = LanguageNameList.all
-    @language_degree_list  = LanguageDegreeList.all
+    @language_degree_list = LanguageDegreeList.all
   end
+
   def set_language
     @language = Language.find(params[:id])
   end

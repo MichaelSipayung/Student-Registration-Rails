@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MajorsController < ApplicationController
-  before_action :set_major_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_major_dropdown_menu, only: %i[new create edit update]
   before_action :set_major, only: %i[edit update show]
   def new
     @major = current_user.build_major
@@ -27,16 +29,19 @@ class MajorsController < ApplicationController
     @major = current_user.major
   end
 
-  def show
-  end
+  def show; end
+
   private
+
   def major_params
     params.require(:major).permit(:jurusan_1, :jurusan_2, :jurusan_3, :gelombang)
   end
+
   def set_major_dropdown_menu
     @major_list = MajorList.all
     @batch_list = BatchList.all
   end
+
   def set_major
     @major = Major.find(params[:id])
   end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class LanguageNameListsController < ApplicationController
-  before_action :set_language_name_list, only: %i[ show edit update destroy ]
+  before_action :set_language_name_list, only: %i[show edit update destroy]
 
   # GET /language_name_lists or /language_name_lists.json
   def index
@@ -7,8 +9,7 @@ class LanguageNameListsController < ApplicationController
   end
 
   # GET /language_name_lists/1 or /language_name_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /language_name_lists/new
   def new
@@ -16,8 +17,7 @@ class LanguageNameListsController < ApplicationController
   end
 
   # GET /language_name_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /language_name_lists or /language_name_lists.json
   def create
@@ -25,7 +25,10 @@ class LanguageNameListsController < ApplicationController
 
     respond_to do |format|
       if @language_name_list.save
-        format.html { redirect_to language_name_list_url(@language_name_list), notice: "Language name list was successfully created." }
+        format.html do
+          redirect_to language_name_list_url(@language_name_list),
+                      notice: 'Language name list was successfully created.'
+        end
         format.json { render :show, status: :created, location: @language_name_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,10 @@ class LanguageNameListsController < ApplicationController
   def update
     respond_to do |format|
       if @language_name_list.update(language_name_list_params)
-        format.html { redirect_to language_name_list_url(@language_name_list), notice: "Language name list was successfully updated." }
+        format.html do
+          redirect_to language_name_list_url(@language_name_list),
+                      notice: 'Language name list was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @language_name_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +58,20 @@ class LanguageNameListsController < ApplicationController
     @language_name_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to language_name_lists_url, notice: "Language name list was successfully destroyed." }
+      format.html { redirect_to language_name_lists_url, notice: 'Language name list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_language_name_list
-      @language_name_list = LanguageNameList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def language_name_list_params
-      params.require(:language_name_list).permit(:bahasa)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_language_name_list
+    @language_name_list = LanguageNameList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def language_name_list_params
+    params.require(:language_name_list).permit(:bahasa)
+  end
 end

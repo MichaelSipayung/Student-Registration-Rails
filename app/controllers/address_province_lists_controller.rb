@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AddressProvinceListsController < ApplicationController
-  before_action :set_address_province_list, only: %i[ show edit update destroy ]
+  before_action :set_address_province_list, only: %i[show edit update destroy]
 
   # GET /address_province_lists or /address_province_lists.json
   def index
@@ -7,8 +9,7 @@ class AddressProvinceListsController < ApplicationController
   end
 
   # GET /address_province_lists/1 or /address_province_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /address_province_lists/new
   def new
@@ -16,8 +17,7 @@ class AddressProvinceListsController < ApplicationController
   end
 
   # GET /address_province_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /address_province_lists or /address_province_lists.json
   def create
@@ -25,7 +25,10 @@ class AddressProvinceListsController < ApplicationController
 
     respond_to do |format|
       if @address_province_list.save
-        format.html { redirect_to address_province_list_url(@address_province_list), notice: "Address province list was successfully created." }
+        format.html do
+          redirect_to address_province_list_url(@address_province_list),
+                      notice: 'Address province list was successfully created.'
+        end
         format.json { render :show, status: :created, location: @address_province_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,10 @@ class AddressProvinceListsController < ApplicationController
   def update
     respond_to do |format|
       if @address_province_list.update(address_province_list_params)
-        format.html { redirect_to address_province_list_url(@address_province_list), notice: "Address province list was successfully updated." }
+        format.html do
+          redirect_to address_province_list_url(@address_province_list),
+                      notice: 'Address province list was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @address_province_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +58,22 @@ class AddressProvinceListsController < ApplicationController
     @address_province_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to address_province_lists_url, notice: "Address province list was successfully destroyed." }
+      format.html do
+        redirect_to address_province_lists_url, notice: 'Address province list was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_address_province_list
-      @address_province_list = AddressProvinceList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def address_province_list_params
-      params.require(:address_province_list).permit(:provinsi)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_address_province_list
+    @address_province_list = AddressProvinceList.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def address_province_list_params
+    params.require(:address_province_list).permit(:provinsi)
+  end
 end

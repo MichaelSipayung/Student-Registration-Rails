@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 class AddressKabupatenListsController < ApplicationController
-  before_action :set_address_kabupaten_list, only: %i[ show edit update destroy ]
+  before_action :set_address_kabupaten_list, only: %i[show edit update destroy]
 
   # GET /address_kabupaten_lists or /address_kabupaten_lists.json
   def index
@@ -8,8 +9,7 @@ class AddressKabupatenListsController < ApplicationController
   end
 
   # GET /address_kabupaten_lists/1 or /address_kabupaten_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /address_kabupaten_lists/new
   def new
@@ -17,8 +17,7 @@ class AddressKabupatenListsController < ApplicationController
   end
 
   # GET /address_kabupaten_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /address_kabupaten_lists or /address_kabupaten_lists.json
   def create
@@ -26,7 +25,10 @@ class AddressKabupatenListsController < ApplicationController
 
     respond_to do |format|
       if @address_kabupaten_list.save
-        format.html { redirect_to address_kabupaten_list_url(@address_kabupaten_list), notice: "Address kabupaten list was successfully created." }
+        format.html do
+          redirect_to address_kabupaten_list_url(@address_kabupaten_list),
+                      notice: 'Address kabupaten list was successfully created.'
+        end
         format.json { render :show, status: :created, location: @address_kabupaten_list }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +41,10 @@ class AddressKabupatenListsController < ApplicationController
   def update
     respond_to do |format|
       if @address_kabupaten_list.update(address_kabupaten_list_params)
-        format.html { redirect_to address_kabupaten_list_url(@address_kabupaten_list), notice: "Address kabupaten list was successfully updated." }
+        format.html do
+          redirect_to address_kabupaten_list_url(@address_kabupaten_list),
+                      notice: 'Address kabupaten list was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @address_kabupaten_list }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +58,9 @@ class AddressKabupatenListsController < ApplicationController
     @address_kabupaten_list.destroy!
 
     respond_to do |format|
-      format.html { redirect_to address_kabupaten_lists_url, notice: "Address kabupaten list was successfully destroyed." }
+      format.html do
+        redirect_to address_kabupaten_lists_url, notice: 'Address kabupaten list was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
