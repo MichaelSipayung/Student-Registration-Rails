@@ -38,6 +38,8 @@ jobs:
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           bundler-cache: true
+      - name: Generate binstubs
+        run: bundle binstubs bundler-audit
       - name: Security audit dependencies
         run: bin/bundler-audit --update
       - name: Security audit application code
