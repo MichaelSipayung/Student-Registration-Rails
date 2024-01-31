@@ -8,7 +8,7 @@ class LanguagesController < ApplicationController
   def update
     @language = current_user.languages.find(params[:id])
     if @language.update(language_params)
-      flash[:success] = "language is updated"
+      flash[:success] = 'language is updated'
     else
       render 'edit'
     end
@@ -17,7 +17,7 @@ class LanguagesController < ApplicationController
   def create
     @language  = current_user.languages.build(language_params)
     if @language.save
-      flash[:success] =  "Language is created"
+      flash[:success] =  'Language is created'
     else
       render 'new'
     end

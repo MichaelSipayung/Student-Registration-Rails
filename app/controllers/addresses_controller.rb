@@ -8,7 +8,7 @@ class AddressesController < ApplicationController
   def update
     @address  = current_user.addresses.find(params[:id])
     if @address.update(address_params)
-      flash[:success] = "Address updated"
+      flash[:success] = 'Address updated'
     else
       render 'edit'
     end
@@ -17,7 +17,7 @@ class AddressesController < ApplicationController
   def create
     @address  = current_user.addresses.build(address_params)
     if @address.save
-      flash[:success] = "Address saved"
+      flash[:success] = 'Address saved'
     else
       render 'new'
     end

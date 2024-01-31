@@ -7,7 +7,7 @@ class PersonalsController < ApplicationController
   def create
     @personal  = current_user.build_personal(personal_params)
     if @personal.save
-      flash[:success] = "Personal data saved"
+      flash[:success] = 'Personal data saved'
       #redirect_to root_url
     else
       render 'new'
@@ -19,7 +19,7 @@ class PersonalsController < ApplicationController
   def update
     @personal  = current_user.personal
     if @personal.update(personal_params)
-      flash[:success] = "Personal data updated"
+      flash[:success] = 'Personal data updated'
       #redirect_to root_url
     else
       render 'edit'

@@ -8,7 +8,7 @@ class ParentsController < ApplicationController
   def update
     @parent  = current_user.parent
     if @parent.update(parent_params)
-      flash[:success] = "Parent data updated"
+      flash[:success] = 'Parent data updated'
     else
       render 'edit'
     end
@@ -17,7 +17,7 @@ class ParentsController < ApplicationController
   def create
     @parent  = current_user.build_parent(parent_params)
     if @parent.save
-      flash[:success] = "Parent data saved"
+      flash[:success] = 'Parent data saved'
     else
       render 'new'
     end

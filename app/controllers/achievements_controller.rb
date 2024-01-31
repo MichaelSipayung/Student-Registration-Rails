@@ -8,7 +8,7 @@ class AchievementsController < ApplicationController
   def update
     @achievement = current_user.achievements.find(params[:id])
     if @achievement.update(achievement_params)
-      flash[:success] = "Achievement success updated"
+      flash[:success] = 'Achievement success updated'
     else
       render 'edit'
     end
@@ -17,7 +17,7 @@ class AchievementsController < ApplicationController
   def create
     @achievement = current_user.achievements.build(achievement_params)
     if @achievement.save
-      flash[:success] = "Achievement success saved"
+      flash[:success] = 'Achievement success saved'
     else
       render 'new'
     end

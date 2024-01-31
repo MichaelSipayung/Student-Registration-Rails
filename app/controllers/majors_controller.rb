@@ -8,7 +8,7 @@ class MajorsController < ApplicationController
   def update
     @major = current_user.major
     if @major.update(major_params)
-      flash[:success] = "Major updated"
+      flash[:success] = 'Major updated'
     else
       render 'edit'
     end
@@ -17,7 +17,7 @@ class MajorsController < ApplicationController
   def create
     @major = current_user.build_major(major_params)
     if @major.save
-      flash[:success] = "Major saved"
+      flash[:success] = 'Major saved'
     else
       render 'new'
     end

@@ -9,7 +9,7 @@ class UsmSchoolInformationsController < ApplicationController
   def update
     @usm_school = current_user.usm_school_information
     if @usm_school.update(usm_school_information_params)
-      flash[:success] = "usm school information is updated"
+      flash[:success] = 'usm school information is updated'
     else
       # puts @usm_school.errors.full_messages
       render 'edit'
@@ -19,7 +19,7 @@ class UsmSchoolInformationsController < ApplicationController
   def create
     @usm_school = current_user.build_usm_school_information(usm_school_information_params)
     if @usm_school.save
-      flash[:success] = "usm school information is saved"
+      flash[:success] = 'usm school information is saved'
     else
       render 'new'
     end

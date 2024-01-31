@@ -8,7 +8,7 @@ class PmdkSchoolInformationsController < ApplicationController
   def update
     @pmdk_school_information  = current_user.pmdk_school_information
     if @pmdk_school_information.update(pmdk_school_information_params)
-      flash[:success] = "pmdk school information updated"
+      flash[:success] = 'pmdk school information updated'
     else
       render 'edit'
     end
@@ -17,7 +17,7 @@ class PmdkSchoolInformationsController < ApplicationController
   def create
     @pmdk_school_information  = current_user.build_pmdk_school_information(pmdk_school_information_params)
     if @pmdk_school_information.save
-      flash[:success] = "pmdk schoool information saved"
+      flash[:success] = 'pmdk schoool information saved'
     else
       render 'new'
     end

@@ -8,7 +8,7 @@ class UtbkScoresController < ApplicationController
   def update
     @utbk_score = current_user.utbk_score
     if @utbk_score.update(utbk_score_params)
-      flash[:success] = " utbk score is updated"
+      flash[:success] = ' utbk score is updated'
     else
       render 'edit'
     end
@@ -17,7 +17,7 @@ class UtbkScoresController < ApplicationController
   def create
     @utbk_score = current_user.build_utbk_score(utbk_score_params)
     if @utbk_score.save
-      flash[:success] = "utbk score is saved"
+      flash[:success] = 'utbk score is saved'
     else
       puts @utbk_score.errors.full_messages
       render 'new'

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :logged_in_user #prevent to write before_action :logged_in_user in every controller
   include SessionsHelper #include the SessionsHelper module into the Application controller
   def hello
-    render html: "hello, world!"
+    render html: 'hello, world!'
   end
   private #derived class can access private method, see micropost controller
     def logged_in_user

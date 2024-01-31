@@ -8,7 +8,7 @@ class OrganizationsController < ApplicationController
   def update
     @organization = current_user.organizations.find(params[:id])
     if @organization.update(organization_params)
-      flash[:success] = "Organization is updated"
+      flash[:success] = 'Organization is updated'
     else
       render 'edit'
     end
@@ -17,7 +17,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = current_user.organizations.build(organization_params)
     if @organization.save
-      flash[:success] = "Organization is created"
+      flash[:success] = 'Organization is created'
     else
       render 'new'
     end

@@ -9,7 +9,7 @@ class SourcesController < ApplicationController
   def update
     @source  = current_user.source
     if @source.update(source_params)
-      flash[:success] = "source of information is updated"
+      flash[:success] = 'source of information is updated'
     else
       render 'edit'
     end
@@ -18,7 +18,7 @@ class SourcesController < ApplicationController
   def create
     @source = current_user.build_source(source_params)
     if @source.save
-      flash[:success] = "source of information created"
+      flash[:success] = 'source of information created'
     else
       render 'new'
     end

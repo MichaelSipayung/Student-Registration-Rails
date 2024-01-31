@@ -7,7 +7,7 @@ class PmdkTotalScoreInformationsController < ApplicationController
   def update
     @pmdk_total_score = current_user.pmdk_total_score_information
     if @pmdk_total_score.update(pmdk_total_score_params)
-      flash[:success] = "Pmdk total score is updated"
+      flash[:success] = 'Pmdk total score is updated'
     else
       render 'edit'
     end
@@ -16,7 +16,7 @@ class PmdkTotalScoreInformationsController < ApplicationController
   def create
     @pmdk_total_score  = current_user.build_pmdk_total_score_information(pmdk_total_score_params)
     if @pmdk_total_score.save
-      flash[:success] = "Pmdk total score information is saved"
+      flash[:success] = 'Pmdk total score information is saved'
     else
       render 'new'
     end

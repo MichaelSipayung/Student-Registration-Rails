@@ -9,7 +9,7 @@ class UtbkSchoolInformationsController < ApplicationController
   def update
     @utbk_school_information = current_user.utbk_school_information
     if @utbk_school_information.update(utbk_school_information_params)
-      flash[:success] = "UTBK School information saved"
+      flash[:success] = 'UTBK School information saved'
     else
       render 'edit'
     end
@@ -18,7 +18,7 @@ class UtbkSchoolInformationsController < ApplicationController
   def create
     @utbk_school_information = current_user.build_utbk_school_information(utbk_school_information_params)
     if @utbk_school_information.save
-      flash[:success] = "UTBK School information is saved"
+      flash[:success] = 'UTBK School information is saved'
     else
       render 'new'
     end

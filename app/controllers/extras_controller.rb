@@ -8,7 +8,7 @@ class ExtrasController < ApplicationController
   def update
     @extra  = current_user.extras.find(params[:id])
     if @extra.update(extra_params)
-      flash[:success] = "Extra activity updated"
+      flash[:success] = 'Extra activity updated'
     else
       render 'edit'
     end
@@ -17,7 +17,7 @@ class ExtrasController < ApplicationController
   def create
     @extra  = current_user.extras.build(extra_params)
     if @extra.save
-      flash[:success] = "Extra activity created"
+      flash[:success] = 'Extra activity created'
     else
       render 'new'
     end

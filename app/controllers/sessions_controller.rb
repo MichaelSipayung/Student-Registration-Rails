@@ -13,14 +13,14 @@ class SessionsController < ApplicationController
         #remember(user)
         redirect_back_or user #automatically convert to the route user_url(user)
       else
-        message= "Account not activated"
-        message+= "Check your email for activation link"
+        message= 'Account not activated'
+        message+= 'Check your email for activation link'
         flash[:warning] = message
         redirect_to root_url
       end
     else
       #create an error message
-      flash.now[:danger] = "Invalid email/password combination"
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end
