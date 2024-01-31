@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class SourceMotivationListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @source_motivation_list = source_motivation_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class SourceMotivationListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create source_motivation_list' do
-    assert_difference("SourceMotivationList.count") do
+    assert_difference('SourceMotivationList.count') do
       post source_motivation_lists_url,
            params: { source_motivation_list: { motivasi: 'pendidikan' } }
     end
@@ -45,7 +47,7 @@ class SourceMotivationListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy source_motivation_list' do
-    assert_difference("SourceMotivationList.count", -1) do
+    assert_difference('SourceMotivationList.count', -1) do
       delete source_motivation_list_url(@source_motivation_list)
     end
 

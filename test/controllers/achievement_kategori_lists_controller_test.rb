@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AchievementKategoriListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @achievement_kategori_list = achievement_kategori_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class AchievementKategoriListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create achievement_kategori_list' do
-    assert_difference("AchievementKategoriList.count") do
+    assert_difference('AchievementKategoriList.count') do
       post achievement_kategori_lists_url,
            params: { achievement_kategori_list: { kategori: 'non akademik' } }
     end
@@ -45,7 +47,7 @@ class AchievementKategoriListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy achievement_kategori_list' do
-    assert_difference("AchievementKategoriList.count", -1) do
+    assert_difference('AchievementKategoriList.count', -1) do
       delete achievement_kategori_list_url(@achievement_kategori_list)
     end
 

@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AccreditationSchoolListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @accreditation_school_list = accreditation_school_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class AccreditationSchoolListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create accreditation_school_list' do
-    assert_difference("AccreditationSchoolList.count") do
+    assert_difference('AccreditationSchoolList.count') do
       post accreditation_school_lists_url,
            params: { accreditation_school_list: { akreditasi: 'baik' } }
     end
@@ -45,7 +47,7 @@ class AccreditationSchoolListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy accreditation_school_list' do
-    assert_difference("AccreditationSchoolList.count", -1) do
+    assert_difference('AccreditationSchoolList.count', -1) do
       delete accreditation_school_list_url(@accreditation_school_list)
     end
 

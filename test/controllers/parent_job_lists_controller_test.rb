@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class ParentJobListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @parent_job_list = parent_job_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class ParentJobListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create parent_job_list' do
-    assert_difference("ParentJobList.count") do
+    assert_difference('ParentJobList.count') do
       post parent_job_lists_url, params: { parent_job_list: { pekerjaan: 'petani padi' } }
     end
 
@@ -43,7 +45,7 @@ class ParentJobListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy parent_job_list' do
-    assert_difference("ParentJobList.count", -1) do
+    assert_difference('ParentJobList.count', -1) do
       delete parent_job_list_url(@parent_job_list)
     end
 

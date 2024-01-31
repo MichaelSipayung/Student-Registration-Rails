@@ -1,12 +1,14 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class LanguageDegreeListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email,
       password: 'password'
-    }}
+    } }
     @language_degree_list = language_degree_lists(:one)
   end
 
@@ -21,7 +23,7 @@ class LanguageDegreeListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create language_degree_list' do
-    assert_difference("LanguageDegreeList.count") do
+    assert_difference('LanguageDegreeList.count') do
       post language_degree_lists_url, params: { language_degree_list: { tingkat: @language_degree_list.tingkat } }
     end
 
@@ -39,12 +41,13 @@ class LanguageDegreeListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update language_degree_list' do
-    patch language_degree_list_url(@language_degree_list), params: { language_degree_list: { tingkat: @language_degree_list.tingkat } }
+    patch language_degree_list_url(@language_degree_list),
+          params: { language_degree_list: { tingkat: @language_degree_list.tingkat } }
     assert_redirected_to language_degree_list_url(@language_degree_list)
   end
 
   test 'should destroy language_degree_list' do
-    assert_difference("LanguageDegreeList.count", -1) do
+    assert_difference('LanguageDegreeList.count', -1) do
       delete language_degree_list_url(@language_degree_list)
     end
 

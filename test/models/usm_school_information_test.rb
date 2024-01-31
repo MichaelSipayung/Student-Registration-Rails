@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class UsmSchoolInformationTest < ActiveSupport::TestCase
   def setup
@@ -7,48 +9,48 @@ class UsmSchoolInformationTest < ActiveSupport::TestCase
                                asal_sekolah: 'sma santo tomas', akreditas: 'terakreditasi',
                                jumlah_pelajaran_semester_5: 8, jumlah_nilai_semester_5: 78.9)
   end
-  test "should be a valid utbk information" do
+  test 'should be a valid utbk information' do
     assert @usm_school.valid?
   end
-  test "should reject for invalid asal sekolah - usm" do
-    @usm_school.asal_sekolah='a'*2
+  test 'should reject for invalid asal sekolah - usm' do
+    @usm_school.asal_sekolah = 'a' * 2
     assert_not @usm_school.valid?
-    @usm_school.asal_sekolah=' '
+    @usm_school.asal_sekolah = ' '
     assert_not @usm_school.valid?
-    @usm_school.asal_sekolah='a'*51
-    assert_not @usm_school.valid?
-  end
-  test "should reject for invalid jumlah nilai un-usm" do
-    @usm_school.jumlah_nilai_un= 1000.5
-    assert_not @usm_school.valid?
-    @usm_school.jumlah_nilai_un=  -12
+    @usm_school.asal_sekolah = 'a' * 51
     assert_not @usm_school.valid?
   end
-  test "should reject for invalid jumlah pelajaran un-usm" do
+  test 'should reject for invalid jumlah nilai un-usm' do
+    @usm_school.jumlah_nilai_un = 1000.5
+    assert_not @usm_school.valid?
+    @usm_school.jumlah_nilai_un = -12
+    assert_not @usm_school.valid?
+  end
+  test 'should reject for invalid jumlah pelajaran un-usm' do
     @usm_school.jumlah_pelajaran_un = 50
     assert_not @usm_school.valid?
     @usm_school.jumlah_pelajaran_un = -1
     assert_not @usm_school.valid?
   end
-  test "should reject for invalid akreditas-usm" do
-    @usm_school.akreditas = 'a'*21
+  test 'should reject for invalid akreditas-usm' do
+    @usm_school.akreditas = 'a' * 21
     assert_not @usm_school.valid?
-    @usm_school.akreditas =  ' '
+    @usm_school.akreditas = ' '
     assert_not @usm_school.valid?
   end
-  test "should reject for invalid jumlah pelajaran semester 5-usm" do
+  test 'should reject for invalid jumlah pelajaran semester 5-usm' do
     @usm_school.jumlah_pelajaran_semester_5 = 21
     assert_not @usm_school.valid?
     @usm_school.jumlah_pelajaran_semester_5 = -1
     assert_not @usm_school.valid?
   end
-  test "should reject for invalid jumlah nilai semester 5-usm" do
-    @usm_school.jumlah_nilai_semester_5 =-30.9
+  test 'should reject for invalid jumlah nilai semester 5-usm' do
+    @usm_school.jumlah_nilai_semester_5 = -30.9
     assert_not @usm_school.valid?
-    @usm_school.jumlah_nilai_semester_5 =2001
+    @usm_school.jumlah_nilai_semester_5 = 2001
     assert_not @usm_school.valid?
   end
-  test "should allow non mandatory attribute to be empty-usm" do
+  test 'should allow non mandatory attribute to be empty-usm' do
     assert @usm_school.valid?
   end
 end

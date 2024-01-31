@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AllSchoolListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @all_school_list = all_school_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class AllSchoolListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create all_school_list' do
-    assert_difference("AllSchoolList.count") do
+    assert_difference('AllSchoolList.count') do
       post all_school_lists_url, params: { all_school_list: { sekolah: 'sma bina nusantara' } }
     end
 
@@ -44,7 +46,7 @@ class AllSchoolListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy all_school_list' do
-    assert_difference("AllSchoolList.count", -1) do
+    assert_difference('AllSchoolList.count', -1) do
       delete all_school_list_url(@all_school_list)
     end
 

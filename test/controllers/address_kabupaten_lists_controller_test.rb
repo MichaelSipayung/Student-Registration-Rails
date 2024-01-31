@@ -1,10 +1,12 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AddressKabupatenListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: {
-      session: {email: users(:michael).email, password: 'password'}
+      session: { email: users(:michael).email, password: 'password' }
     }
     @address_kabupaten_list = address_kabupaten_lists(:acehtengah)
   end
@@ -20,11 +22,11 @@ class AddressKabupatenListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create address_kabupaten_list' do
-    assert_difference("AddressKabupatenList.count") do
+    assert_difference('AddressKabupatenList.count') do
       post address_kabupaten_lists_url,
            params: { address_kabupaten_list:
                        { kabupaten: 'luake',
-                         address_province_list_id: address_province_lists(:aceh).id} }
+                         address_province_list_id: address_province_lists(:aceh).id } }
     end
     assert_redirected_to address_kabupaten_list_url(AddressKabupatenList.last)
   end
@@ -49,13 +51,13 @@ class AddressKabupatenListsControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil AddressKabupatenList.find_by_kabupaten 'kab aceh timur'
     assert_not_nil AddressKabupatenList.find_by_kabupaten 'kab aceh tengah'
 
-    assert_difference("AddressKabupatenList.count", -1) do
+    assert_difference('AddressKabupatenList.count', -1) do
       delete address_kabupaten_list_url(@address_kabupaten_list)
     end
     assert_nil AddressKabupatenList.find_by_kabupaten 'kab aceh tengah'
 
     @address_kabupaten_list = address_kabupaten_lists(:acehtimur)
-    assert_difference("AddressKabupatenList.count", -1) do
+    assert_difference('AddressKabupatenList.count', -1) do
       delete address_kabupaten_list_url(@address_kabupaten_list)
     end
     assert_nil AddressKabupatenList.find_by_kabupaten 'kab aceh timur'

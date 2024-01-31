@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AchievementTingkatListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @achievement_tingkat_list = achievement_tingkat_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class AchievementTingkatListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create achievement_tingkat_list' do
-    assert_difference("AchievementTingkatList.count") do
+    assert_difference('AchievementTingkatList.count') do
       post achievement_tingkat_lists_url,
            params: { achievement_tingkat_list: { tingkat: 'nasional' } }
     end
@@ -45,7 +47,7 @@ class AchievementTingkatListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy achievement_tingkat_list' do
-    assert_difference("AchievementTingkatList.count", -1) do
+    assert_difference('AchievementTingkatList.count', -1) do
       delete achievement_tingkat_list_url(@achievement_tingkat_list)
     end
 

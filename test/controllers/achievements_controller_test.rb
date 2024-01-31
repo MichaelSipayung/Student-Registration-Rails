@@ -1,9 +1,11 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AchievementsControllerTest < ActionDispatch::IntegrationTest
   def setup
     get login_path
-    post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
+    post login_path, params: { session: { email: users(:michael).email, password: 'password' } }
   end
   test 'should get new' do
     get new_achievement_path
@@ -16,5 +18,4 @@ class AchievementsControllerTest < ActionDispatch::IntegrationTest
     get edit_achievement_path achievements(:first_achievement)
     assert_response :success
   end
-
 end

@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class PersonalReligionListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
-      email: users(:michael).email, password: "password"
-    }}
+    post login_path, params: { session: {
+      email: users(:michael).email, password: 'password'
+    } }
     @personal_religion_list = personal_religion_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class PersonalReligionListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create personal_religion_list' do
-    assert_difference("PersonalReligionList.count") do
+    assert_difference('PersonalReligionList.count') do
       post personal_religion_lists_url, params: { personal_religion_list: { agama: 'kristen' } }
     end
 
@@ -44,7 +46,7 @@ class PersonalReligionListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy personal_religion_list' do
-    assert_difference("PersonalReligionList.count", -1) do
+    assert_difference('PersonalReligionList.count', -1) do
       delete personal_religion_list_url(@personal_religion_list)
     end
 

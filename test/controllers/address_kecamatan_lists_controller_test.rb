@@ -1,10 +1,12 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AddressKecamatanListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: {
-      session: {email: users(:michael).email, password: 'password'}
+      session: { email: users(:michael).email, password: 'password' }
     }
     @address_kecamatan_list = address_kecamatan_lists(:kecacehtengah)
   end
@@ -21,10 +23,10 @@ class AddressKecamatanListsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create address_kecamatan_list' do
     @kab = address_kabupaten_lists(:acehtengah)
-    assert_difference("AddressKecamatanList.count") do
+    assert_difference('AddressKecamatanList.count') do
       post address_kecamatan_lists_url,
            params: { address_kecamatan_list: { kecamatan: 'aceh barat',
-                                               address_kabupaten_list_id: @kab.id} }
+                                               address_kabupaten_list_id: @kab.id } }
     end
     assert_not_nil AddressKecamatanList.find_by_kecamatan 'aceh barat'
     assert_redirected_to address_kecamatan_list_url(AddressKecamatanList.last)
@@ -48,7 +50,7 @@ class AddressKecamatanListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy address_kecamatan_list' do
-    assert_difference("AddressKecamatanList.count", -1) do
+    assert_difference('AddressKecamatanList.count', -1) do
       delete address_kecamatan_list_url(@address_kecamatan_list)
     end
 

@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class PersonalGenderListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @personal_gender_list = personal_gender_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class PersonalGenderListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create personal_gender_list' do
-    assert_difference("PersonalGenderList.count") do
+    assert_difference('PersonalGenderList.count') do
       post personal_gender_lists_url, params: { personal_gender_list: { jenis_kelamin: 'perempuan' } }
     end
 
@@ -44,7 +46,7 @@ class PersonalGenderListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy personal_gender_list' do
-    assert_difference("PersonalGenderList.count", -1) do
+    assert_difference('PersonalGenderList.count', -1) do
       delete personal_gender_list_url(@personal_gender_list)
     end
 

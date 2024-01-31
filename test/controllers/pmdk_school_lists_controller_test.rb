@@ -1,10 +1,12 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class PmdkSchoolListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: {
-      session: {email: users(:michael).email,password: 'password'}
+      session: { email: users(:michael).email, password: 'password' }
     }
     @pmdk_school_list = pmdk_school_lists(:one)
   end
@@ -20,7 +22,7 @@ class PmdkSchoolListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create pmdk_school_list' do
-    assert_difference("PmdkSchoolList.count") do
+    assert_difference('PmdkSchoolList.count') do
       post pmdk_school_lists_url, params: { pmdk_school_list: { sekolah: 'sma 1 bangsa' } }
     end
 
@@ -44,7 +46,7 @@ class PmdkSchoolListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy pmdk_school_list' do
-    assert_difference("PmdkSchoolList.count", -1) do
+    assert_difference('PmdkSchoolList.count', -1) do
       delete pmdk_school_list_url(@pmdk_school_list)
     end
 

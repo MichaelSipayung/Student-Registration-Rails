@@ -1,12 +1,14 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class OrganizationDegreeListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email,
       password: 'password'
-    }}
+    } }
     @organization_degree_list = organization_degree_lists(:one)
   end
 
@@ -21,7 +23,7 @@ class OrganizationDegreeListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create organization_degree_list' do
-    assert_difference("OrganizationDegreeList.count") do
+    assert_difference('OrganizationDegreeList.count') do
       post organization_degree_lists_url, params:
         { organization_degree_list: { jabatan: 'sekretaris' } }
     end
@@ -46,7 +48,7 @@ class OrganizationDegreeListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy organization_degree_list' do
-    assert_difference("OrganizationDegreeList.count", -1) do
+    assert_difference('OrganizationDegreeList.count', -1) do
       delete organization_degree_list_url(@organization_degree_list)
     end
 

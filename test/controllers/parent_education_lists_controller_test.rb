@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class ParentEducationListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @parent_education_list = parent_education_lists(:one)
   end
 
@@ -20,9 +22,10 @@ class ParentEducationListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create parent_education_list' do
-    assert_difference("ParentEducationList.count") do
+    assert_difference('ParentEducationList.count') do
       post parent_education_lists_url, params: {
-        parent_education_list: { pendidikan: 'slta' } }
+        parent_education_list: { pendidikan: 'slta' }
+      }
     end
 
     assert_redirected_to parent_education_list_url(ParentEducationList.last)
@@ -45,7 +48,7 @@ class ParentEducationListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy parent_education_list' do
-    assert_difference("ParentEducationList.count", -1) do
+    assert_difference('ParentEducationList.count', -1) do
       delete parent_education_list_url(@parent_education_list)
     end
 

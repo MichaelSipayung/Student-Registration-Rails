@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class BatchListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @batch_list = batch_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class BatchListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create batch_list' do
-    assert_difference("BatchList.count") do
+    assert_difference('BatchList.count') do
       post batch_lists_url, params:
         { batch_list: { aktif: false, gelombang: 'usm 1' } }
     end
@@ -45,7 +47,7 @@ class BatchListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy batch_list' do
-    assert_difference("BatchList.count", -1) do
+    assert_difference('BatchList.count', -1) do
       delete batch_list_url(@batch_list)
     end
 

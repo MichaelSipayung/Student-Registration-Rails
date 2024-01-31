@@ -1,10 +1,12 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class FollowingTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
     get login_path
-    post login_path, params: {session: {email: @user.email, password: 'password'}}
+    post login_path, params: { session: { email: @user.email, password: 'password' } }
   end
   # test "following page" do
   #   get following_user_path(@user)

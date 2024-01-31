@@ -1,12 +1,14 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class LanguageNameListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email,
       password: 'password'
-    }}
+    } }
     @language_name_list = language_name_lists(:one)
   end
 
@@ -21,7 +23,7 @@ class LanguageNameListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create language_name_list' do
-    assert_difference("LanguageNameList.count") do
+    assert_difference('LanguageNameList.count') do
       post language_name_lists_url, params: { language_name_list: { bahasa: 'inggris' } }
     end
 
@@ -45,7 +47,7 @@ class LanguageNameListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy language_name_list' do
-    assert_difference("LanguageNameList.count", -1) do
+    assert_difference('LanguageNameList.count', -1) do
       delete language_name_list_url(@language_name_list)
     end
 

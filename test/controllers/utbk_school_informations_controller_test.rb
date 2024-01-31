@@ -1,10 +1,12 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
   def setup
     get login_path
     post login_path, params: {
-      session: {email: users(:michael).email, password: 'password'}
+      session: { email: users(:michael).email, password: 'password' }
     }
   end
   test 'should get new - utbk school information' do
@@ -14,9 +16,9 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should  update - utbk school information' do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
-    }}
+    } }
     assert is_logged_in?
     get edit_utbk_school_information_url(utbk_school_informations(:utbk_sc_one))
     assert_response :success
@@ -33,25 +35,25 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
   end
   test 'should reject update non permited params-utbk school' do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
-    }}
+    } }
     assert is_logged_in?
     get edit_utbk_school_information_url(utbk_school_informations(:utbk_sc_one))
     assert_response :success
     patch utbk_school_information_path(utbk_school_informations(:utbk_sc_one)), params: {
       utbk_school_information: {
         asal_sekolah: 'sma 2 balige', jumlah_pelajaran_un: 3,
-        jumlah_nilai_un: 200.5, akreditas: 'Baik sekali', user_id: 98777908
+        jumlah_nilai_un: 200.5, akreditas: 'Baik sekali', user_id: 98_777_908
       }
     }
-    assert_not_equal 98777908, utbk_school_informations(:utbk_sc_one).reload.user_id
+    assert_not_equal 98_777_908, utbk_school_informations(:utbk_sc_one).reload.user_id
   end
   test 'should reject update the utbk school for invalid information' do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
-    }}
+    } }
     assert is_logged_in?
     get edit_utbk_school_information_url(utbk_school_informations(:utbk_sc_one))
     assert_response :success
@@ -77,7 +79,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil UtbkSchoolInformation.find_by_asal_sekolah 'sma 2 tarutung'
     assert_not_nil UtbkSchoolInformation.find_by_akreditas 'Baik'
     assert_not_nil UtbkSchoolInformation.find_by_jumlah_pelajaran_un 9
-    assert_not_nil  UtbkSchoolInformation.find_by_jumlah_nilai_un 100.5
+    assert_not_nil UtbkSchoolInformation.find_by_jumlah_nilai_un 100.5
   end
   test 'should reject to create - utbk school information' do
     get new_utbk_school_information_path
@@ -101,17 +103,17 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
         utbk_school_information: {
           jurusan_sekolah: 'smk teknik',
           asal_sekolah: 'sma 1 nauli', jumlah_pelajaran_un: 9,
-          jumlah_nilai_un: 100.5, akreditas: 'Baik', user_id: 98978
+          jumlah_nilai_un: 100.5, akreditas: 'Baik', user_id: 98_978
         }
       }
     end
-    assert_nil UtbkSchoolInformation.find_by_user_id 98978
+    assert_nil UtbkSchoolInformation.find_by_user_id 98_978
   end
   test 'should get edit - utbk school information' do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:archer).email, password: 'password'
-    }}
+    } }
     get edit_utbk_school_information_url(utbk_school_informations(:utbk_sc_one))
     assert_response :success
   end

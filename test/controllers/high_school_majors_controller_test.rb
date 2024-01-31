@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class HighSchoolMajorsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @high_school_major = high_school_majors(:one)
   end
 
@@ -20,7 +22,7 @@ class HighSchoolMajorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create high_school_major' do
-    assert_difference("HighSchoolMajor.count") do
+    assert_difference('HighSchoolMajor.count') do
       post high_school_majors_url, params: { high_school_major: { jurusan: 'smk teknik ringan' } }
     end
 
@@ -41,12 +43,13 @@ class HighSchoolMajorsControllerTest < ActionDispatch::IntegrationTest
   #   assert_response :success
   # end
   test 'should update high_school_major' do
-    patch high_school_major_url(@high_school_major), params: { high_school_major: { jurusan: @high_school_major.jurusan } }
+    patch high_school_major_url(@high_school_major),
+          params: { high_school_major: { jurusan: @high_school_major.jurusan } }
     assert_redirected_to high_school_major_url(@high_school_major)
   end
 
   test 'should destroy high_school_major' do
-    assert_difference("HighSchoolMajor.count", -1) do
+    assert_difference('HighSchoolMajor.count', -1) do
       delete high_school_major_url(@high_school_major)
     end
 

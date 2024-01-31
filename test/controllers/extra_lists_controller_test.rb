@@ -1,12 +1,14 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class ExtraListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email,
       password: 'password'
-    }}
+    } }
     @extra_list = extra_lists(:one)
   end
 
@@ -21,7 +23,7 @@ class ExtraListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create extra_list' do
-    assert_difference("ExtraList.count") do
+    assert_difference('ExtraList.count') do
       post extra_lists_url, params: { extra_list: { predikat: 'sangat baik' } }
     end
 
@@ -44,7 +46,7 @@ class ExtraListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy extra_list' do
-    assert_difference("ExtraList.count", -1) do
+    assert_difference('ExtraList.count', -1) do
       delete extra_list_url(@extra_list)
     end
 

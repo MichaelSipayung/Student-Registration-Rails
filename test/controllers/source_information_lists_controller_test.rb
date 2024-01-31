@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class SourceInformationListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
-    post login_path, params: {session: {
+    post login_path, params: { session: {
       email: users(:michael).email, password: 'password'
-    }}
+    } }
     @source_information_list = source_information_lists(:one)
   end
 
@@ -20,7 +22,7 @@ class SourceInformationListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create source_information_list' do
-    assert_difference("SourceInformationList.count") do
+    assert_difference('SourceInformationList.count') do
       post source_information_lists_url,
            params: { source_information_list: { informasi: 'radio' } }
     end
@@ -45,7 +47,7 @@ class SourceInformationListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy source_information_list' do
-    assert_difference("SourceInformationList.count", -1) do
+    assert_difference('SourceInformationList.count', -1) do
       delete source_information_list_url(@source_information_list)
     end
 
