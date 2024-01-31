@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# parent education list controller : handle parent education list
 class ParentEducationListsController < ApplicationController
   before_action :set_parent_education_list, only: %i[show edit update destroy]
 

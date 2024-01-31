@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# pmdk school list controller : handle pmdk school list
 class PmdkSchoolListsController < ApplicationController
   before_action :set_pmdk_school_list, only: %i[show edit update destroy]
 

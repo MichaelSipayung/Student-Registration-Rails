@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-
+#  utbk_score : handle utbk score data
 class UtbkScoresController < ApplicationController
-  before_action :set_utbk_score, only: %i[edit update show]
+  before_action :current_utbk, only: %i[edit update show]
 
   def new
     @utbk_score = current_user.build_utbk_score
@@ -44,7 +44,12 @@ class UtbkScoresController < ApplicationController
                                        :nilai_pengetahuan_dan_pemahaman_umum, :sertifikat_utbk)
   end
 
-  def set_utbk_score
-    @utbk_score = UtbkScore.find(params[:id])
+  # def set_utbk_score
+  #   @utbk_score = UtbkScore.find(params[:id])
+  # end
+
+  def current_utbk
+    @utbk_score = current_user.utbk_score
+    redirect_to root_url if @utbk_score.nil? || @utbk_score.id != params[:id].to_i
   end
 end

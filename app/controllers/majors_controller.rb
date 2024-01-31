@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
+# major controller : handle major
 class MajorsController < ApplicationController
   before_action :set_major_dropdown_menu, only: %i[new create edit update]
-  before_action :set_major, only: %i[edit update show]
+  before_action :current_user, only: %i[edit update show]
   def new
     @major = current_user.build_major
   end
@@ -44,5 +44,10 @@ class MajorsController < ApplicationController
 
   def set_major
     @major = Major.find(params[:id])
+  end
+
+  def current_major
+    @major = current_user.major
+    redirect_to root_url if @major.nil? || @major.id != params[:id].to_i
   end
 end

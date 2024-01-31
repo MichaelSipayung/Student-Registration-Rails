@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
+# parents controller : handle parents data
 class ParentsController < ApplicationController
   before_action :set_parent_dropdown_menu, only: %i[new create edit update]
-  before_action :set_parent, only: %i[show update edit]
+  before_action :current_parent, only: %i[show update edit]
   def new
     @parent  = current_user.build_parent
   end
@@ -46,5 +46,10 @@ class ParentsController < ApplicationController
 
   def set_parent
     @parent = Parent.find(params[:id])
+  end
+
+  def current_parent
+    @parent = current_user.parent
+    redirect_to root_url if @parent.nil? || @parent.id != params[:id].to_i
   end
 end

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# parent job list controller : handle parent job list
 class ParentJobListsController < ApplicationController
   before_action :set_parent_job_list, only: %i[show edit update destroy]
 

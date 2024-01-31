@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # handle sessions (login, logout, etc.) for the application
 class SessionsController < ApplicationController
   skip_before_action :logged_in_user, only: %i[new create] # skip the logged_in_user method for new and create action

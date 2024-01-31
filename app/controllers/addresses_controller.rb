@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
+# address controller : handle address
 class AddressesController < ApplicationController
   before_action :set_address_dropdown_menu, only: %i[new create edit update]
-  before_action :set_address, only: %i[edit show update]
+  before_action :current_address, only: %i[edit show update]
   def new
     @address  = current_user.addresses.build
   end
@@ -46,5 +46,10 @@ class AddressesController < ApplicationController
 
   def set_address
     @address = Address.find(params[:id])
+  end
+
+  def current_address
+    @address = current_user.addresses.find_by(id: params[:id])
+    redirect_to root_url if @address.nil?
   end
 end

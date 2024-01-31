@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
+# achievements controller : handle achievements
 class AchievementsController < ApplicationController
   before_action :set_achievement_dropdown_menu, only: %i[new create edit update]
-  before_action :set_achievement, only: %i[edit show update]
+  before_action :current_achievement, only: %i[edit show update]
   def new
     @achievement = current_user.achievements.build
   end
@@ -44,5 +44,10 @@ class AchievementsController < ApplicationController
 
   def set_achievement
     @achievement = Achievement.find(params[:id])
+  end
+
+  def current_achievement
+    @achievement = current_user.achievements.find_by(id: params[:id])
+    redirect_to root_url if @achievement.nil?
   end
 end

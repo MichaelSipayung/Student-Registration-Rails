@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
+# organization controller : handle organization
 class OrganizationsController < ApplicationController
   before_action :set_organization_dropdown_menu, only: %i[new create edit update]
-  before_action :set_organization, only: %i[edit show update]
+  before_action :current_organization, only: %i[edit show update]
   def new
     @organization = current_user.organizations.build
   end
@@ -44,4 +44,10 @@ class OrganizationsController < ApplicationController
   def set_organization
     @organization = Organization.find(params[:id])
   end
+
+  def current_organization
+    @organization = current_user.organizations.find_by(id: params[:id])
+    redirect_to root_url if @organization.nil?
+  end
+
 end

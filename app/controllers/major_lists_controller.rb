@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# major list controller : handle major list
 class MajorListsController < ApplicationController
   before_action :set_major_list, only: %i[show edit update destroy]
 

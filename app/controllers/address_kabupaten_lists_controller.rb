@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# address kabupaten list controller : handle address kabupaten list
 class AddressKabupatenListsController < ApplicationController
   before_action :set_address_kabupaten_list, only: %i[show edit update destroy]
 

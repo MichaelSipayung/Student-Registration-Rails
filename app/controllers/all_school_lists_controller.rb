@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# all school list controller : handle all school list
 class AllSchoolListsController < ApplicationController
   before_action :set_all_school_list, only: %i[show edit update destroy]
 

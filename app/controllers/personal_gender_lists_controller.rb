@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# personal religion list controller : handle personal religion list
 class PersonalGenderListsController < ApplicationController
   before_action :set_personal_gender_list, only: %i[show edit update destroy]
 

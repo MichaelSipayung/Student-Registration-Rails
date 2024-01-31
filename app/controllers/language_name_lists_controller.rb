@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# language name list controller : handle language name list
 class LanguageNameListsController < ApplicationController
   before_action :set_language_name_list, only: %i[show edit update destroy]
 

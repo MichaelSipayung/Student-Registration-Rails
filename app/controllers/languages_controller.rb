@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
+# language controller : handle language
 class LanguagesController < ApplicationController
   before_action :set_language_dropdown_menu, only: %i[new create edit update]
-  before_action :set_language, only: %i[edit update show]
+  before_action :current_language, only: %i[edit update show]
   def new
     @language = current_user.languages.build
   end
@@ -44,5 +44,10 @@ class LanguagesController < ApplicationController
 
   def set_language
     @language = Language.find(params[:id])
+  end
+
+  def current_language
+    @language = current_user.languages.find_by(id: params[:id])
+    redirect_to root_url if @language.nil?
   end
 end

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# application controller : handle application
 class ApplicationController < ActionController::Base
   before_action :logged_in_user # prevent to write before_action :logged_in_user in every controller
   include SessionsHelper # include the SessionsHelper module into the Application controller

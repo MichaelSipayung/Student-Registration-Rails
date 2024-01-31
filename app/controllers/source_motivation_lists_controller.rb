@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# source motivation list controller : handle source motivation list
 class SourceMotivationListsController < ApplicationController
   before_action :set_source_motivation_list, only: %i[show edit update destroy]
 

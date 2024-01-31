@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
+# usm school information controller : handle usm school information
 class UsmSchoolInformationsController < ApplicationController
   before_action :set_usm_school_dropdown, only: %i[new create edit update]
-  before_action :set_usm_school, only: %i[edit update show]
+  before_action :current_usm_school, only: %i[edit update show]
 
   def new
     @usm_school = current_user.build_usm_school_information
@@ -49,5 +49,11 @@ class UsmSchoolInformationsController < ApplicationController
 
   def set_usm_school
     @usm_school = UsmSchoolInformation.find(params[:id])
+  end
+
+  def current_usm_school
+    @usm_school = current_user.usm_school_information
+    redirect_to root_url if @usm_school.nil? ||
+                            @usm_school.id != params[:id].to_i
   end
 end

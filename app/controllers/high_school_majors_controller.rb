@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# high school major controller : handle high school major
 class HighSchoolMajorsController < ApplicationController
   before_action :set_high_school_major, only: %i[show edit update destroy]
 

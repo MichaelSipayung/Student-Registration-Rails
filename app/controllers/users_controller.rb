@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# users controller : handle users
 class UsersController < ApplicationController
   # prevent use update data or delete without login first
   # before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]

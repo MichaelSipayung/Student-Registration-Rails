@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# achievement tingkat list controller : handle achievement tingkat list
 class AchievementTingkatListsController < ApplicationController
   before_action :set_achievement_tingkat_list, only: %i[show edit update destroy]
 

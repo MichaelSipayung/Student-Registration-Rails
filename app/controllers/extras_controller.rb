@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
+# extra controller : handle extra
 class ExtrasController < ApplicationController
   before_action :set_extra_dropdown_menu, only: %i[new create edit update]
-  before_action :set_extra, only: %i[edit show update]
+  before_action :current_extra, only: %i[edit show update]
   def new
     @extra = current_user.extras.build
   end
@@ -43,5 +43,10 @@ class ExtrasController < ApplicationController
 
   def set_extra
     @extra = Extra.find(params[:id])
+  end
+
+  def current_extra
+    @extra = current_user.extras.find_by(id: params[:id])
+    redirect_to root_url if @extra.nil?
   end
 end

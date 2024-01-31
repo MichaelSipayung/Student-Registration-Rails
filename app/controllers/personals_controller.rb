@@ -1,8 +1,9 @@
 # frozen_string_literal: true
-
+# personal controller : handle personal data
 class PersonalsController < ApplicationController
   before_action :set_personal_dropdown_menu, only: %i[new create edit update]
-  before_action :set_personal, only: %i[edit update show]
+  # before_action :set_personal, only: %i[edit update show]
+  before_action :current_personal, only: %i[edit update show]
   def new
     @personal = current_user.build_personal
   end
@@ -43,7 +44,12 @@ class PersonalsController < ApplicationController
     @personal_gender = PersonalGenderList.all
   end
 
-  def set_personal
-    @personal = Personal.find(params[:id])
+  # def set_personal
+  #   @personal = Personal.find(params[:id])
+  # end
+
+  def current_personal
+    @personal = current_user.personal
+    redirect_to root_url if @personal.nil? || @personal.id != params[:id].to_i
   end
 end

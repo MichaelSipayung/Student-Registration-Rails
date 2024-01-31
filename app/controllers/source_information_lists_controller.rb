@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# source information list controller : handle source information list
 class SourceInformationListsController < ApplicationController
   before_action :set_source_information_list, only: %i[show edit update destroy]
 
