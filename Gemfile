@@ -53,7 +53,9 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'bundler-audit', require: false
+
 end
 
 group :development do
@@ -75,7 +77,7 @@ group :test do
   gem "minitest"
   gem "minitest-reporters"
   gem 'rails-controller-testing'
-  gem 'pg', '~> 1.2' # Add this line
+  # gem 'pg', '~> 1.2' # Add this line
 end
 #
 # group :production do

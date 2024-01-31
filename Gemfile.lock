@@ -108,6 +108,9 @@ GEM
     bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.4)
+    bundler-audit (0.9.1)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -179,8 +182,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
-    pg (1.5.4)
-    pg (1.5.4-x64-mingw-ucrt)
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
@@ -297,6 +298,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   bootstrap-will_paginate (~> 1.0)
+  bundler-audit
   capybara
   debug
   faker
@@ -305,7 +307,6 @@ DEPENDENCIES
   minitest
   minitest-reporters
   mysql2
-  pg (~> 1.2)
   puma (>= 5.0)
   rails (~> 7.1.2)
   rails-controller-testing
