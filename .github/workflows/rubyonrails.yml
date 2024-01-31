@@ -42,10 +42,12 @@ jobs:
         run: |
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
-      - name: Generate binstubs
+      - name: Generate binstubs for bundler-audit
         run: bundle binstubs bundler-audit
       - name: Security audit dependencies
         run: bin/bundler-audit --update
+      - name: Generate binstubs for brakeman
+        run: bundle binstubs brakeman
       - name: Security audit application code
         run: bin/brakeman -q -w2
       - name: Lint Ruby files
