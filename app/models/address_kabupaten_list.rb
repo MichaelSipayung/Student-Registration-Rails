@@ -1,3 +1,4 @@
+# address_kabupaten_list model : handle address_kabupaten_list
 class AddressKabupatenList < ApplicationRecord
   has_many :address_kecamatan_lists, dependent: :destroy
   validates :kabupaten, presence: true, uniqueness: true,

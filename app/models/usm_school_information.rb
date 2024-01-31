@@ -1,3 +1,4 @@
+# model UsmSchoolInformation : handle usm_school_information
 class UsmSchoolInformation < ApplicationRecord
   belongs_to :user
   validates :jurusan_sekolah, presence: true, length: {minimum: 3, maximum: 50}

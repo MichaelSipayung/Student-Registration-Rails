@@ -1,3 +1,4 @@
+# address model : handle address
 class Address < ApplicationRecord
   belongs_to :user
   validates :alamat, presence: true, length: { minimum: 4, maximum: 30 }

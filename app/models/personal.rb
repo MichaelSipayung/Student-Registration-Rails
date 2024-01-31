@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# personal model : handle personal
 class Personal < ApplicationRecord
   belongs_to :user
   validates :nama_lengkap, presence: true, length: { minimum: 4, maximum: 25 }

@@ -1,3 +1,4 @@
+# model Relationship : handle relationship
 class Relationship < ApplicationRecord
   #association of follower and followed
   belongs_to :follower, class_name: 'User' #follower_id

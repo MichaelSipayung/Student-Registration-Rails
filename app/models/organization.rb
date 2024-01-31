@@ -1,3 +1,4 @@
+# organization model : handle organization
 class Organization < ApplicationRecord
   belongs_to :user
   validates :nama_organisasi, presence: true, length: { minimum: 4, maximum: 20 }

@@ -1,3 +1,4 @@
+# model major : handle major
 class Major < ApplicationRecord
   belongs_to :user
   validates :jurusan_1, presence: true, length: { minimum: 4, maximum: 30 }

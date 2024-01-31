@@ -1,3 +1,4 @@
+# model PmdkTotalScoreInformation : handle pmdk_total_score_information
 class PmdkTotalScoreInformation < ApplicationRecord
   belongs_to :user
   validates :jumlah_nilai_semester_1, :jumlah_nilai_semester_2, :jumlah_nilai_semester_3,

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# model UtbkScore : handle utbk_score
 class UtbkScore < ApplicationRecord
   belongs_to :user
   validates :no_peserta, presence: true,

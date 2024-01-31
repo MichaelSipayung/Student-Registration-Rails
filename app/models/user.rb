@@ -1,3 +1,4 @@
+# model User : handle user
 class User < ApplicationRecord
   #make sure when administrator delete user, it's also delete micropost
   has_many :microposts, dependent: :destroy #making relation user and microposts

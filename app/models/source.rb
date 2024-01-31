@@ -1,3 +1,4 @@
+# model Source : handle source
 class Source < ApplicationRecord
   belongs_to :user
   validates :motivasi, presence: true, length: { minimum: 4, maximum: 30 }

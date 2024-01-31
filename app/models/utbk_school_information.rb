@@ -1,3 +1,4 @@
+# model UtbkSchoolInformation : handle utbk_school_information
 class UtbkSchoolInformation < ApplicationRecord
   belongs_to :user
   validates :asal_sekolah, presence: true, length: {minimum: 3, maximum: 50}

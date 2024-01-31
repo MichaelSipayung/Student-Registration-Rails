@@ -1,3 +1,4 @@
+# model pmdk_each_score_information : handle pmdk_each_score_information
 class PmdkEachScoreInformation < ApplicationRecord
   belongs_to :user
   validates :matematika_semester_1, :matematika_semester_2, :matematika_semester_3, :matematika_semester_4,

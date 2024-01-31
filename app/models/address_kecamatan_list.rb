@@ -1,3 +1,4 @@
+# address_kecamatan_list model : handle address_kecamatan_list
 class AddressKecamatanList < ApplicationRecord
   belongs_to :address_kabupaten_list
   validates :kecamatan, presence: true, uniqueness: true,

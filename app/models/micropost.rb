@@ -1,3 +1,4 @@
+# micropost model : handle micropost
 class Micropost < ApplicationRecord
   belongs_to :user #user_id
   #change the behavior, make the last inserted post come first

@@ -1,3 +1,4 @@
+# extra model : handle extra
 class Extra < ApplicationRecord
   belongs_to :user
   validates  :nama_kegiatan, length: {minimum: 4, maximum: 20}

@@ -1,3 +1,4 @@
+# model parent : handle parent
 class Parent < ApplicationRecord
   belongs_to :user
   validates :nama_ayah,:nama_ibu, presence: true, length: { minimum: 4, maximum: 25 }

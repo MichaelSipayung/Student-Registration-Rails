@@ -1,3 +1,4 @@
+# model pmdk_school_information : handle pmdk_school_information
 class PmdkSchoolInformation < ApplicationRecord
   belongs_to :user
   validates :jurusan_sekolah, presence: true, length: {minimum: 3, maximum: 50}
