@@ -1,5 +1,6 @@
 class PersonalsController < ApplicationController
   before_action :set_personal_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_personal, only: %i[edit update show]
   def new
     @personal = current_user.build_personal
   end
@@ -33,4 +34,7 @@ class PersonalsController < ApplicationController
       @personal_religion = PersonalReligionList.all
       @personal_gender = PersonalGenderList.all
     end
+  def set_personal
+    @personal = Personal.find(params[:id])
+  end
 end

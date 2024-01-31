@@ -1,5 +1,6 @@
 class LanguagesController < ApplicationController
   before_action :set_language_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_language, only: %i[edit update show]
   def new
     @language = current_user.languages.build
   end
@@ -35,5 +36,8 @@ class LanguagesController < ApplicationController
   def set_language_dropdown_menu
     @language_name_list = LanguageNameList.all
     @language_degree_list  = LanguageDegreeList.all
+  end
+  def set_language
+    @language = Language.find(params[:id])
   end
 end

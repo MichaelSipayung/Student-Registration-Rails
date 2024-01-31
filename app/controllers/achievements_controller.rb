@@ -1,5 +1,6 @@
 class AchievementsController < ApplicationController
   before_action :set_achievement_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_achievement, only: %i[edit show update]
   def new
     @achievement = current_user.achievements.build
   end
@@ -36,4 +37,7 @@ class AchievementsController < ApplicationController
       @achievement_tingkat_list = AchievementTingkatList.all
       @achievement_kategori_list = AchievementKategoriList.all
     end
+  def set_achievement
+    @achievement = Achievement.find(params[:id])
+  end
 end

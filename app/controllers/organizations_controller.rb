@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_organization, only: %i[edit show update]
   def new
     @organization = current_user.organizations.build
   end
@@ -34,5 +35,8 @@ class OrganizationsController < ApplicationController
   end
   def set_organization_dropdown_menu
     @organization_degree_list = OrganizationDegreeList.all
+  end
+  def set_organization
+    @organization = Organization.find(params[:id])
   end
 end

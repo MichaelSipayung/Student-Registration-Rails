@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
   before_action :set_address_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_address, only: %i[edit show update]
   def new
     @address  = current_user.addresses.build
   end
@@ -37,5 +38,8 @@ class AddressesController < ApplicationController
     @province = AddressProvinceList.all #provinsi
     @kabupaten = AddressKabupatenList.all #kabupaten
     @kecamatan = AddressKecamatanList.all #kecamatan
+  end
+  def set_address
+    @address = Address.find(params[:id])
   end
 end

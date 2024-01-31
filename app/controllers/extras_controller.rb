@@ -1,5 +1,6 @@
 class ExtrasController < ApplicationController
   before_action :set_extra_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_extra, only: %i[edit show update]
   def new
     @extra = current_user.extras.build
   end
@@ -34,5 +35,8 @@ class ExtrasController < ApplicationController
   end
   def set_extra_dropdown_menu
     @extra_list = ExtraList.all
+  end
+  def set_extra
+    @extra = Extra.find(params[:id])
   end
 end

@@ -1,5 +1,6 @@
 class MajorsController < ApplicationController
   before_action :set_major_dropdown_menu, only: [:new, :create, :edit, :update]
+  before_action :set_major, only: %i[edit update show]
   def new
     @major = current_user.build_major
   end
@@ -35,5 +36,8 @@ class MajorsController < ApplicationController
   def set_major_dropdown_menu
     @major_list = MajorList.all
     @batch_list = BatchList.all
+  end
+  def set_major
+    @major = Major.find(params[:id])
   end
 end
