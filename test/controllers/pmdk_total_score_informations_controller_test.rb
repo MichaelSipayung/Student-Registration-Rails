@@ -7,11 +7,11 @@ class PmdkTotalScoreInformationsControllerTest < ActionDispatch::IntegrationTest
       email: users(:michael).email, password: 'password'
     }}
   end
-  test "should get new" do
+  test 'should get new' do
     get new_pmdk_total_score_information_path
     assert_response :success
   end
-  test "should get edit" do
+  test 'should get edit' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -20,7 +20,7 @@ class PmdkTotalScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     get edit_pmdk_total_score_information_path(pmdk_total_score_informations(:pmdk_total_one))
     assert_response :success
   end
-  test "should create a new pmdk total score for the current user" do
+  test 'should create a new pmdk total score for the current user' do
     get new_pmdk_total_score_information_path
     assert_response :success
     assert_difference 'PmdkTotalScoreInformation.count' do
@@ -47,7 +47,7 @@ class PmdkTotalScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil PmdkTotalScoreInformation.find_by_jumlah_pelajaran_semester_4 15
     assert_not_nil PmdkTotalScoreInformation.find_by_jumlah_pelajaran_semester_5 14
   end
-  test "should reject non permited params while create total pmdk score" do
+  test 'should reject non permited params while create total pmdk score' do
     get new_pmdk_total_score_information_path
     assert_response :success
     assert_difference 'PmdkTotalScoreInformation.count' do
@@ -64,7 +64,7 @@ class PmdkTotalScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil PmdkTotalScoreInformation.find_by_user_id 98999809
   end
-  test "should reject to create pmdk total score for invalid information" do
+  test 'should reject to create pmdk total score for invalid information' do
     get new_pmdk_total_score_information_path
     assert_response :success
     assert_no_difference 'PmdkTotalScoreInformation.count' do
@@ -82,7 +82,7 @@ class PmdkTotalScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_nil PmdkTotalScoreInformation.find_by_jumlah_nilai_semester_1 0
     assert_nil PmdkTotalScoreInformation.find_by_jumlah_nilai_semester_3 130.9
   end
-  test "should update pmdk total score information" do
+  test 'should update pmdk total score information' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -111,7 +111,7 @@ class PmdkTotalScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 15, pmdk_total_score_informations(:pmdk_total_one).jumlah_pelajaran_semester_4
     assert_equal 14, pmdk_total_score_informations(:pmdk_total_one).jumlah_pelajaran_semester_5
   end
-  test "should not update non-permited params for total score pmdk" do
+  test 'should not update non-permited params for total score pmdk' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -130,7 +130,7 @@ class PmdkTotalScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     }
     assert_not_equal 9888898910, pmdk_total_score_informations(:pmdk_total_one).reload.user_id
   end
-  test "should not update for wrong information for total score pmdk" do
+  test 'should not update for wrong information for total score pmdk' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'

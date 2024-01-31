@@ -9,17 +9,17 @@ class ParentEducationListsControllerTest < ActionDispatch::IntegrationTest
     @parent_education_list = parent_education_lists(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get parent_education_lists_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_parent_education_list_url
     assert_response :success
   end
 
-  test "should create parent_education_list" do
+  test 'should create parent_education_list' do
     assert_difference("ParentEducationList.count") do
       post parent_education_lists_url, params: {
         parent_education_list: { pendidikan: 'slta' } }
@@ -28,23 +28,23 @@ class ParentEducationListsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to parent_education_list_url(ParentEducationList.last)
   end
 
-  test "should show parent_education_list" do
+  test 'should show parent_education_list' do
     get parent_education_list_url(@parent_education_list)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_parent_education_list_url(@parent_education_list)
     assert_response :success
   end
 
-  test "should update parent_education_list" do
+  test 'should update parent_education_list' do
     patch parent_education_list_url(@parent_education_list),
           params: { parent_education_list: { pendidikan: 'sltp' } }
     assert_redirected_to parent_education_list_url(@parent_education_list)
   end
 
-  test "should destroy parent_education_list" do
+  test 'should destroy parent_education_list' do
     assert_difference("ParentEducationList.count", -1) do
       delete parent_education_list_url(@parent_education_list)
     end

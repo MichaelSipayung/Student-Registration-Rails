@@ -7,12 +7,12 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
       email: users(:michael).email, password: 'password'
     }}
   end
-  test "should get new" do
+  test 'should get new' do
     get new_pmdk_school_information_path
     assert_response :success
   end
 
-  test "should update current pmdk school information" do
+  test 'should update current pmdk school information' do
     get login_path
     post login_path, params: {session: {
       email:  users(:archer).email, password: 'password'
@@ -32,7 +32,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 90.78, pmdk_school_informations(:pmdk_sc_one).reload.jumlah_nilai_un
     assert_equal 9, pmdk_school_informations(:pmdk_sc_one).reload.jumlah_pelajaran_un
   end
-  test "should reject to update pmdk school information for invalid data" do
+  test 'should reject to update pmdk school information for invalid data' do
     get login_path
     post login_path, params: {session: {
       email:  users(:iana).email, password: 'password'
@@ -49,7 +49,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
           }}
     assert_not_equal 0, pmdk_school_informations(:pmdk_sc_two).reload.jumlah_pelajaran_un
   end
-  test "should create new pmdk school information" do
+  test 'should create new pmdk school information' do
     get new_pmdk_school_information_path
     assert_response :success
     assert_difference 'PmdkSchoolInformation.count' do
@@ -68,7 +68,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil PmdkSchoolInformation.find_by_jumlah_nilai_un 90.78
     assert_not_nil PmdkSchoolInformation.find_by_jumlah_pelajaran_un 9
   end
-  test "should reject for non permited params-pmdk school" do
+  test 'should reject for non permited params-pmdk school' do
     get new_pmdk_school_information_path
     assert_response :success
     assert_difference 'PmdkSchoolInformation.count' do
@@ -85,7 +85,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil PmdkSchoolInformation.find_by_user_id 90900099
   end
-  test "should reject for invalid information-pmdk school" do
+  test 'should reject for invalid information-pmdk school' do
     get new_pmdk_school_information_path
     assert_response :success
     assert_no_difference 'PmdkSchoolInformation.count' do
@@ -100,7 +100,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil PmdkSchoolInformation.find_by_jumlah_nilai_un 90.78
   end
-  test "should get edit pmdk school information" do
+  test 'should get edit pmdk school information' do
     get login_path
     post login_path, params: {session: {
       email:  users(:archer).email, password: 'password'
@@ -109,7 +109,7 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     get edit_pmdk_school_information_path(pmdk_school_informations(:pmdk_sc_one))
     assert_response :success
   end
-  test "should reject for non permited params during update" do
+  test 'should reject for non permited params during update' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'

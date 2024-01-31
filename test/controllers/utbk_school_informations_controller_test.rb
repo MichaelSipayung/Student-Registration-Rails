@@ -7,12 +7,12 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
       session: {email: users(:michael).email, password: 'password'}
     }
   end
-  test "should get new - utbk school information" do
+  test 'should get new - utbk school information' do
     get new_utbk_school_information_path
     assert_response :success
   end
 
-  test "should  update - utbk school information" do
+  test 'should  update - utbk school information' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -31,7 +31,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_equal  3, utbk_school_informations(:utbk_sc_one).reload.jumlah_pelajaran_un
     assert_equal  200.5, utbk_school_informations(:utbk_sc_one).reload.jumlah_nilai_un
   end
-  test "should reject update non permited params-utbk school" do
+  test 'should reject update non permited params-utbk school' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -47,7 +47,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     }
     assert_not_equal 98777908, utbk_school_informations(:utbk_sc_one).reload.user_id
   end
-  test "should reject update the utbk school for invalid information" do
+  test 'should reject update the utbk school for invalid information' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -63,7 +63,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     }
     assert_not_equal 'sma 9 balige', utbk_school_informations(:utbk_sc_one).reload.user_id
   end
-  test "should create utbk school information" do
+  test 'should create utbk school information' do
     get new_utbk_school_information_path
     assert_response :success
     assert_difference 'UtbkSchoolInformation.count' do
@@ -79,7 +79,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil UtbkSchoolInformation.find_by_jumlah_pelajaran_un 9
     assert_not_nil  UtbkSchoolInformation.find_by_jumlah_nilai_un 100.5
   end
-  test "should reject to create - utbk school information" do
+  test 'should reject to create - utbk school information' do
     get new_utbk_school_information_path
     assert_response :success
     assert_no_difference 'UtbkSchoolInformation.count' do
@@ -93,7 +93,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil UtbkSchoolInformation.find_by_asal_sekolah 'sm'
   end
-  test "should reject to create non permited params-utbk school" do
+  test 'should reject to create non permited params-utbk school' do
     get new_utbk_school_information_path
     assert_response :success
     assert_difference 'UtbkSchoolInformation.count' do
@@ -107,7 +107,7 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil UtbkSchoolInformation.find_by_user_id 98978
   end
-  test "should get edit - utbk school information" do
+  test 'should get edit - utbk school information' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'

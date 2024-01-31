@@ -7,13 +7,13 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
       email: users(:michael).email, password: 'password'
     }}
   end
-  test "should get new score" do
+  test 'should get new score' do
     assert is_logged_in?
     get new_utbk_score_url
     assert_response :success
   end
 
-  test "should update the current logged in user score utbk" do
+  test 'should update the current logged in user score utbk' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -37,7 +37,7 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_equal 100.5, utbk_scores(:utbk_score_one).reload.nilai_kemampuan_memahami_bacaan_dan_menulis
     assert_equal 150.5, utbk_scores(:utbk_score_one).reload.nilai_pengetahuan_dan_pemahaman_umum
   end
-  test "should create new score for current login user" do
+  test 'should create new score for current login user' do
     get new_utbk_score_path
     assert_response :success
     assert_difference 'UtbkScore.count' do
@@ -60,7 +60,7 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil UtbkScore.find_by_nilai_pengetahuan_dan_pemahaman_umum 150.5
   end
   #
-  test "should get edit" do
+  test 'should get edit' do
     get login_path
     post login_path, params: {session: {
       email: users(:iana).email, password: 'password'
@@ -69,7 +69,7 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     get edit_utbk_score_url(utbk_scores(:utbk_score_two))
     assert_response :success
   end
-  test "should reject non permited params while created utbk score" do
+  test 'should reject non permited params while created utbk score' do
     get new_utbk_score_path
     assert_response :success
     assert_difference 'UtbkScore.count' do
@@ -85,7 +85,7 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil UtbkScore.find_by_user_id 9000098
   end
-  test "should reject non permited params while update the utbk score" do
+  test 'should reject non permited params while update the utbk score' do
     get new_utbk_score_path
     assert_response :success
     assert_difference 'UtbkScore.count' do

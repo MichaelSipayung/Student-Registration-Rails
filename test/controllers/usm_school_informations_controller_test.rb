@@ -7,13 +7,13 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
       email: users(:michael).email, password: 'password'
     }}
   end
-  test "should get new usm school information" do
+  test 'should get new usm school information' do
     assert is_logged_in?
     get new_usm_school_information_url
     assert_response :success
   end
 
-  test "should get edit usm school information" do
+  test 'should get edit usm school information' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -22,7 +22,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     get edit_usm_school_information_url(usm_school_informations(:usm_one))
     assert_response :success
   end
-  test "should create usm school information" do
+  test 'should create usm school information' do
     get new_usm_school_information_url
     assert_response :success
     assert_difference 'UsmSchoolInformation.count' do
@@ -39,7 +39,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil UsmSchoolInformation.find_by_jumlah_pelajaran_semester_5 15
     assert_not_nil  UsmSchoolInformation.find_by_jumlah_nilai_semester_5 799.9
   end
-  test "should reject for invalid usm school information" do
+  test 'should reject for invalid usm school information' do
     get new_usm_school_information_url
     assert_response :success
     assert_no_difference 'UsmSchoolInformation.count' do
@@ -51,7 +51,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
       }
     end
   end
-  test "should create usm school information but reject non permited params" do
+  test 'should create usm school information but reject non permited params' do
     get new_usm_school_information_url
     assert_response :success
     assert_difference 'UsmSchoolInformation.count' do
@@ -64,7 +64,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil UsmSchoolInformation.find_by_user_id 87999822
   end
-  test "should update the usm school information" do
+  test 'should update the usm school information' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -86,7 +86,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 15, usm_school_informations(:usm_one).jumlah_pelajaran_semester_5
     assert_equal 799.9, usm_school_informations(:usm_one).jumlah_nilai_semester_5
   end
-  test "should reject non permited params during update usm school information" do
+  test 'should reject non permited params during update usm school information' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -103,7 +103,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     usm_school_informations(:usm_one).reload
     assert_not_equal 9990998, usm_school_informations(:usm_one).user_id
   end
-  test "should reject to update usm school information for invalid data" do
+  test 'should reject to update usm school information for invalid data' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'

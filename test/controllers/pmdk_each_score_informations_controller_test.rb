@@ -7,11 +7,11 @@ class PmdkEachScoreInformationsControllerTest < ActionDispatch::IntegrationTest
       email: users(:michael).email, password: 'password'
     }}
   end
-  test "should get new pmdk each score information" do
+  test 'should get new pmdk each score information' do
     get new_pmdk_each_score_information_path
     assert_response :success
   end
-  test "should get edit pmdk each score information" do
+  test 'should get edit pmdk each score information' do
     assert is_logged_in?
     get login_path
     post login_path, params: {session: {
@@ -20,7 +20,7 @@ class PmdkEachScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     get edit_pmdk_each_score_information_path(pmdk_each_score_informations(:pmdk_each_score_one))
     assert_response :success
   end
-  test "should create new pmdk each score information" do
+  test 'should create new pmdk each score information' do
     get new_pmdk_each_score_information_path
     assert_response :success
     assert_difference 'PmdkEachScoreInformation.count' do
@@ -62,7 +62,7 @@ class PmdkEachScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil  PmdkEachScoreInformation.find_by_bahasa_inggris_semester_4 88.1
     assert_not_nil  PmdkEachScoreInformation.find_by_bahasa_inggris_semester_5 99.3
   end
-  test "should create new pmdk each score information but reject non-permited params" do
+  test 'should create new pmdk each score information but reject non-permited params' do
     get new_pmdk_each_score_information_path
     assert_response :success
     assert_difference 'PmdkEachScoreInformation.count' do
@@ -81,7 +81,7 @@ class PmdkEachScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil PmdkEachScoreInformation.find_by_user_id 9888090
   end
-  test "should reject to create new pmdk each score information for invalid data" do
+  test 'should reject to create new pmdk each score information for invalid data' do
     get new_pmdk_each_score_information_path
     assert_response :success
     assert_no_difference 'PmdkEachScoreInformation.count' do
@@ -100,7 +100,7 @@ class PmdkEachScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil PmdkEachScoreInformation.find_by_matematika_semester_1 90.12
   end
-  test "should update each pmdk score information" do
+  test 'should update each pmdk score information' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -133,7 +133,7 @@ class PmdkEachScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 56.8, pmdk_each_score_informations(:pmdk_each_score_one).bahasa_inggris_semester_2
     assert_equal 88.5, pmdk_each_score_informations(:pmdk_each_score_one).bahasa_inggris_semester_1
   end
-  test "should reject to update each pmdk score for invalid data" do
+  test 'should reject to update each pmdk score for invalid data' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'
@@ -156,7 +156,7 @@ class PmdkEachScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     pmdk_each_score_informations(:pmdk_each_score_one).reload
     assert_not_equal 0, pmdk_each_score_informations(:pmdk_each_score_one).bahasa_inggris_semester_5
   end
-  test "should reject non-permited params during update each pmdk score" do
+  test 'should reject non-permited params during update each pmdk score' do
     get login_path
     post login_path, params: {session: {
       email: users(:archer).email, password: 'password'

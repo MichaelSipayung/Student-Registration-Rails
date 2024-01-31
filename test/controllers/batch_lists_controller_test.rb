@@ -9,17 +9,17 @@ class BatchListsControllerTest < ActionDispatch::IntegrationTest
     @batch_list = batch_lists(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get batch_lists_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_batch_list_url
     assert_response :success
   end
 
-  test "should create batch_list" do
+  test 'should create batch_list' do
     assert_difference("BatchList.count") do
       post batch_lists_url, params:
         { batch_list: { aktif: false, gelombang: 'usm 1' } }
@@ -28,23 +28,23 @@ class BatchListsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to batch_list_url(BatchList.last)
   end
 
-  test "should show batch_list" do
+  test 'should show batch_list' do
     get batch_list_url(@batch_list)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_batch_list_url(@batch_list)
     assert_response :success
   end
 
-  test "should update batch_list" do
+  test 'should update batch_list' do
     patch batch_list_url(@batch_list),
           params: { batch_list: { aktif: true, gelombang: 'pmdk medan' } }
     assert_redirected_to batch_list_url(@batch_list)
   end
 
-  test "should destroy batch_list" do
+  test 'should destroy batch_list' do
     assert_difference("BatchList.count", -1) do
       delete batch_list_url(@batch_list)
     end

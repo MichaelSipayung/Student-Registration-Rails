@@ -8,11 +8,11 @@ class MajorsControllerTest < ActionDispatch::IntegrationTest
       email: @user.email, password: 'password'
     }}
   end
-  test "should get new" do
+  test 'should get new' do
     get new_major_path
     assert_response :success
   end
-  test "should get edit" do
+  test 'should get edit' do
     @user = users(:michael)
     get login_path
     post login_path, params: {session: {

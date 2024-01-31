@@ -5,11 +5,11 @@ class PersonalControllerTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, params: { session: { email: users(:iana).email, password: 'password' } }
   end
-  test "should get new" do
+  test 'should get new' do
     get new_personal_path
     assert_response :success
   end
-  test "should get edit" do
+  test 'should get edit' do
     get login_path
     post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
     assert is_logged_in?

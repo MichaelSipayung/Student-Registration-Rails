@@ -5,12 +5,12 @@ class AchievementsControllerTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, params: {session: {email: users(:michael).email, password: 'password'}}
   end
-  test "should get new" do
+  test 'should get new' do
     get new_achievement_path
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     assert is_logged_in?
     puts users(:michael).inspect # This will print the michael user to the console
     get edit_achievement_path achievements(:first_achievement)

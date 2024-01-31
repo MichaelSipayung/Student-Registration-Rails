@@ -7,11 +7,11 @@ class OrganizationsControllerTest < ActionDispatch::IntegrationTest
       email: users(:michael).email, password: 'password'
     }}
   end
-  test "should get new" do
+  test 'should get new' do
     get new_organization_path
     assert_response :success
   end
-  test "should get edit" do
+  test 'should get edit' do
     assert is_logged_in?
     get edit_organization_path(organizations(:one))
     assert_response :success
