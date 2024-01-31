@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # parents controller : handle parents data
 class ParentsController < ApplicationController
   before_action :set_parent_dropdown_menu, only: %i[new create edit update]

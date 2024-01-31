@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePmdkTotalScoreInformations < ActiveRecord::Migration[7.1]
   def change
     create_table :pmdk_total_score_informations do |t|

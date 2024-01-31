@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # achievements controller : handle achievements
 class AchievementsController < ApplicationController
   before_action :set_achievement_dropdown_menu, only: %i[new create edit update]

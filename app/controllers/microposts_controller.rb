@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # microposts controller : handle microposts
 class MicropostsController < ApplicationController
   # only login user could create and destroy it's post

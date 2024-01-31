@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateLanguageNameLists < ActiveRecord::Migration[7.1]
   def change
     create_table :language_name_lists do |t|

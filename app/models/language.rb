@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # language model : handle language
 class Language < ApplicationRecord
   belongs_to :user

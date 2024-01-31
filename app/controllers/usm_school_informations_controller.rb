@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # usm school information controller : handle usm school information
 class UsmSchoolInformationsController < ApplicationController
   before_action :set_usm_school_dropdown, only: %i[new create edit update]

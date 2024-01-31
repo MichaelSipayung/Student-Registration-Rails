@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAddressKecamatanLists < ActiveRecord::Migration[7.1]
   def change
     create_table :address_kecamatan_lists do |t|

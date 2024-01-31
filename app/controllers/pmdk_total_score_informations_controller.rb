@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # pmdk total score controller : handle pmdk total score
 class PmdkTotalScoreInformationsController < ApplicationController
   before_action :current_pmdk_total_score, only: %i[edit update show]

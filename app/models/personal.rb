@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # personal model : handle personal
 class Personal < ApplicationRecord
   belongs_to :user

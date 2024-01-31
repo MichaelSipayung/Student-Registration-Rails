@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # account activations controller : handle account activations
 class AccountActivationsController < ApplicationController
   before_action :logged_in_user, except: [:edit]

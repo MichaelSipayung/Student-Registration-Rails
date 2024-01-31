@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # accreditation controller : handle accreditation
 class AccreditationSchoolListsController < ApplicationController
   before_action :set_accreditation_school_list, only: %i[show edit update destroy]

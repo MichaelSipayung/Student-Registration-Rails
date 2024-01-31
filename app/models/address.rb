@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # address model : handle address
 class Address < ApplicationRecord
   belongs_to :user

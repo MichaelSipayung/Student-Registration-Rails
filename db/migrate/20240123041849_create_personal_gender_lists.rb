@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePersonalGenderLists < ActiveRecord::Migration[7.1]
   def change
     create_table :personal_gender_lists do |t|

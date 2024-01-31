@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # users controller : handle users
 class UsersController < ApplicationController
   # prevent use update data or delete without login first

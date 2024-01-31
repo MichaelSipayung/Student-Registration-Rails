@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # address province list controller : handle address province list
 class AddressProvinceListsController < ApplicationController
   before_action :set_address_province_list, only: %i[show edit update destroy]

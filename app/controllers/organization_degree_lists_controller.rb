@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # organization degree list controller : handle organization degree list
 class OrganizationDegreeListsController < ApplicationController
   before_action :set_organization_degree_list, only: %i[show edit update destroy]

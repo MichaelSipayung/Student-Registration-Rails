@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateUtbkScores < ActiveRecord::Migration[7.1]
   def change
     create_table :utbk_scores do |t|

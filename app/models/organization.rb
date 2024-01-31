@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # organization model : handle organization
 class Organization < ApplicationRecord
   belongs_to :user

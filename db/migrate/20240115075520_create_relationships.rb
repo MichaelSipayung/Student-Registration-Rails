@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRelationships < ActiveRecord::Migration[7.1]
   def change
     create_table :relationships do |t|
@@ -10,6 +12,6 @@ class CreateRelationships < ActiveRecord::Migration[7.1]
     add_index :relationships, :follower_id
     # enforce uniqueness on follower_id, followed_id
     # so the user can't follow another user more than one
-    add_index :relationships, [:follower_id, :followed_id], unique: true
+    add_index :relationships, %i[follower_id followed_id], unique: true
   end
 end

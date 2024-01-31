@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #  utbk_score : handle utbk score data
 class UtbkScoresController < ApplicationController
   before_action :current_utbk, only: %i[edit update show]

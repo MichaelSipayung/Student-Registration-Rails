@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCostLists < ActiveRecord::Migration[7.1]
   def change
     create_table :cost_lists do |t|

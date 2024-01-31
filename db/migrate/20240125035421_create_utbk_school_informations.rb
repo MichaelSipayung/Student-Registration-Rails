@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateUtbkSchoolInformations < ActiveRecord::Migration[7.1]
   def change
     create_table :utbk_school_informations do |t|

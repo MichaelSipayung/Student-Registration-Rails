@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateUsmSchoolInformations < ActiveRecord::Migration[7.1]
   def change
     create_table :usm_school_informations do |t|

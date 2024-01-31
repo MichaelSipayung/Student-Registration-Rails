@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # password reset controller : handle password reset
 class PasswordResetsController < ApplicationController
   # Because confirmation of the existence of a valid @user

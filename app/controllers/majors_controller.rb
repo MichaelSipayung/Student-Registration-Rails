@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # major controller : handle major
 class MajorsController < ApplicationController
   before_action :set_major_dropdown_menu, only: %i[new create edit update]
