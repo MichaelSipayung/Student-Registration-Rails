@@ -50,5 +50,7 @@ jobs:
         run: bundle binstubs brakeman
       - name: Security audit application code
         run: bin/brakeman -q -w2
+      - name: Generate binstubs for rubocop
+        run: bundle binstubs rubocop
       - name: Lint Ruby files
         run: bin/rubocop --parallel
