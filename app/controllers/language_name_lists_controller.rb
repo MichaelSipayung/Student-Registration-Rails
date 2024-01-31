@@ -2,6 +2,7 @@
 # language name list controller : handle language name list
 class LanguageNameListsController < ApplicationController
   before_action :set_language_name_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /language_name_lists or /language_name_lists.json
   def index

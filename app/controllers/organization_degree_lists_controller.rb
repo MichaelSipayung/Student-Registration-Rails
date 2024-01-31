@@ -2,7 +2,7 @@
 # organization degree list controller : handle organization degree list
 class OrganizationDegreeListsController < ApplicationController
   before_action :set_organization_degree_list, only: %i[show edit update destroy]
-
+  before_action :admin_user, only: %i[create new edit update destroy]
   # GET /organization_degree_lists or /organization_degree_lists.json
   def index
     @organization_degree_lists = OrganizationDegreeList.all

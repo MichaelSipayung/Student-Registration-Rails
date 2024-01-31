@@ -2,6 +2,7 @@
 # accreditation controller : handle accreditation
 class AccreditationSchoolListsController < ApplicationController
   before_action :set_accreditation_school_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /accreditation_school_lists or /accreditation_school_lists.json
   def index

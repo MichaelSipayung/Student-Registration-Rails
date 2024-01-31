@@ -2,6 +2,7 @@
 # all school list controller : handle all school list
 class AllSchoolListsController < ApplicationController
   before_action :set_all_school_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /all_school_lists or /all_school_lists.json
   def index

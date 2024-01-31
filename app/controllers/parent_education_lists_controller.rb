@@ -2,6 +2,7 @@
 # parent education list controller : handle parent education list
 class ParentEducationListsController < ApplicationController
   before_action :set_parent_education_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /parent_education_lists or /parent_education_lists.json
   def index

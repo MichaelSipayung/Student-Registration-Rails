@@ -2,6 +2,7 @@
 # language degree list controller : handle language degree list
 class LanguageDegreeListsController < ApplicationController
   before_action :set_language_degree_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /language_degree_lists or /language_degree_lists.json
   def index

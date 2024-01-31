@@ -2,6 +2,7 @@
 # extra list controller : handle extra list
 class ExtraListsController < ApplicationController
   before_action :set_extra_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /extra_lists or /extra_lists.json
   def index

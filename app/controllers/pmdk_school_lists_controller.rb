@@ -2,6 +2,7 @@
 # pmdk school list controller : handle pmdk school list
 class PmdkSchoolListsController < ApplicationController
   before_action :set_pmdk_school_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /pmdk_school_lists or /pmdk_school_lists.json
   def index

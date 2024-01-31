@@ -2,6 +2,7 @@
 # personal religion list controller : handle personal religion list
 class PersonalGenderListsController < ApplicationController
   before_action :set_personal_gender_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /personal_gender_lists or /personal_gender_lists.json
   def index

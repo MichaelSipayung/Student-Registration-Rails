@@ -2,6 +2,7 @@
 # high school major controller : handle high school major
 class HighSchoolMajorsController < ApplicationController
   before_action :set_high_school_major, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /high_school_majors or /high_school_majors.json
   def index

@@ -104,7 +104,7 @@ class UsersController < ApplicationController
   # end
   # confirm an admin user
   # protect from attacker
-  def admin_user
-    redirect_to(root_url) unless current_user.admin? # look attribute admin? true:false
-  end
+  # def admin_user
+  #   redirect_to(root_url) unless current_user.admin? # look attribute admin? true:false
+  # end
 end

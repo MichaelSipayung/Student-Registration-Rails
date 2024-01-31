@@ -2,6 +2,7 @@
 # batch list controller : handle batch list
 class BatchListsController < ApplicationController
   before_action :set_batch_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /batch_lists or /batch_lists.json
   def index

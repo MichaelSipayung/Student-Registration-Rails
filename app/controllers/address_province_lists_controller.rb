@@ -2,6 +2,7 @@
 # address province list controller : handle address province list
 class AddressProvinceListsController < ApplicationController
   before_action :set_address_province_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /address_province_lists or /address_province_lists.json
   def index

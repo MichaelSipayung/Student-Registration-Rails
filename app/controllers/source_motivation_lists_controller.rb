@@ -2,6 +2,7 @@
 # source motivation list controller : handle source motivation list
 class SourceMotivationListsController < ApplicationController
   before_action :set_source_motivation_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /source_motivation_lists or /source_motivation_lists.json
   def index

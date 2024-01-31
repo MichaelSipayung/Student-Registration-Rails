@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # source controller : handle source of information
 class SourcesController < ApplicationController
   before_action :set_source_dropdown_menu, only: %i[new create edit update]

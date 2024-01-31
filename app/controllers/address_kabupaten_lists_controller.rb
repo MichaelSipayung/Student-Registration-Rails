@@ -2,6 +2,7 @@
 # address kabupaten list controller : handle address kabupaten list
 class AddressKabupatenListsController < ApplicationController
   before_action :set_address_kabupaten_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /address_kabupaten_lists or /address_kabupaten_lists.json
   def index

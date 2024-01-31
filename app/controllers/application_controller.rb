@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     flash[:danger] = 'Please log in'
     redirect_to login_url
   end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin? # look attribute admin? true:false
+  end
 end

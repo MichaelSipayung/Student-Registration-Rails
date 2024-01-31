@@ -2,6 +2,7 @@
 # major list controller : handle major list
 class MajorListsController < ApplicationController
   before_action :set_major_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /major_lists or /major_lists.json
   def index

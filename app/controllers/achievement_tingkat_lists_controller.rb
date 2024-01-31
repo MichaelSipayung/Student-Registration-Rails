@@ -2,6 +2,7 @@
 # achievement tingkat list controller : handle achievement tingkat list
 class AchievementTingkatListsController < ApplicationController
   before_action :set_achievement_tingkat_list, only: %i[show edit update destroy]
+  before_action :admin_user, only: %i[create new edit update destroy]
 
   # GET /achievement_tingkat_lists or /achievement_tingkat_lists.json
   def index
