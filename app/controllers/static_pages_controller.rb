@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# static pages, serve static content
 class StaticPagesController < ApplicationController
   skip_before_action :logged_in_user, only: %i[home help about contact]
   def home

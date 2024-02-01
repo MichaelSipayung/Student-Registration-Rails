@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePersonalReligionLists < ActiveRecord::Migration[7.1]
   def change
     create_table :personal_religion_lists do |t|

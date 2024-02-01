@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # achievement model : handle achievement
 class Achievement < ApplicationRecord
   belongs_to :user

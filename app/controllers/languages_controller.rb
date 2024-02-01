@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # language controller : handle language
 class LanguagesController < ApplicationController
   before_action :set_language_dropdown_menu, only: %i[new create edit update]

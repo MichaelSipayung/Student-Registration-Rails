@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # extra controller : handle extra
 class ExtrasController < ApplicationController
   before_action :set_extra_dropdown_menu, only: %i[new create edit update]

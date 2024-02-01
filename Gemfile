@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 # current gem file
 source 'https://rubygems.org'
-ruby '3.1.4'
+ruby '3.2.2'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
 
@@ -84,5 +86,5 @@ group :production do
   gem 'mysql2'
   # gem 'activerecord-mysql2-adapter'
 end
-#upload: validation, file format, and etc...
+# upload: validation, file format, and etc...
 gem 'active_storage_validations', '~> 0.9.2'

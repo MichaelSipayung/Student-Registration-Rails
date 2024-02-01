@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 # password reset controller : handle password reset
 class PasswordResetsController < ApplicationController
   # Because confirmation of the existence of a valid @user
   # is needed in both the update and edit actions
   before_action :logged_in_user, except: %i[update new create edit]
-  before_action :get_user, only: %i[edit update]
+  before_action :find_user, only: %i[edit update]
   before_action :valid_user, only: %i[edit update]
   # make sure the reset password is not expired
   before_action :check_expiration, only: %i[edit update]
@@ -41,7 +42,7 @@ class PasswordResetsController < ApplicationController
   private
 
   # only valid user can get request edit password
-  def get_user
+  def find_user
     @user  = User.find_by(email: params[:email])
   end
 

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # language degree list controller : handle language degree list
 class LanguageDegreeListsController < ApplicationController
   before_action :set_language_degree_list, only: %i[show edit update destroy]

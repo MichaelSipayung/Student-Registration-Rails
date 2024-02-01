@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # batch list controller : handle batch list
 class BatchListsController < ApplicationController
   before_action :set_batch_list, only: %i[show edit update destroy]

@@ -14,7 +14,7 @@ class PersonalControllerTest < ActionDispatch::IntegrationTest
   test 'should get edit' do
     get login_path
     post login_path, params: { session: { email: users(:michael).email, password: 'password' } }
-    assert is_logged_in?
+    assert logged_in?
     get edit_personal_path(personals(:one))
     assert_response :success
   end

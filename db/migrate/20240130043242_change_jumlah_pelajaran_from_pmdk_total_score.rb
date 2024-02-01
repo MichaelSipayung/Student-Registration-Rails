@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeJumlahPelajaranFromPmdkTotalScore < ActiveRecord::Migration[7.1]
   def change
     change_column :pmdk_total_score_informations, :jumlah_pelajaran_semester_5,

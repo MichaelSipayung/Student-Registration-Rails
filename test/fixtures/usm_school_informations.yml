@@ -6,8 +6,8 @@ usm_one:
   akreditas: MyString
   jumlah_nilai_un: 9.99
   jurusan_sekolah: MyString
-  jumlah_pelajaran_semester_5: 1
-  jumlah_nilai_semester_5: 9.99
+  jumlah_pelajaran_semester5: 1
+  jumlah_nilai_semester5: 9.99
 
 usm_two:
   user: iana
@@ -16,5 +16,5 @@ usm_two:
   jumlah_pelajaran_un: 2
   jumlah_nilai_un: 9.99
   jurusan_sekolah: MyString
-  jumlah_pelajaran_semester_5: 1
-  jumlah_nilai_semester_5: 9.99
+  jumlah_pelajaran_semester5: 1
+  jumlah_nilai_semester5: 9.99

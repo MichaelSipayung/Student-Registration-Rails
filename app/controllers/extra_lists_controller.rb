@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # extra list controller : handle extra list
 class ExtraListsController < ApplicationController
   before_action :set_extra_list, only: %i[show edit update destroy]

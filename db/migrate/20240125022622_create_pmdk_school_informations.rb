@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePmdkSchoolInformations < ActiveRecord::Migration[7.1]
   def change
     create_table :pmdk_school_informations do |t|

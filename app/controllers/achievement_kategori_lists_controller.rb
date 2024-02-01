@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # achievement kategori list controller : handle achievement kategori list
 class AchievementKategoriListsController < ApplicationController
   before_action :set_achievement_kategori_list, only: %i[show edit update destroy]

@@ -14,9 +14,10 @@ class ParentTestAll < ActionDispatch::IntegrationTest
     get new_parent_path
     assert_template 'parents/new'
     assert_no_difference 'Parent.count' do
-      post parents_path, params: { parent: { nama_ayah: 'example', nama_ibu: 'example', nik_ayah: 123, nik_ibu: 1234,
-                                             pendidikan_ayah: 'sma', pendidikan_ibu: 'slta', tanggal_lahir_ayah: '2020-12-11',
-                                             tanggal_lahir_ibu: '2013-12-10', pekerjaan_ayah: 'buruh', pekerjaan_ibu: 'guru' } }
+      post parents_path, params:
+        { parent: { nama_ayah: 'example', nama_ibu: 'example', nik_ayah: 123, nik_ibu: 1234,
+                    pendidikan_ayah: 'sma', pendidikan_ibu: 'slta', tanggal_lahir_ayah: '2020-12-11',
+                    tanggal_lahir_ibu: '2013-12-10', pekerjaan_ayah: 'buruh', pekerjaan_ibu: 'guru' } }
     end
     assert_nil Parent.find_by_nik_ayah(123)
     assert_nil Parent.find_by_nik_ibu(1234)
@@ -43,7 +44,8 @@ class ParentTestAll < ActionDispatch::IntegrationTest
     # try create another parent information? has one relation
     assert_no_difference 'Parent.count' do
       post parents_path, params: { parent: {
-        nama_ayah: 'luhut panjaitan', nama_ibu: 'dinar silaban', nik_ayah: 1_234_567_890_121_345, nik_ibu: 1_234_567_890_123_415,
+        nama_ayah: 'luhut panjaitan', nama_ibu: 'dinar silaban',
+        nik_ayah: 1_234_567_890_121_345, nik_ibu: 1_234_567_890_123_415,
         pendidikan_ayah: 'sma', pendidikan_ibu: 'slta', tanggal_lahir_ayah: '2020-12-11',
         tanggal_lahir_ibu: '2013-12-10', pekerjaan_ayah: 'buruh', pekerjaan_ibu: 'guru'
       } }
@@ -64,7 +66,8 @@ class ParentTestAll < ActionDispatch::IntegrationTest
     get edit_parent_path(parents(:myparent))
     assert_template 'parents/edit'
     patch parent_path(parents(:myparent)), params: { parent: {
-      nama_ayah: 'daniel silaban', nama_ibu: 'nisa ritonga', nik_ayah: 1_234_567_890_121_345, nik_ibu: 1_234_567_890_123_415,
+      nama_ayah: 'daniel silaban', nama_ibu: 'nisa ritonga',
+      nik_ayah: 1_234_567_890_121_345, nik_ibu: 1_234_567_890_123_415,
       pendidikan_ayah: 'sma', pendidikan_ibu: 'slta', tanggal_lahir_ayah: '2020-12-11',
       tanggal_lahir_ibu: '2013-12-10', pekerjaan_ayah: 'Tentara', pekerjaan_ibu: 'guru sd'
     } }

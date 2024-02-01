@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUserRefToSource < ActiveRecord::Migration[7.1]
   def change
     add_reference :sources, :user, null: false, foreign_key: true

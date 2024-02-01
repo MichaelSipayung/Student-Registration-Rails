@@ -2,8 +2,8 @@
 
 pmdk_each_score_one:
   user: archer
-  matematika_semester_1: MyString
+  matematika_semester1: MyString
 
 pmdk_each_score_two:
   user: iana
-  matematika_semester_1: MyString
+  matematika_semester1: MyString

@@ -38,10 +38,10 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test 'login followed by logout' do
     get login_path
     post login_path, params: { session: { email: @user.email, password: 'password' } }
-    assert is_logged_in? # check the user is logged in
+    assert logged_in? # check the user is logged in
     # logout the user\
     delete logout_path
-    assert_not is_logged_in? # check the user is logged out
+    assert_not logged_in? # check the user is logged out
     assert_redirected_to root_url # check the redirect to the root page
     # test logout again in other tab or window
     delete logout_path

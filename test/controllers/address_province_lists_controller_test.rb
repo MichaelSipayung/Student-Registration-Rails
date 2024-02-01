@@ -1,10 +1,12 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AddressProvinceListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: {
-      session: {email: users(:michael).email, password: 'password'}
+      session: { email: users(:michael).email, password: 'password' }
     }
     @address_province_list = address_province_lists(:aceh)
   end
@@ -20,7 +22,7 @@ class AddressProvinceListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create address_province_list' do
-    assert_difference("AddressProvinceList.count") do
+    assert_difference('AddressProvinceList.count') do
       post address_province_lists_url,
            params: { address_province_list: { provinsi: 'jawa tengah' } }
     end
@@ -45,7 +47,7 @@ class AddressProvinceListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy address_province_list' do
-    assert_difference("AddressProvinceList.count", -1) do
+    assert_difference('AddressProvinceList.count', -1) do
       delete address_province_list_url(@address_province_list)
     end
 

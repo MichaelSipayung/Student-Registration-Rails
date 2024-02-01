@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # personal controller : handle personal data
 class PersonalsController < ApplicationController
   before_action :set_personal_dropdown_menu, only: %i[new create edit update]

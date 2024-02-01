@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # major controller : handle major
 class MajorsController < ApplicationController
   before_action :set_major_dropdown_menu, only: %i[new create edit update]
@@ -34,7 +35,7 @@ class MajorsController < ApplicationController
   private
 
   def major_params
-    params.require(:major).permit(:jurusan_1, :jurusan_2, :jurusan_3, :gelombang)
+    params.require(:major).permit(:jurusan1, :jurusan2, :jurusan3, :gelombang)
   end
 
   def set_major_dropdown_menu

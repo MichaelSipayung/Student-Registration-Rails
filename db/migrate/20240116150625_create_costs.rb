@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCosts < ActiveRecord::Migration[7.1]
   def change
     create_table :costs do |t|

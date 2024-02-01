@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # address controller : handle address
 class AddressesController < ApplicationController
   before_action :set_address_dropdown_menu, only: %i[new create edit update]

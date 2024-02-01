@@ -4,25 +4,25 @@
   <div col-md-6 col-md-offset-3>
     <%= form_with(model: @pmdk_total_score, local: true, data: {turbo: false}) do |f| %>
         <%= render "shared/error_messages", object: f.object %>
-          <%= f.text_field :jumlah_nilai_semester_1, class: 'form-control',
+          <%= f.text_field :jumlah_nilai_semester1, class: 'form-control',
                            placeholder: 'Jumlah Nilai Semester 1' %>
-          <%= f.text_field :jumlah_pelajaran_semester_1, class: 'form-control',
-                       placeholder: 'Jumlah Pelajaran Semester 1' %>
-          <%= f.text_field :jumlah_nilai_semester_2, class: 'form-control',
+          <%= f.text_field :jumlah_pelajaran_semester1, class: 'form-control',
+                           placeholder: 'Jumlah Pelajaran Semester 1' %>
+          <%= f.text_field :jumlah_nilai_semester2, class: 'form-control',
                            placeholder: 'Jumlah Nilai Semester 2' %>
-          <%= f.text_field :jumlah_pelajaran_semester_2, class: 'form-control',
+          <%= f.text_field :jumlah_pelajaran_semester2, class: 'form-control',
                            placeholder: 'Jumlah Pelajaran Semester 2' %>
-          <%= f.text_field :jumlah_nilai_semester_3, class: 'form-control',
+          <%= f.text_field :jumlah_nilai_semester3, class: 'form-control',
                            placeholder: 'Jumlah Nilai Semester 3' %>
-          <%= f.text_field :jumlah_pelajaran_semester_3, class: 'form-control',
+          <%= f.text_field :jumlah_pelajaran_semester3, class: 'form-control',
                            placeholder: 'Jumlah Pelajaran Semester 3' %>
-          <%= f.text_field :jumlah_nilai_semester_4, class: 'form-control',
+          <%= f.text_field :jumlah_nilai_semester4, class: 'form-control',
                            placeholder: 'Jumlah Nilai Semester 4' %>
-          <%= f.text_field :jumlah_pelajaran_semester_4, class: 'form-control',
+          <%= f.text_field :jumlah_pelajaran_semester4, class: 'form-control',
                            placeholder: 'Jumlah Pelajaran Semester 4' %>
-          <%= f.text_field :jumlah_nilai_semester_5, class: 'form-control',
+          <%= f.text_field :jumlah_nilai_semester5, class: 'form-control',
                            placeholder: 'Jumlah Nilai Semester 5' %>
-          <%= f.text_field :jumlah_pelajaran_semester_5, class: 'form-control',
+          <%= f.text_field :jumlah_pelajaran_semester5, class: 'form-control',
                            placeholder: 'Jumlah Pelajaran Semester 5' %>
           <%= f.file_field :surat_rekomendasi, accept: 'application/pdf' %>
           <%if @pmdk_total_score.persisted? &&

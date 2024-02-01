@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # organization controller : handle organization
 class OrganizationsController < ApplicationController
   before_action :set_organization_dropdown_menu, only: %i[new create edit update]
@@ -49,5 +50,4 @@ class OrganizationsController < ApplicationController
     @organization = current_user.organizations.find_by(id: params[:id])
     redirect_to root_url if @organization.nil?
   end
-
 end

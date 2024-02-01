@@ -2,14 +2,14 @@
 
 one:
   user: michael
-  jurusan_1: fisika
-  jurusan_2: biologi
-  jurusan_3: sains data
+  jurusan1: fisika
+  jurusan2: biologi
+  jurusan3: sains data
   gelombang: pmdk sumut
 
 two:
   user: iana
-  jurusan_1: teknik informatika
-  jurusan_2: sistem informasi
-  jurusan_3: teknik komputer
+  jurusan1: teknik informatika
+  jurusan2: sistem informasi
+  jurusan3: teknik komputer
   gelombang: utbk

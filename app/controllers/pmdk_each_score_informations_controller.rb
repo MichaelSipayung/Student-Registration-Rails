@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # pmdk each score controller : handle pmdk each score
 class PmdkEachScoreInformationsController < ApplicationController
   before_action :current_pmdk_each_score, only: %i[show edit update]
@@ -35,11 +36,11 @@ class PmdkEachScoreInformationsController < ApplicationController
 
   def pmdk_each_score_information_params
     params.require(:pmdk_each_score_information).permit(
-      :matematika_semester_1, :matematika_semester_2, :matematika_semester_3, :matematika_semester_4,
-      :matematika_semester_5, :kimia_semester_1, :kimia_semester_2, :kimia_semester_3, :kimia_semester_4,
-      :kimia_semester_5, :fisika_semester_1, :fisika_semester_2, :fisika_semester_3, :fisika_semester_4,
-      :fisika_semester_5, :bahasa_inggris_semester_1, :bahasa_inggris_semester_2, :bahasa_inggris_semester_3,
-      :bahasa_inggris_semester_4, :bahasa_inggris_semester_5, :sertifikat
+      :matematika_semester1, :matematika_semester2, :matematika_semester3, :matematika_semester4,
+      :matematika5, :kimia1, :kimia2, :kimia3, :kimia4,
+      :kimia5, :fisika1, :fisika2, :fisika3, :fisika4,
+      :fisika5, :inggris1, :inggris2, :inggris3,
+      :inggris4, :inggris5, :sertifikat
     )
   end
 

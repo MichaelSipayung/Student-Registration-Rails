@@ -7,7 +7,7 @@ class UsmSchoolInformationTest < ActiveSupport::TestCase
     @usm_school =
       UsmSchoolInformation.new(user_id: users(:michael).id, jurusan_sekolah: 'ipa',
                                asal_sekolah: 'sma santo tomas', akreditas: 'terakreditasi',
-                               jumlah_pelajaran_semester_5: 8, jumlah_nilai_semester_5: 78.9)
+                               jumlah_pelajaran_semester5: 8, jumlah_nilai_semester5: 78.9)
   end
   test 'should be a valid utbk information' do
     assert @usm_school.valid?
@@ -39,15 +39,15 @@ class UsmSchoolInformationTest < ActiveSupport::TestCase
     assert_not @usm_school.valid?
   end
   test 'should reject for invalid jumlah pelajaran semester 5-usm' do
-    @usm_school.jumlah_pelajaran_semester_5 = 21
+    @usm_school.jumlah_pelajaran_semester5 = 21
     assert_not @usm_school.valid?
-    @usm_school.jumlah_pelajaran_semester_5 = -1
+    @usm_school.jumlah_pelajaran_semester5 = -1
     assert_not @usm_school.valid?
   end
   test 'should reject for invalid jumlah nilai semester 5-usm' do
-    @usm_school.jumlah_nilai_semester_5 = -30.9
+    @usm_school.jumlah_nilai_semester5 = -30.9
     assert_not @usm_school.valid?
-    @usm_school.jumlah_nilai_semester_5 = 2001
+    @usm_school.jumlah_nilai_semester5 = 2001
     assert_not @usm_school.valid?
   end
   test 'should allow non mandatory attribute to be empty-usm' do
