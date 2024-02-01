@@ -128,9 +128,29 @@ class PmdkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
           } }
     assert_not_equal 90_900_091, pmdk_school_informations(:pmdk_sc_one).reload.user_id
   end
-  #
-  # test "should get show" do
-  #   get pmdk_school_informations_show_url
-  #   assert_response :success
-  # end
+  test 'should reject to request new pmdk school iformation' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    get new_pmdk_school_information_url
+    assert_response :redirect
+  end
+  test 'should reject to send post request for exist pmdk school info' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    post pmdk_school_informations_path, params: {
+      pmdk_school_information: {
+        jurusan_sekolah: 'slta',
+        asal_sekolah: 'sma juanda timur',
+        akreditas: 'Unggul',
+        jumlah_nilai_un: 90.78,
+        jumlah_pelajaran_un: 9
+      }}
+    assert_response :redirect
+  end
 end

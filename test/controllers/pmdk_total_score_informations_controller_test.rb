@@ -151,8 +151,31 @@ class PmdkTotalScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     }
     assert_not_equal 0, pmdk_total_score_informations(:pmdk_total_one).reload.jumlah_pelajaran_semester5
   end
-  # test "should get show" do
-  #   get pmdk_total_score_informations_show_url
-  #   assert_response :success
-  # end
+  test 'should reject to send new request to exist pmdk total score' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    get new_pmdk_total_score_information_url
+    assert_response :redirect
+  end
+  test 'should reject to send post request for exist pmdk total score' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    post pmdk_total_score_informations_path, params: {
+      pmdk_total_score_information: {
+        jumlah_nilai_semester1: 120.5,
+        jumlah_nilai_semester2: 122.5, jumlah_nilai_semester3: 130.9,
+        jumlah_nilai_semester4: 189.9, jumlah_nilai_semester5: 189.98,
+        jumlah_pelajaran_semester1: 3, jumlah_pelajaran_semester2: 6,
+        jumlah_pelajaran_semester3: 12, jumlah_pelajaran_semester4: 15,
+        jumlah_pelajaran_semester5: 14, user_id: 98_999_809
+      }
+    }
+    assert_response :redirect
+  end
 end

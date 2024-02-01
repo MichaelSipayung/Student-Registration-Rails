@@ -4,7 +4,7 @@
 class SourcesController < ApplicationController
   before_action :set_source_dropdown_menu, only: %i[new create edit update]
   before_action :current_source, only: %i[edit update show]
-
+  before_action :fill_source, only: %i[new create]
   def new
     @source = current_user.build_source
   end
@@ -51,5 +51,10 @@ class SourcesController < ApplicationController
   def current_source
     @source = current_user.source
     redirect_to root_url if @source.nil? || @source.id != params[:id].to_i
+  end
+
+  def fill_source
+    @source = current_user.source
+    redirect_to edit_source_url @source if @source
   end
 end

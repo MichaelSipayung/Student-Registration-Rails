@@ -4,6 +4,7 @@
 class MajorsController < ApplicationController
   before_action :set_major_dropdown_menu, only: %i[new create edit update]
   before_action :current_user, only: %i[edit update show]
+  before_action :fill_major, only: %i[new create]
   def new
     @major = current_user.build_major
   end
@@ -50,5 +51,10 @@ class MajorsController < ApplicationController
   def current_major
     @major = current_user.major
     redirect_to root_url if @major.nil? || @major.id != params[:id].to_i
+  end
+
+  def fill_major
+    @major = current_user.major
+    redirect_to edit_major_url @major if @major
   end
 end

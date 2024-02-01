@@ -181,4 +181,34 @@ class PmdkEachScoreInformationsControllerTest < ActionDispatch::IntegrationTest
     pmdk_each_score_informations(:pmdk_each_score_one).reload
     assert_not_equal 888_999_569, pmdk_each_score_informations(:pmdk_each_score_one).user_id
   end
+
+  test 'should reject to send new request for pmdk each score' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    get new_pmdk_each_score_information_path
+    assert_response :redirect
+  end
+  test 'should reject to send post request for exist pmdk each score' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    post pmdk_each_score_informations_path, params: { pmdk_each_score_information: {
+      matematika_semester1: 90, matematika_semester2: 80,
+      matematika_semester3: 89, matematika_semester4: 90.8,
+      matematika5: 88.9, kimia1: 98.9,
+      kimia2: 98.3, kimia3: 88.7,
+      kimia4: 88.5, kimia5: 88.1,
+      fisika1: 34.9, fisika2: 99.9,
+      fisika3: 88.9, fisika4: 99.7,
+      fisika5: 67.7, inggris1: 88.5,
+      inggris2: 56.8, inggris3: 77.2,
+      inggris4: 88.1, inggris5: 99.3, user_id: 9_888_090
+    } }
+    assert_response :redirect
+  end
 end

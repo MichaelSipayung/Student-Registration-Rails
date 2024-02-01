@@ -3,7 +3,7 @@
 # pmdk each score controller : handle pmdk each score
 class PmdkEachScoreInformationsController < ApplicationController
   before_action :current_pmdk_each_score, only: %i[show edit update]
-
+  before_action :fill_pmdk_each_score, only: %i[new create]
   def new
     @pmdk_each_score = current_user.build_pmdk_each_score_information
   end
@@ -52,5 +52,10 @@ class PmdkEachScoreInformationsController < ApplicationController
   def current_pmdk_each_score
     @pmdk_each_score = current_user.pmdk_each_score_information
     redirect_to root_url if @pmdk_each_score.nil? || @pmdk_each_score.id != params[:id].to_i
+  end
+
+  def fill_pmdk_each_score
+    @pmdk_each_score = current_user.pmdk_each_score_information
+    redirect_to edit_pmdk_each_score_information_url @pmdk_each_score if @pmdk_each_score
   end
 end

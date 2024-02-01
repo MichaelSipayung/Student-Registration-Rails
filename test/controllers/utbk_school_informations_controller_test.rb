@@ -117,9 +117,28 @@ class UtbkSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     get edit_utbk_school_information_url(utbk_school_informations(:utbk_sc_one))
     assert_response :success
   end
-
-  # test "should get show" do
-  #   get utbk_school_informations_show_url
-  #   assert_response :success
-  # end
+  test 'should reject to request new for exist utbk school' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    get new_utbk_school_information_url
+    assert_response :redirect
+  end
+  test 'should reject to send post request for exist utbk school' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    post utbk_school_informations_url, params: {
+      utbk_school_information: {
+        jurusan_sekolah: 'smk teknik',
+        asal_sekolah: 'sma 1 nauli', jumlah_pelajaran_un: 9,
+        jumlah_nilai_un: 100.5, akreditas: 'Baik', user_id: 98_978
+      }
+    }
+    assert_response :redirect
+  end
 end

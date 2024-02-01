@@ -121,4 +121,27 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     }
     assert_not_equal 'sm', usm_school_informations(:usm_one).reload.asal_sekolah
   end
+  test 'should reject to create new for exist usm school' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    get new_usm_school_information_url
+    assert_response :redirect
+  end
+  test 'should reject to send post request for exist usm school' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    post usm_school_informations_path, params: {
+      usm_school_information: {
+        jurusan_sekolah: 'ipa MA', asal_sekolah: 'sma santo tomas 2', akreditas: 'terakreditasi',
+        jumlah_pelajaran_semester5: 15, jumlah_nilai_semester5: 799.9, user_id: 87_999_822
+      }
+    }
+    assert_response :redirect
+  end
 end

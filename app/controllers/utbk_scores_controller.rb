@@ -3,7 +3,7 @@
 #  utbk_score : handle utbk score data
 class UtbkScoresController < ApplicationController
   before_action :current_utbk, only: %i[edit update show]
-
+  before_action :fill_utbk, only: %i[new create]
   def new
     @utbk_score = current_user.build_utbk_score
   end
@@ -52,5 +52,10 @@ class UtbkScoresController < ApplicationController
   def current_utbk
     @utbk_score = current_user.utbk_score
     redirect_to root_url if @utbk_score.nil? || @utbk_score.id != params[:id].to_i
+  end
+
+  def fill_utbk
+    @utbk_score = current_user.utbk_score
+    redirect_to edit_utbk_score_url @utbk_score if @utbk_score
   end
 end

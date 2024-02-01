@@ -99,9 +99,29 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     end
     assert_nil UtbkScore.find_by_user_id 90_898_008
   end
-  #
-  # test "should get show" do
-  #   get utbk_scores_show_url
-  #   assert_response :success
-  # end
+  test 'reject to create utbk_score if already exist' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    get new_utbk_score_url
+    assert_response :redirect
+  end
+  test 'should reject send post request if utbk score exist' do
+    get login_path
+    post login_path, params: { session: {
+      email: users(:archer).email, password: 'password'
+    } }
+    assert logged_in?
+    post utbk_scores_path, params: {
+      utbk_score: { no_peserta: '200-1bx-2', tanggal_ujian: '2020-12-11',
+                    jumlah_nilai_semester6: 1000.5, jumlah_pelajaran_semester6: 15,
+                    nilai_penalaran_umum: 190.5,
+                    nilai_pengetahuan_kuantitatif: 110.5,
+                    nilai_kemampuan_memahami_bacaan_dan_menulis: 100.5,
+                    nilai_pengetahuan_dan_pemahaman_umum: 150.5, user_id: 90_898_008 }
+    }
+    assert_response :redirect
+  end
 end
