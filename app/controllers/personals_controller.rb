@@ -5,6 +5,7 @@ class PersonalsController < ApplicationController
   before_action :set_personal_dropdown_menu, only: %i[new create edit update]
   # before_action :set_personal, only: %i[edit update show]
   before_action :current_personal, only: %i[edit update show]
+  before_action :fill_personal, only: %i[new create]
   def new
     @personal = current_user.build_personal
   end
@@ -52,5 +53,10 @@ class PersonalsController < ApplicationController
   def current_personal
     @personal = current_user.personal
     redirect_to root_url if @personal.nil? || @personal.id != params[:id].to_i
+  end
+
+  def fill_personal
+    @personal = current_user.personal
+    redirect_to edit_personal_url @personal if @personal
   end
 end

@@ -3,6 +3,7 @@
 # pmdk total score controller : handle pmdk total score
 class PmdkTotalScoreInformationsController < ApplicationController
   before_action :current_pmdk_total_score, only: %i[edit update show]
+  before_action :fill_pmdk_total, only: %i[new create]
   def new
     @pmdk_total_score = current_user.build_pmdk_total_score_information
   end
@@ -50,5 +51,10 @@ class PmdkTotalScoreInformationsController < ApplicationController
   def current_pmdk_total_score
     @pmdk_total_score = current_user.pmdk_total_score_information
     redirect_to root_url if @pmdk_total_score.nil? || @pmdk_total_score.id != params[:id].to_i
+  end
+
+  def fill_pmdk_total
+    @pmdk_total_score = current_user.pmdk_total_score_information
+    redirect_to edit_pmdk_total_score_information_url @pmdk_total_score if @pmdk_total_score
   end
 end

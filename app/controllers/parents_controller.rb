@@ -4,6 +4,7 @@
 class ParentsController < ApplicationController
   before_action :set_parent_dropdown_menu, only: %i[new create edit update]
   before_action :current_parent, only: %i[show update edit]
+  before_action :fill_parent, only: %i[new create]
   def new
     @parent  = current_user.build_parent
   end
@@ -52,5 +53,10 @@ class ParentsController < ApplicationController
   def current_parent
     @parent = current_user.parent
     redirect_to root_url if @parent.nil? || @parent.id != params[:id].to_i
+  end
+
+  def fill_parent
+    @parent = current_user.parent
+    redirect_to edit_parent_url @parent if @parent
   end
 end
