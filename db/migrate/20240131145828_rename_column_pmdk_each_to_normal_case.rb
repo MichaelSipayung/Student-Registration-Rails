@@ -24,7 +24,7 @@ class RenameColumnPmdkEachToNormalCase < ActiveRecord::Migration[7.1]
                   :kimia4
     rename_column :pmdk_each_score_informations, :kimia_semester_5,
                   :kimia5
-    rename_column :pmdk_each_score_informations, :inggris1,
+    rename_column :pmdk_each_score_informations, :bahasa_inggris_semester_1,
                   :inggris1
     rename_column :pmdk_each_score_informations, :bahasa_inggris_semester_2,
                   :inggri2
