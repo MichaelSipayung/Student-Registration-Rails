@@ -5,6 +5,8 @@ class ParentsController < ApplicationController
   before_action :set_parent_dropdown_menu, only: %i[new create edit update]
   before_action :current_parent, only: %i[show update edit]
   before_action :fill_parent, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @parent  = current_user.build_parent
   end

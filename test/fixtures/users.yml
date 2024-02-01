@@ -3,6 +3,13 @@ michael:
   name: Michael Hartl
   email: michaelhar@gmail.com
   password_digest: <%=User.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+adminuser:
+  name: Januari
+  email: januari@gmail.com
+  password_digest: <%=User.digest('password') %>
   admin: true
   activated: true
   activated_at: <%= Time.zone.now %>

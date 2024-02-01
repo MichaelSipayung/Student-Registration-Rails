@@ -5,6 +5,8 @@ class UtbkSchoolInformationsController < ApplicationController
   before_action :set_utbk_school_dropdown, only: %i[new create edit update]
   before_action :current_utbk_school, only: %i[edit update show]
   before_action :fill_utbk_school, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @utbk_school_information = current_user.build_utbk_school_information
   end

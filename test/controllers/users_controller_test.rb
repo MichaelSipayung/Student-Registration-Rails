@@ -60,6 +60,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
   test 'should redirect destroy when logged in as admin' do
+    @user = users(:adminuser)
     get login_path
     post login_path, params: { session: { email: @user.email, password: 'password' } }
     assert_difference 'User.count', -1 do

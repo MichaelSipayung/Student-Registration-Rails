@@ -6,7 +6,7 @@ class AchievementKategoriListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: { session: {
-      email: users(:michael).email, password: 'password'
+      email: users(:adminuser).email, password: 'password'
     } }
     @achievement_kategori_list = achievement_kategori_lists(:one)
   end

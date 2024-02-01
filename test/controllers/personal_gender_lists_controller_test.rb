@@ -6,7 +6,7 @@ class PersonalGenderListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: { session: {
-      email: users(:michael).email, password: 'password'
+      email: users(:adminuser).email, password: 'password'
     } }
     @personal_gender_list = personal_gender_lists(:one)
   end

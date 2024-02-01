@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-#  utbk_score : handle utbk score data
+# utbk_score : handle utbk score data
 class UtbkScoresController < ApplicationController
   before_action :current_utbk, only: %i[edit update show]
   before_action :fill_utbk, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
   def new
     @utbk_score = current_user.build_utbk_score
   end

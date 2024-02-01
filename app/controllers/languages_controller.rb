@@ -4,6 +4,8 @@
 class LanguagesController < ApplicationController
   before_action :set_language_dropdown_menu, only: %i[new create edit update]
   before_action :current_language, only: %i[edit update show]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @language = current_user.languages.build
   end

@@ -6,7 +6,7 @@ class SourceMotivationListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: { session: {
-      email: users(:michael).email, password: 'password'
+      email: users(:adminuser).email, password: 'password'
     } }
     @source_motivation_list = source_motivation_lists(:one)
   end

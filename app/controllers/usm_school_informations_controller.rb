@@ -5,6 +5,8 @@ class UsmSchoolInformationsController < ApplicationController
   before_action :set_usm_school_dropdown, only: %i[new create edit update]
   before_action :current_usm_school, only: %i[edit update show]
   before_action :fill_usm_school, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @usm_school = current_user.build_usm_school_information
   end

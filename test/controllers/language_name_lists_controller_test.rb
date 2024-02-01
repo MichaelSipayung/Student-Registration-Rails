@@ -6,7 +6,7 @@ class LanguageNameListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: { session: {
-      email: users(:michael).email,
+      email: users(:adminuser).email,
       password: 'password'
     } }
     @language_name_list = language_name_lists(:one)

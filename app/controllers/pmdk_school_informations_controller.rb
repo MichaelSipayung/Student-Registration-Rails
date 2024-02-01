@@ -5,6 +5,8 @@ class PmdkSchoolInformationsController < ApplicationController
   before_action :set_pmdk_school_dropdown, only: %i[new create edit update]
   before_action :current_pmdk_school, only: %i[edit update show]
   before_action  :fill_pmdk_school, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @pmdk_school_information  = current_user.build_pmdk_school_information
   end
