@@ -6,6 +6,8 @@ class PersonalsController < ApplicationController
   # before_action :set_personal, only: %i[edit update show]
   before_action :current_personal, only: %i[edit update show]
   before_action :fill_personal, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @personal = current_user.build_personal
   end

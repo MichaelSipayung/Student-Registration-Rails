@@ -5,6 +5,8 @@ class MajorsController < ApplicationController
   before_action :set_major_dropdown_menu, only: %i[new create edit update]
   before_action :current_user, only: %i[edit update show]
   before_action :fill_major, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @major = current_user.build_major
   end

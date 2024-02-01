@@ -6,7 +6,7 @@ class BatchListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: { session: {
-      email: users(:michael).email, password: 'password'
+      email: users(:adminuser).email, password: 'password'
     } }
     @batch_list = batch_lists(:one)
   end

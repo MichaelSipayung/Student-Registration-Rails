@@ -6,7 +6,7 @@ class ExtraListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: { session: {
-      email: users(:michael).email,
+      email: users(:adminuser).email,
       password: 'password'
     } }
     @extra_list = extra_lists(:one)

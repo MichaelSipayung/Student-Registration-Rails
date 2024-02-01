@@ -4,6 +4,8 @@
 class PmdkTotalScoreInformationsController < ApplicationController
   before_action :current_pmdk_total_score, only: %i[edit update show]
   before_action :fill_pmdk_total, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @pmdk_total_score = current_user.build_pmdk_total_score_information
   end

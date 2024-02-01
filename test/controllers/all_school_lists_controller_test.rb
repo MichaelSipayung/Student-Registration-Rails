@@ -6,7 +6,7 @@ class AllSchoolListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: { session: {
-      email: users(:michael).email, password: 'password'
+      email: users(:adminuser).email, password: 'password'
     } }
     @all_school_list = all_school_lists(:one)
   end

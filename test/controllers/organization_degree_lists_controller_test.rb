@@ -6,7 +6,7 @@ class OrganizationDegreeListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: { session: {
-      email: users(:michael).email,
+      email: users(:adminuser).email,
       password: 'password'
     } }
     @organization_degree_list = organization_degree_lists(:one)

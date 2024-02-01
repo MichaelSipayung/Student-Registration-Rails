@@ -4,6 +4,8 @@
 class PmdkEachScoreInformationsController < ApplicationController
   before_action :current_pmdk_each_score, only: %i[show edit update]
   before_action :fill_pmdk_each_score, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @pmdk_each_score = current_user.build_pmdk_each_score_information
   end

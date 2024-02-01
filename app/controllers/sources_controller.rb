@@ -5,6 +5,8 @@ class SourcesController < ApplicationController
   before_action :set_source_dropdown_menu, only: %i[new create edit update]
   before_action :current_source, only: %i[edit update show]
   before_action :fill_source, only: %i[new create]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @source = current_user.build_source
   end

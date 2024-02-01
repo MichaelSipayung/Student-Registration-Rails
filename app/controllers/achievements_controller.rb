@@ -4,6 +4,8 @@
 class AchievementsController < ApplicationController
   before_action :set_achievement_dropdown_menu, only: %i[new create edit update]
   before_action :current_achievement, only: %i[edit show update]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @achievement = current_user.achievements.build
   end

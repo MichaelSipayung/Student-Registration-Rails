@@ -6,7 +6,7 @@ class AddressProvinceListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: {
-      session: { email: users(:michael).email, password: 'password' }
+      session: { email: users(:adminuser).email, password: 'password' }
     }
     @address_province_list = address_province_lists(:aceh)
   end

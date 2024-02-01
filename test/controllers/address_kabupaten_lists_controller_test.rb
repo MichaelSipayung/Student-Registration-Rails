@@ -6,7 +6,7 @@ class AddressKabupatenListsControllerTest < ActionDispatch::IntegrationTest
   setup do
     get login_path
     post login_path, params: {
-      session: { email: users(:michael).email, password: 'password' }
+      session: { email: users(:adminuser).email, password: 'password' }
     }
     @address_kabupaten_list = address_kabupaten_lists(:acehtengah)
   end

@@ -4,6 +4,8 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization_dropdown_menu, only: %i[new create edit update]
   before_action :current_organization, only: %i[edit show update]
+  before_action :non_admin, only: %i[new create edit update]
+
   def new
     @organization = current_user.organizations.build
   end
