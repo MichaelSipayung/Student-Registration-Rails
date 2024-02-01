@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameColumnUsm < ActiveRecord::Migration[7.1]
   def change
     rename_column :usm_school_informations, :jumlah_nilai_semester_5,

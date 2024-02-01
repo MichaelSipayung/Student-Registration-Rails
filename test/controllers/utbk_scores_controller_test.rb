@@ -24,15 +24,15 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     patch utbk_score_path, params: {
       utbk_score: { no_peserta: '200-1bx-2', tanggal_ujian: '2021-12-11',
-                    jumlah_nilai_semester_6: 1000.5, jumlah_pelajaran_semester_6: 15,
+                    jumlah_nilai_semester6: 1000.5, jumlah_pelajaran_semester6: 15,
                     nilai_penalaran_umum: 190.5,
                     nilai_pengetahuan_kuantitatif: 110.5,
                     nilai_kemampuan_memahami_bacaan_dan_menulis: 100.5,
                     nilai_pengetahuan_dan_pemahaman_umum: 150.5 }
     }
     assert_equal '200-1bx-2', utbk_scores(:utbk_score_one).reload.no_peserta
-    assert_equal 1000.5, utbk_scores(:utbk_score_one).jumlah_nilai_semester_6
-    assert_equal 15, utbk_scores(:utbk_score_one).jumlah_pelajaran_semester_6
+    assert_equal 1000.5, utbk_scores(:utbk_score_one).jumlah_nilai_semester6
+    assert_equal 15, utbk_scores(:utbk_score_one).jumlah_pelajaran_semester6
 
     assert_equal 190.5, utbk_scores(:utbk_score_one).reload.nilai_penalaran_umum
     assert_equal 110.5, utbk_scores(:utbk_score_one).reload.nilai_pengetahuan_kuantitatif
@@ -45,7 +45,7 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'UtbkScore.count' do
       post utbk_scores_path, params: {
         utbk_score: { no_peserta: '200-1bx-2', tanggal_ujian: '2020-12-11',
-                      jumlah_nilai_semester_6: 1000.5, jumlah_pelajaran_semester_6: 15,
+                      jumlah_nilai_semester6: 1000.5, jumlah_pelajaran_semester6: 15,
                       nilai_penalaran_umum: 190.5,
                       nilai_pengetahuan_kuantitatif: 110.5,
                       nilai_kemampuan_memahami_bacaan_dan_menulis: 100.5,
@@ -53,8 +53,8 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
       }
     end
     assert_not_nil UtbkScore.find_by_no_peserta '200-1bx-2'
-    assert_not_nil UtbkScore.find_by_jumlah_pelajaran_semester_6 15
-    assert_not_nil UtbkScore.find_by_jumlah_nilai_semester_6 1000.5
+    assert_not_nil UtbkScore.find_by_jumlah_pelajaran_semester6 15
+    assert_not_nil UtbkScore.find_by_jumlah_nilai_semester6 1000.5
     assert_not_nil UtbkScore.find_by_nilai_penalaran_umum 190.5
     assert_not_nil UtbkScore.find_by_nilai_pengetahuan_kuantitatif 110.5
     assert_not_nil UtbkScore.find_by_nilai_kemampuan_memahami_bacaan_dan_menulis 100.5
@@ -75,7 +75,7 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'UtbkScore.count' do
       post utbk_scores_path, params: {
         utbk_score: { no_peserta: '200-1bx-2', tanggal_ujian: '2020-12-11',
-                      jumlah_nilai_semester_6: 1000.5, jumlah_pelajaran_semester_6: 15,
+                      jumlah_nilai_semester6: 1000.5, jumlah_pelajaran_semester6: 15,
                       nilai_penalaran_umum: 190.5,
                       nilai_pengetahuan_kuantitatif: 110.5,
                       nilai_kemampuan_memahami_bacaan_dan_menulis: 100.5,
@@ -90,7 +90,7 @@ class UtbkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'UtbkScore.count' do
       post utbk_scores_path, params: {
         utbk_score: { no_peserta: '200-1bx-2', tanggal_ujian: '2020-12-11',
-                      jumlah_nilai_semester_6: 1000.5, jumlah_pelajaran_semester_6: 15,
+                      jumlah_nilai_semester6: 1000.5, jumlah_pelajaran_semester6: 15,
                       nilai_penalaran_umum: 190.5,
                       nilai_pengetahuan_kuantitatif: 110.5,
                       nilai_kemampuan_memahami_bacaan_dan_menulis: 100.5,

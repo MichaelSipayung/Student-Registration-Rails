@@ -5,12 +5,13 @@ class MicropostsController < ApplicationController
   # only login user could create and destroy it's post
   before_action :logged_in_user, only: %i[create destroy]
   before_action :correct_user, only: :destroy
+  # the present of current_user is to tell that create it by
+  # who already logged in and to make the current user post
+  # using build, since we work with collection, return new object of collection
+  # add image to newly created micropost object
+
   def create
-    # the present of current_user is to tell that create it by
-    # who already logged in and to make the current user post
-    # using build, since we work with collection, return new object of collection
     @micropost = current_user.microposts.build(micropost_params)
-    # add image to newly created micropost object
     @micropost.image.attach(params[:micropost][:image])
     if @micropost.save # save the post's current user
       flash[:success] = 'Micropost created!'

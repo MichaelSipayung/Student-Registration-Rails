@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameColumnTotalScore < ActiveRecord::Migration[7.1]
   def change
     rename_column :pmdk_total_score_informations, :jumlah_nilai_semester_1,

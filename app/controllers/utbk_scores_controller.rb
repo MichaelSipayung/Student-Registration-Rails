@@ -37,8 +37,8 @@ class UtbkScoresController < ApplicationController
 
   def utbk_score_params
     params.require(:utbk_score).permit(:no_peserta, :tanggal_ujian,
-                                       :jumlah_nilai_semester_6,
-                                       :jumlah_pelajaran_semester_6,
+                                       :jumlah_nilai_semester6,
+                                       :jumlah_pelajaran_semester6,
                                        :nilai_penalaran_umum,
                                        :nilai_pengetahuan_kuantitatif,
                                        :nilai_kemampuan_memahami_bacaan_dan_menulis,
