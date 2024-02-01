@@ -35,10 +35,10 @@ class PmdkTotalScoreInformationsController < ApplicationController
 
   def pmdk_total_score_params
     params.require(:pmdk_total_score_information).permit(
-      :jumlah_nilai_semester_1, :jumlah_nilai_semester_2, :jumlah_nilai_semester_3,
-      :jumlah_nilai_semester_4, :jumlah_nilai_semester_5,
-      :jumlah_pelajaran_semester_1, :jumlah_pelajaran_semester_2,
-      :jumlah_pelajaran_semester_3, :jumlah_pelajaran_semester_4, :jumlah_pelajaran_semester_5,
+      :jumlah_nilai_semester1, :jumlah_nilai_semester2, :jumlah_nilai_semester3,
+      :jumlah_nilai_semester4, :jumlah_nilai_semester5,
+      :jumlah_pelajaran_semester1, :jumlah_pelajaran_semester2,
+      :jumlah_pelajaran_semester3, :jumlah_pelajaran_semester4, :jumlah_pelajaran_semester5,
       :surat_rekomendasi
     )
   end

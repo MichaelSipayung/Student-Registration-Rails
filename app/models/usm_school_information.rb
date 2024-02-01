@@ -14,11 +14,11 @@ class UsmSchoolInformation < ApplicationRecord
     only_integer: false, greater_than_or_equal_to: 2,
     less_than_or_equal_to: 10
   }, allow_nil: true
-  validates :jumlah_pelajaran_semester_5, presence: true, numericality: {
+  validates :jumlah_pelajaran_semester5, presence: true, numericality: {
     only_integer: true, greater_than_or_equal_to: 2,
     less_than_or_equal_to: 20
   }
-  validates :jumlah_nilai_semester_5, presence: true, numericality: {
+  validates :jumlah_nilai_semester5, presence: true, numericality: {
     only_integer: false, greater_than_or_equal_to: 2,
     less_than_or_equal_to: 2000
   }

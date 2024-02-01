@@ -2,8 +2,8 @@
 
 pmdk_total_one:
   user: archer
-  jumlah_nilai_semester_1: 12
+  jumlah_nilai_semester1: 12
 
 pmdk_total_two:
   user: iana
-  jumlah_nilai_semester_1: 13
+  jumlah_nilai_semester1: 13

@@ -39,7 +39,7 @@ class UsmSchoolInformationsController < ApplicationController
   def usm_school_information_params
     params.require(:usm_school_information).permit(
       :jurusan_sekolah, :asal_sekolah, :akreditas, :jumlah_nilai_un,
-      :jumlah_pelajaran_un, :jumlah_pelajaran_semester_5, :jumlah_nilai_semester_5
+      :jumlah_pelajaran_un, :jumlah_pelajaran_semester5, :jumlah_nilai_semester5
     )
   end
 

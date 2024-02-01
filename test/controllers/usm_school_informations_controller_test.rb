@@ -31,15 +31,15 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
       post usm_school_informations_path, params: {
         usm_school_information: {
           jurusan_sekolah: 'ipa MA', asal_sekolah: 'sma santo tomas 2', akreditas: 'terakreditasi',
-          jumlah_pelajaran_semester_5: 15, jumlah_nilai_semester_5: 799.9
+          jumlah_pelajaran_semester5: 15, jumlah_nilai_semester5: 799.9
         }
       }
     end
     assert_equal 'usm school information is saved', flash[:success]
     assert_not_nil UsmSchoolInformation.find_by_jurusan_sekolah 'ipa MA'
     assert_not_nil UsmSchoolInformation.find_by_asal_sekolah 'sma santo tomas 2'
-    assert_not_nil UsmSchoolInformation.find_by_jumlah_pelajaran_semester_5 15
-    assert_not_nil UsmSchoolInformation.find_by_jumlah_nilai_semester_5 799.9
+    assert_not_nil UsmSchoolInformation.find_by_jumlah_pelajaran_semester5 15
+    assert_not_nil UsmSchoolInformation.find_by_jumlah_nilai_semester5 799.9
   end
   test 'should reject for invalid usm school information' do
     get new_usm_school_information_url
@@ -48,7 +48,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
       post usm_school_informations_path, params: {
         usm_school_information: {
           jurusan_sekolah: 'ipa MA', asal_sekolah: 'sma santo tomas 2', akreditas: 'terakreditasi',
-          jumlah_pelajaran_semester_5: 15, jumlah_nilai_semester_5: 0
+          jumlah_pelajaran_semester5: 15, jumlah_nilai_semester5: 0
         }
       }
     end
@@ -60,7 +60,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
       post usm_school_informations_path, params: {
         usm_school_information: {
           jurusan_sekolah: 'ipa MA', asal_sekolah: 'sma santo tomas 2', akreditas: 'terakreditasi',
-          jumlah_pelajaran_semester_5: 15, jumlah_nilai_semester_5: 799.9, user_id: 87_999_822
+          jumlah_pelajaran_semester5: 15, jumlah_nilai_semester5: 799.9, user_id: 87_999_822
         }
       }
     end
@@ -77,7 +77,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     patch usm_school_information_path(usm_school_informations(:usm_one)), params: {
       usm_school_information: {
         jurusan_sekolah: 'ipa MA', asal_sekolah: 'sma santo tomas 2', akreditas: 'terakreditasi',
-        jumlah_pelajaran_semester_5: 15, jumlah_nilai_semester_5: 799.9
+        jumlah_pelajaran_semester5: 15, jumlah_nilai_semester5: 799.9
       }
     }
     assert_equal 'usm school information is updated', flash[:success]
@@ -85,8 +85,8 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'ipa MA', usm_school_informations(:usm_one).reload.jurusan_sekolah
     assert_equal 'sma santo tomas 2', usm_school_informations(:usm_one).asal_sekolah
     assert_equal 'terakreditasi', usm_school_informations(:usm_one).akreditas
-    assert_equal 15, usm_school_informations(:usm_one).jumlah_pelajaran_semester_5
-    assert_equal 799.9, usm_school_informations(:usm_one).jumlah_nilai_semester_5
+    assert_equal 15, usm_school_informations(:usm_one).jumlah_pelajaran_semester5
+    assert_equal 799.9, usm_school_informations(:usm_one).jumlah_nilai_semester5
   end
   test 'should reject non permited params during update usm school information' do
     get login_path
@@ -99,7 +99,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     patch usm_school_information_path(usm_school_informations(:usm_one)), params: {
       usm_school_information: {
         jurusan_sekolah: 'ipa MA', asal_sekolah: 'sma santo tomas 2', akreditas: 'terakreditasi',
-        jumlah_pelajaran_semester_5: 15, jumlah_nilai_semester_5: 799.9, user_id: 9_990_998
+        jumlah_pelajaran_semester5: 15, jumlah_nilai_semester5: 799.9, user_id: 9_990_998
       }
     }
     usm_school_informations(:usm_one).reload
@@ -116,7 +116,7 @@ class UsmSchoolInformationsControllerTest < ActionDispatch::IntegrationTest
     patch usm_school_information_path(usm_school_informations(:usm_one)), params: {
       usm_school_information: {
         jurusan_sekolah: 'ipa MA', asal_sekolah: 'sm', akreditas: 'terakreditasi',
-        jumlah_pelajaran_semester_5: 15, jumlah_nilai_semester_5: 799.9
+        jumlah_pelajaran_semester5: 15, jumlah_nilai_semester5: 799.9
       }
     }
     assert_not_equal 'sm', usm_school_informations(:usm_one).reload.asal_sekolah
