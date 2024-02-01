@@ -7,7 +7,7 @@ class RejectNonAdminTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:adminuser)
     get login_path
-    post login_path, params: { session: { email: @user.email, password: 'password'}}
+    post login_path, params: { session: { email: @user.email, password: 'password' } }
     assert logged_in?
   end
   test 'personal data reject for admin' do
