@@ -3,7 +3,7 @@
 # source information list controller : handle source information list
 class SourceInformationListsController < ApplicationController
   before_action :set_source_information_list, only: %i[show edit update destroy]
-
+  before_action :admin_user, only: %i[create new edit update destroy]
   # GET /source_information_lists or /source_information_lists.json
   def index
     @source_information_lists = SourceInformationList.all
