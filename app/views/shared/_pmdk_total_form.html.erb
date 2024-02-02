@@ -28,8 +28,8 @@
           <%if @pmdk_total_score.persisted? &&
             @pmdk_total_score.surat_rekomendasi.attached?%>
                 <span class="content">
-                  <%= link_to "Lihat file surat rekomendasi", rails_blob_path(@pmdk_total_score.surat_rekomendasi,
-                                                                  disposition: 'attachment')%>
+                  <%= link_to "Lihat file surat rekomendasi",
+                              rails_blob_path(@pmdk_total_score.surat_rekomendasi, disposition: 'attachment')%>
                 </span>
           <%end %>
           <%= f.submit "Simpan", class: 'btn btn-primary' %>
